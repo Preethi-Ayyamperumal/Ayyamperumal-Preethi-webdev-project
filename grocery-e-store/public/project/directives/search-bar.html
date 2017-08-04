@@ -1,0 +1,11 @@
+<form class="navbar-form navbar-left">
+    <div class="form-group">
+        <input name="productname"
+               type="text"
+               ng-model="model.productname"
+               placeholder="E.g., Basmati Rice"
+               class="form-control"
+               id="productname"/>
+    </div>
+    <a class="btn btn-default btn-primary" ng-click="model.searchProduct(model.productname)">Submit</a>
+</form>

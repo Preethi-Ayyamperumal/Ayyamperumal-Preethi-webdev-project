@@ -1,30 +1,29 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app="WamApp">
+<html lang="en" ng-app="GroceryApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Theme Template for Bootstrap</title>
-
+    <title>Grocery Shooping Portal</title>
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+    <script src="../vendor/jquery/jquery.ui.touch-punch.js"></script>
     <script src="../vendor/angular/angular.js"></script>
     <script src="../vendor/angular/angular-route.js"></script>
+    <script src="../vendor/angular/angular-sanitize.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
-    <script src="views/user/controllers/login.controller.client.js"></script>
-    <script src="views/user/controllers/profile.controller.client.js"></script>
-    <script src="views/user/controllers/register.controller.client.js"></script>
-    <script src="views/website/controllers/website-list.controller.client.js"></script>
-    <script src="views/website/controllers/website-new.controller.client.js"></script>
-    <script src="views/website/controllers/website-edit.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
-    <script src="services/user.service.client.js"></script>
-    <script src="services/website.service.client.js"></script>
     <script src="views/home/home.controller.client.js"></script>
+    <script src="views/product/controllers/product-list.controller.client.js"></script>
+    <script src="views/product/controllers/product-detail.controller.client.js"></script>
+    <script src="services/product.service.client.js"></script>
+    <script src="directives/search.controller.client.js"></script>
+    <script src="directives/project-searchBar.js"></script>
 
+    <link href="../vendor/jquery/jquery-ui.css" rel="stylesheet"/>
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
