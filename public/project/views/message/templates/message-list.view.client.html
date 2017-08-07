@@ -1,0 +1,76 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()"><span
+                        class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Message Center</a>
+                <p class="navbar-text pull-right">
+                    <a href="" ng-click="model.newMessage()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-plus pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Messages</label>
+                <table id="messages" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>FROM</th>
+                        <th>SUBJECT</th>
+                        <th>DATE</th>
+                        <th>SELECT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Admin</td>
+                        <td>
+                            <a href="" ng-click="model.editMessage()">Subject
+                            </a>
+                        </td>
+                        <td>07/14/2017</td>
+                        <td>$30</td>
+
+                    </tr>
+                    <tr>
+                        <td>Admin</td>
+                        <td>
+                            <a href="" ng-click="model.editMessage()">Subject
+                            </a>
+                        </td>
+                        <td>07/14/2017</td>
+                        <td>$30</td>
+                    </tr>
+                    <tr>
+                        <td>Admin</td>
+                        <td>
+                            <a href="" ng-click="model.editMessage()">Subject
+                            </a>
+                        </td>
+                        <td>07/14/2017</td>
+                        <td>$30</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <p class="navbar-text pull-right">
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

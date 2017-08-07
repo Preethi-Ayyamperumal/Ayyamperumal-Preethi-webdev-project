@@ -1,0 +1,78 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Edit Address</a>
+                <p class="navbar-text pull-right">
+                    <a href="" ng-click="model.updateAddress(model.address)" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-ok pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+
+
+            <label for="fullName">Full Name</label>
+            <input name="fullName"
+                   ng-model="model.user.fullName"
+                   type="text"
+                   placeholder="Alice Wonderland"
+                   class="form-control"
+                   id="fullName"/>
+            <label for="streetAddress">Street address</label>
+            <input name="streetAddress1"
+                   ng-model="model.user.streetAddress1"
+                   type="text"
+                   placeholder="Street and number, P.O. box, c/o."
+                   class="form-control"
+                   id="streetAddress"/>
+            <input name="streetAddress2"
+                   ng-model="model.user.streetAddress2"
+                   type="text"
+                   placeholder="Apartment, suite, unit, building, floor, etc."
+                   class="form-control"
+                   id="streetAddress2"/>
+            <label for="city">City</label>
+            <input name="city"
+                   ng-model="model.user.city"
+                   type="text"
+                   placeholder="New York"
+                   class="form-control"
+                   id="city"/>
+            <label for="state">State / Province / Region</label>
+            <input name="state"
+                   ng-model="model.user.state"
+                   type="text"
+                   placeholder="Maschussetts"
+                   class="form-control"
+                   id="state"/>
+            <label for="zipCode">Zip code</label>
+            <input name="zipCode"
+                   ng-model="model.user.zipCode"
+                   type="number"
+                   class="form-control"
+                   id="zipCode"/>
+            <label for="phoneNumber">Phone number</label>
+            <input name="phoneNumber"
+                   ng-model="model.user.phoneNumber"
+                   type="number"
+                   class="form-control"
+                   id="phoneNumber"/>
+        </div>
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-right">
+                <p class="navbar-text pull-right">
+                    <a href="" ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-user pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+</div>
+
