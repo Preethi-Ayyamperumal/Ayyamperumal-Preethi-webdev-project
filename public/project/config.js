@@ -91,6 +91,21 @@
                 controller: "EditMessageController",
                 controllerAs: "model"
             })
+            .when("/profile/:uid/review", {
+                templateUrl: "views/review/templates/review-list.view.client.html",
+                controller: "ReviewListController",
+                controllerAs: "model"
+            })
+            .when("/profile/:uid/product/:pid/review/new", {
+                templateUrl: "views/review/templates/review-new.view.client.html",
+                controller: "NewReviewController",
+                controllerAs: "model"
+            })
+            .when("/profile/:uid/product/:pid/review", {
+                templateUrl: "views/review/templates/review-edit.view.client.html",
+                controller: "EditReviewController",
+                controllerAs: "model"
+            })
             .when("/search/:productName", {
                 templateUrl: "views/product/templates/product-list.view.client.html",
                 controller: "ProductListController",

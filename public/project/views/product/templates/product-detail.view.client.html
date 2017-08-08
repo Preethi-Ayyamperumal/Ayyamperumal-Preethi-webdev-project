@@ -31,8 +31,50 @@
     </div>
     <div ng-if="model.product.size">Size : {{model.product.size}}</div>
     <div>Customer Rating : {{model.product.customerRating}}/5</div>
-
-
+<div>
+    <div class="container-fluid">
+    <h2> Customer Reviews </h2>
+<div ng-if="model.isReviewedByUser()">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4><b>YOU</b></h4>
+            <div>  {{ model.date | date : "mediumDate" }}</div>
+            <div data-angular-rating-icons ng-model=3></div>
+            <div>
+                <p name="description"
+                   ng-model="model.review"
+                   placeholder="Description">My Review</p>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4><b>Alice</b></h4>
+                <div>  {{ model.date | date : "mediumDate" }}</div>
+                <div data-angular-rating-icons ng-model=4></div>
+                <div ng-if=false>
+                    <p name="description"
+                       ng-model="model.review"
+                       placeholder="Description"
+                       id="description"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4><b>Bob</b></h4>
+                <div>  {{ model.date | date : "mediumDate" }}</div>
+                <div data-angular-rating-icons ng-model=0></div>
+                <div ng-if=true>
+                    <p name="description"
+                       ng-model="model.review"
+                       placeholder="Description">this is a test review</p>
+                </div>
+                <div> Date</div>
+            </div>
+        </div>
+</div>
 
 
 </div>

@@ -7,6 +7,8 @@
         var model = this;
         var productId=$routeParams.productId;
         model.trustHtmlContent=trustHtmlContent;
+        model.isReviewedByUser=isReviewedByUser;
+        model.date=new Date();
         function init() {
             searchService.loadProduct(productId)
                 .then (function (response) {
@@ -21,6 +23,10 @@
             var rval= doc.documentElement.textContent;
             var trustedHTML=$sce.trustAsHtml(rval);
             return trustedHTML;
+        }
+        function isReviewedByUser()
+        {
+            return true
         }
 
     }

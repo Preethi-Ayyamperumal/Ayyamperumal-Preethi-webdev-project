@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("GroceryApp")
-        .controller("productListController", productListController);
+        .controller("ProductListController", ProductListController);
     
-    function productListController($routeParams,searchService,$location) {
+    function ProductListController($routeParams,searchService,$location) {
         var model = this;
 
         model.loadProduct=loadProduct;
