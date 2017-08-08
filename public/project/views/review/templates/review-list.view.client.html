@@ -1,0 +1,68 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()"><span
+                        class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Your Reviews</a>
+                <p class="navbar-text pull-right">
+                    <a href="" ng-click="model.newMessage()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-plus pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div>
+                    <label> Product Name</label></div>
+                <div> Date</div>
+
+
+                <label>Product Review</label>
+                <div data-angular-rating-icons ng-model="model.ratingValue"></div>
+                <div ng-if="model.isReviewEmpty()">
+                    <p name="description"
+                       ng-model="model.review"
+                       placeholder="Description" readonly
+                       rows="5"
+                       class="form-control"
+                       id="description"></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="border-top: 1px solid #ccc;">
+            <div class="col-xs-12">
+                <div>
+                    <label>Product Name</label>
+                </div>
+
+                    <label>Product Rating</label>
+                   <div data-angular-rating-icons ng-model="model.ratingValue"></div>
+                <div ng-if=true>
+                    <label>Product Review</label>
+                    <p name="description"
+                       ng-model="model.review"
+                       placeholder="Description">this is a test review</p>
+                </div>
+                <div> Date</div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <p class="navbar-text pull-right">
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

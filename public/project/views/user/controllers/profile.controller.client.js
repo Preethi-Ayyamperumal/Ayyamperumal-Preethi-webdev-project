@@ -17,6 +17,7 @@
         model.getOrders=getOrders;
         model.getCart=getCart;
         model.getMessageCenter=getMessageCenter;
+        model.getReviews=getReviews;
         function init() {
             model.userId=123;
             model.addressId=123;
@@ -74,6 +75,10 @@
         function getMessageCenter()
         {
             $location.url("/profile/" + model.userId+"/message/");
+        }
+        function getReviews()
+        {
+            $location.url("/profile/" + model.userId+"/review/");
         }
 
 

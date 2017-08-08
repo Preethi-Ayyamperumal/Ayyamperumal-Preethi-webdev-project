@@ -1,0 +1,64 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="navbar-brand">New Message</a>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="" ng-click="model.getOrders()">
+                        Discard Draft
+                    </a>
+                    <a class="navbar-brand" href="" ng-click="model.getOrders()">
+                        Save Review
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div>
+                    <label>Product Name</label></div>
+                    <label>Product Rating</label>
+                    <div data-angular-rating-icons ng-model="model.ratingValue"></div>
+                    <label>Summary of your Review</label>
+                    <input name="description"
+                          ng-model="model.website.description"
+                          placeholder="Description"
+                          class="form-control">
+                    </input>
+                <label>Elaborate Review</label>
+
+                <textarea name="description"
+                          ng-model="model.website.description"
+                          placeholder="Description"
+                          rows="5"
+                          class="form-control"
+                          id="description">
+                    </textarea>
+                    </div>
+
+        </div>
+
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-right">
+                <p class="navbar-text pull-right">
+                    <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-user pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+</div>
