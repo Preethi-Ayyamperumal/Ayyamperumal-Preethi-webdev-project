@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var productSchema = mongoose.Schema({
     itemId: Number,
     name: String,
-    msrp: String,
+/*    msrp: String,
     salePrice: String,
     categoryPath: String,
     category: {type: String, ref:"CategoryModel"},
@@ -14,7 +14,7 @@ var productSchema = mongoose.Schema({
     standardShipRate:String,
     modelNumber:String,
     customerRating:String,
-    categoryNode:String,
+    categoryNode:String,*/
     Quantity:Number,
     Average_Rating:String,
     reviews:[{type: mongoose.Schema.Types.ObjectId, ref:"ReviewModel"}],
