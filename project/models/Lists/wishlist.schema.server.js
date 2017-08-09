@@ -1,16 +1,8 @@
 var mongoose = require("mongoose");
-var userSchema = mongoose.Schema({
-    role: {type: String, enum:["ADMIN", "CUSTOMER", "MANAGER"]},
-    username: String,
-    password: String,
-    firstName: String,
-    lastName: String,
-    email:String,
-    phone:String,
-    dob:Date,
-    followers:[ this ],
-    following:[ this ],
-    websites:[{type: mongoose.Schema.Types.ObjectId, ref:"WebsiteModel"}],
-    dateCreated:{type: Date, default: Date.now}
-}, {collection: "user"});
-module.exports = userSchema;
+var wishlistSchema = mongoose.Schema({
+    name:String,
+    _user:{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
+    items : [{type: mongoose.Schema.Types.ObjectId, ref:"ProductModel"}],
+    privacy: {type: String, enum:["PUBLIC", "PRIVATE"]},
+}, {collection: "wishlist"});
+module.exports = wishlistSchema;

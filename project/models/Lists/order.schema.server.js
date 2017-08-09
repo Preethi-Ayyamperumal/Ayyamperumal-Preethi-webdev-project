@@ -1,16 +1,16 @@
 var mongoose = require("mongoose");
-var userSchema = mongoose.Schema({
-    role: {type: String, enum:["ADMIN", "CUSTOMER", "MANAGER"]},
-    username: String,
-    password: String,
-    firstName: String,
-    lastName: String,
-    email:String,
-    phone:String,
-    dob:Date,
-    followers:[ this ],
-    following:[ this ],
-    websites:[{type: mongoose.Schema.Types.ObjectId, ref:"WebsiteModel"}],
-    dateCreated:{type: Date, default: Date.now}
-}, {collection: "user"});
-module.exports = userSchema;
+var orderSchema = mongoose.Schema({
+    _user:{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
+    line_items : [{
+        item: {type: mongoose.Schema.Types.ObjectId, ref:"ProductModel"},
+        quantity: Number
+    }],
+    shipping_address:{type: mongoose.Schema.Types.ObjectId, ref:"AddressModel"},
+    payment_details:{type: mongoose.Schema.Types.ObjectId, ref:"PaymentModel"},
+    subtotal:Number,
+    total_shipping:Number,
+    grand_total:Number,
+    delivered_Date:Date,
+    ordered_Date:Date
+}, {collection: "order"});
+module.exports = orderSchema;
