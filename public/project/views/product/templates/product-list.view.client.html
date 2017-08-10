@@ -16,16 +16,5 @@
 
 
     <div class="container-fluid">
-        <table class="table">
-            <tr ng-repeat="product in model.products">
-                <td>
-                    <a href="" ng-click="model.loadProduct(product.itemId)">{{product.name}}</a>
-                </td>
-
-                <td ng-repeat="productImage in product.imageEntities | filter:{'entityType':'PRIMARY'}">
-                        <img ng-src="{{productImage.mediumImage}}"></img>
-                </td>
-
-            </tr>
-        </table>
+        <div ng-include="'views/product/templates/product-list.component.client.html'"></div>
     </div>

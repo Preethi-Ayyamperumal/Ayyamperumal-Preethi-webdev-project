@@ -15,7 +15,7 @@
             var url = "/api/product/searchByName/"+productName;
             return $http.get(url)
                 .then(function (response) {
-                    return response;
+                    return response.data.items;
                 });
         }
 
@@ -23,7 +23,7 @@
             var url = "/api/product/searchById/"+productId;
             return $http.get(url)
                 .then(function (response) {
-                    return response;
+                    return response.data;
                 });
         }
     }

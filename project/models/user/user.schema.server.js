@@ -8,7 +8,7 @@ var userSchema = mongoose.Schema({
     email:String,
     phone:String,
     dob:Date,
-    followers:[ this ],
+    followers:[{isApproved: {type:Boolean,default: false}, followerID:this} ],
     following:[ this ],
     isBlocked:Boolean,
     dateCreated:{type: Date, default: Date.now}

@@ -11,7 +11,7 @@
             model.productname=$routeParams.productName;
             searchService.searchProduct(model.productname)
                 .then (function (response) {
-                        model.products = response.data.items;
+                        model.products = response;
                 });
             }
         init();

@@ -1,0 +1,21 @@
+<div class="row">
+
+    <div class="col-xs-12 col-md-2">
+        <div ng-repeat="category in model.categories" class="btn-group-vertical btn-block text-right">
+            <button  ng-click="model.setSubCategory(category)" type="button" class= "btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span>{{category.name}}</span>
+                <span ng-if="category.children.length" class="caret pull-right"></span>
+            </button>
+            <!--<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>-->
+            <ul ng-if="model.subCategory.length" class="dropdown-menu dropdown-menu-right list-group">
+                <li ng-repeat="subCat in model.subCategory" class="list-group-item list-group-item-info">
+                    <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-9 visible-md visible-lg">
+        <div ng-if="model.subcategory_selected" ng-include="'views/product/templates/product-list.component.client.html'"></div>
+    </div>
+
+</div>

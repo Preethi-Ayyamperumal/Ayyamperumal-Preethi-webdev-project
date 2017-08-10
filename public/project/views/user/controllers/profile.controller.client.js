@@ -18,6 +18,7 @@
         model.getCart=getCart;
         model.getMessageCenter=getMessageCenter;
         model.getReviews=getReviews;
+        model.getCategory=getCategory;
         function init() {
             model.userId=123;
             model.addressId=123;
@@ -81,6 +82,10 @@
             $location.url("/profile/" + model.userId+"/review/");
         }
 
+        function getCategory()
+        {
+            $location.url("/category/update");
+        }
 
 
     }

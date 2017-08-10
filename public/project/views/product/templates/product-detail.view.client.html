@@ -1,80 +1,83 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Products</a>
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"></a>
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="" ng-click="model.addtoCart()">Add to Cart</a>
+                  <!--  <a class="navbar-brand"  href="">
+                        <i class="fa fa-2x fa-shopping-cart"></i>
+                    </a>
+-->                 <label class="navbar-brand">{{model.cartItems}}</label>
+                </div>
+            </div>
         </div>
+    </nav>
+
+    <div class="container-fluid">
         <search-bar></search-bar>
     </div>
-</nav>
-
-
-<div class="container-fluid">
-    <h2>{{model.product.name}}</h2>
-    <div>Original Price : {{model.product.msrp}}</div>
-    <div>Sales Price : {{model.product.salePrice}}</div>
-
-    <h3>About Product</h3>
-    <div>
-        <span ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
-        <span ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
-    </div>
-
-    <div>
-     <img ng-src="{{model.product.largeImage}}"></img>
-    </div>
-    <div ng-if="model.product.size">Size : {{model.product.size}}</div>
-    <div>Customer Rating : {{model.product.customerRating}}/5</div>
-<div>
     <div class="container-fluid">
-    <h2> Customer Reviews </h2>
-<div ng-if="model.isReviewedByUser()">
-    <div class="row">
-        <div class="col-xs-12">
-            <h4><b>YOU</b></h4>
-            <div>  {{ model.date | date : "mediumDate" }}</div>
-            <div data-angular-rating-icons ng-model=3></div>
-            <div>
-                <p name="description"
-                   ng-model="model.review"
-                   placeholder="Description">My Review</p>
+
+        <h2>{{model.product.name}}</h2>
+        <div>Original Price : {{model.product.msrp}}</div>
+        <div>Sales Price : {{model.product.salePrice}}</div>
+
+        <h3>About Product</h3>
+        <div>
+            <span ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
+            <span ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
+        </div>
+
+        <div>
+            <img ng-src="{{model.product.largeImage}}"></img>
+        </div>
+        <div ng-if="model.product.size">Size : {{model.product.size}}</div>
+        <div>Customer Rating : {{model.product.customerRating}}/5</div>
+        <div>
+            <div class="container-fluid">
+                <h2> Customer Reviews </h2>
+                <div ng-if="model.isReviewedByUser()">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4><b>YOU</b></h4>
+                            <div>  {{ model.date | date : "mediumDate" }}</div>
+                            <div data-angular-rating-icons ng-model="3"></div>
+                            <div>
+                                <p name="description"
+                                   ng-model="model.review"
+                                   placeholder="Description">My Review</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4><b>Alice</b></h4>
+                        <div>  {{ model.date | date : "mediumDate" }}</div>
+                        <div data-angular-rating-icons ng-model="4"></div>
+                        <div ng-if=false>
+                            <p name="description"
+                               ng-model="model.review"
+                               placeholder="Description"
+                               id="description"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4><b>Bob</b></h4>
+                        <div>  {{ model.date | date : "mediumDate" }}</div>
+                        <div data-angular-rating-icons ng-model="0"></div>
+                        <div ng-if=true>
+                            <p name="description"
+                               ng-model="model.review"
+                               placeholder="Description">this is a test review</p>
+                        </div>
+                        <div> Date</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-        <div class="row">
-            <div class="col-xs-12">
-                <h4><b>Alice</b></h4>
-                <div>  {{ model.date | date : "mediumDate" }}</div>
-                <div data-angular-rating-icons ng-model=4></div>
-                <div ng-if=false>
-                    <p name="description"
-                       ng-model="model.review"
-                       placeholder="Description"
-                       id="description"></p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <h4><b>Bob</b></h4>
-                <div>  {{ model.date | date : "mediumDate" }}</div>
-                <div data-angular-rating-icons ng-model=0></div>
-                <div ng-if=true>
-                    <p name="description"
-                       ng-model="model.review"
-                       placeholder="Description">this is a test review</p>
-                </div>
-                <div> Date</div>
-            </div>
-        </div>
-</div>
-
-
 </div>

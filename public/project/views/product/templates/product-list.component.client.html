@@ -1,0 +1,15 @@
+<table class="table">
+    <tr ng-repeat="product in model.products">
+        <td>
+            <img ng-src="{{product.thumbnailImage}}"></img>
+
+            <a href="" ng-click="model.loadProduct(product.itemId)">{{product.name}}</a>
+
+        </td>
+
+        <td>
+        </td>
+
+
+    </tr>
+</table>

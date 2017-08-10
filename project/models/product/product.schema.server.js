@@ -15,8 +15,8 @@ var productSchema = mongoose.Schema({
     modelNumber:String,
     customerRating:String,
     categoryNode:String,*/
-    Quantity:Number,
-    Average_Rating:String,
+    quantity: {type:Number, default: 200},
+Average_Rating:String,
     reviews:[{type: mongoose.Schema.Types.ObjectId, ref:"ReviewModel"}],
     dateCreated:{type: Date, default: Date.now}
 }, {collection: "product"});

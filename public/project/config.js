@@ -116,5 +116,11 @@
                 controller: "productDetailController",
                 controllerAs: "model"
             })
+            .when("/category/update", {
+                templateUrl: "views/category/templates/category-edit.view.client.html",
+                controller: "CategoryEditController",
+                controllerAs: "model"
+            })
+
     }
 })();
