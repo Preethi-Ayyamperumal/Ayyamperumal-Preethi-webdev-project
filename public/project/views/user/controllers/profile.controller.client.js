@@ -4,10 +4,10 @@
         .module("GroceryApp")
         .controller("ProfileController", ProfileController)
 
-    function ProfileController($location, $routeParams) {
+    function ProfileController($location, UserService) {
         var model = this;
         model.updateUser = updateUser;
-        model.logoutUser = logoutUser;
+        model.logout = logout;
         model.loadUserWebsites = loadUserWebsites;
         model.loadUserProfile = loadUserProfile;
         model.editAddressWidget=editAddressWidget;
@@ -20,9 +20,6 @@
         model.getReviews=getReviews;
         model.getCategory=getCategory;
         function init() {
-            model.userId=123;
-            model.addressId=123;
-            model.paymentId=123;
         }
 
         init();
@@ -32,19 +29,24 @@
             $location.url($location.url() + "/website/");
         }
 
-        function logoutUser() {
-            $location.url("/login");
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function(response) {
+                        $location.url("/login");
+                    });
         }
 
         function updateUser(user) {
-            UserService.updateUser(model.userId, user)
+            UserService.updateUser(user)
                 .then(function (response) {
                     loadUserProfile();
                 })
         }
 
         function loadUserProfile() {
-            $location.url("/profile/" + model.userId);
+            $location.url("/profile/");
         }
         function editAddressWidget()
         {

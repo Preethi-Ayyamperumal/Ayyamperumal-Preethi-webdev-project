@@ -7,6 +7,7 @@
 
     <label for="username">Username</label>
     <input name="username"
+           ng-model="model.user.username"
            type="text"
            placeholder="alice"
            class="form-control"
@@ -15,6 +16,8 @@
     <label for="password">Password</label>
     <input name="password"
            type="password"
+           ng-model="model.user.password"
+
            placeholder="f!@#rg5"
            class="form-control"
            id="password"/>
