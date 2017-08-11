@@ -6,19 +6,30 @@ var userModel=require("../models/user/user.model.server");
 var passport = require('passport');
 var bcrypt = require('../../bcrypt');
 
+var facebookConfig = {
+    clientID     : "298691627269838",
+    clientSecret : "1c66d58197050af1002a6363722052bf",
+    callbackURL  : "http://localhost:3001/auth/facebook/callback"
+};
 
+var FacebookStrategy = require('passport-facebook').Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
+
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
 
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 app.post  ('/api/login', passport.authenticate('local'), login);
 app.post  ('/api/logout', logout);
 app.post ('/api/register', register);
 app.get ('/api/user', findAllUsers);
 app.get ('/api/loggedin', loggedin);
 app.put("/api/user", updateUser);
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/project/#!/profile',
+        failureRedirect: '/project/#!/login' }));
 
 function updateUser(req, res) {
     var user = req.body;
@@ -127,4 +138,31 @@ function deserializeUser(user, done) {
                 done(err, null);
             }
         );
+}
+
+function facebookStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByFacebookId(profile.id)
+        .then(
+    function(user) {
+        if(user === null)
+        {
+            user={
+                username:profile.displayName.replace(/ /g,''),
+                facebook:{
+                    token:token,
+                    id:profile.id
+                }
+            };
+            userModel.createUser(user)
+                .then(function(user){
+                    done(null,user);
+                })
+        }
+        else
+            return done(null, user);
+    },
+    function(err) {
+        if (err) { return done(err); }
+    });
 }

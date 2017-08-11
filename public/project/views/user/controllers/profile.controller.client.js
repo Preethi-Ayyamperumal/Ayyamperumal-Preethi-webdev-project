@@ -42,7 +42,7 @@
         function updateUser(user) {
             UserService.updateUser(user)
                 .then(function (response) {
-                    
+
                     loadUserProfile();
                 })
         }
