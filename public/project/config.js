@@ -31,7 +31,7 @@
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
-                resolve: { loggedin: checkLoggedin }
+                resolve: { loggedInUser: checkLoggedin }
             })
             .when("/profile/:uid/address/", {
                 templateUrl: "views/shipping/templates/address-list.view.client.html",
@@ -126,18 +126,18 @@
 
     }
 
-    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
+    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope,UserService) {
         var deferred = $q.defer();
-        $http.get('/api/loggedin')
-            .then(function(user) {
-                $rootScope.errorMessage = null;
+        UserService
+            .checkLogin()
+            .then(function (user) {
                 if (user !== '0') {
                     deferred.resolve(user);
                 } else {
                     deferred.reject();
                     $location.url('/');
                 }
-        });
+            });
         return deferred.promise;
     };
 })();

@@ -4,7 +4,7 @@
         .module("GroceryApp")
         .controller("ProfileController", ProfileController)
 
-    function ProfileController($location, UserService) {
+    function ProfileController($location, UserService,loggedInUser) {
         var model = this;
         model.updateUser = updateUser;
         model.logout = logout;
@@ -20,6 +20,7 @@
         model.getReviews=getReviews;
         model.getCategory=getCategory;
         function init() {
+            model.user=loggedInUser;
         }
 
         init();
@@ -41,6 +42,7 @@
         function updateUser(user) {
             UserService.updateUser(user)
                 .then(function (response) {
+                    
                     loadUserProfile();
                 })
         }

@@ -9,7 +9,8 @@
             "logout":logout,
             "register":register,
             "findUserByUsername":findUserByUsername,
-            "updateUser":updateUser
+            "updateUser":updateUser,
+            "checkLogin" : checkLogin
         };
         return api;
 
@@ -37,6 +38,13 @@
             var url = "/api/user";
             return $http.put(url,user)
                 .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function checkLogin(){
+            return $http.get('/api/loggedin')
+                .then(function(response) {
                     return response.data;
                 });
         }
