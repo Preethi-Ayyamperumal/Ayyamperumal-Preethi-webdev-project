@@ -4,7 +4,7 @@
 var app = require('../../express');
 var userModel=require("../models/user/user.model.server");
 var passport = require('passport');
-var bcrypt = require('../../bcrypt');
+var bcrypt = require('../../bCrypt');
 
 var facebookConfig = {
     clientID     : "298691627269838",
