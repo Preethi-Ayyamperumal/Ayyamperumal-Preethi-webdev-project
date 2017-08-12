@@ -3,18 +3,22 @@
         .module("GroceryApp")
         .controller("FollowersController", FollowersController);
 
-    function FollowersController($location, $routeParams) {
+    function FollowersController($location, UserService) {
         var model = this;
         model.loadVisitorProfile=loadVisitorProfile;
         function init() {
-            model.userId=$routeParams.uid;
-            model.vId=$routeParams.uid;
+            UserService.getFollowers()
+                .then(function (followers) {
+                    model.followers=followers;
+                })
         }
-        function loadVisitorProfile()
-        {
-            $location.url("profile/"+model.userId+"/visitor/"+model.vId)
-        }
+
         init();
+
+        function loadVisitorProfile(username)
+        {
+            $location.url("profile/visitor/"+username);
+        }
 
     }
 })();

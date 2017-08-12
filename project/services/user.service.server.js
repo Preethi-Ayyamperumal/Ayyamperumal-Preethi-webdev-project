@@ -28,8 +28,60 @@ app.post ('/api/register', register);
 app.get ('/api/user', findAllUsers);
 app.get ('/api/loggedin', loggedin);
 app.put("/api/user", updateUser);
+app.get ('/api/following', getFollowing);
+app.get ('/api/followers', getFollowers);
+
+app.get ('/api/unfollow/:username', unFollow);
+app.put("/api/follow", followUsers);
+app.get("/api/tofollow", getUserstoFollow);
+
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/project/#!/profile',
         failureRedirect: '/project/#!/login' }));
+
+function getFollowing(req, res) {
+    var user = req.user;
+    userModel.getFollowing(user._id)
+        .then(function (users){
+            res.json(users)
+        });
+}
+function getFollowers(req, res) {
+    var user = req.user;
+    userModel.getFollowers(user.username)
+        .then(function (users){
+            res.json(users)
+        });
+}
+
+function getUserstoFollow(req, res) {
+    var user = req.user;
+    userModel.getUserstoFollow(user)
+        .then(function (users){
+            //console.log(user.username,users);
+            res.json(users)
+        });
+}
+
+
+function unFollow(req, res) {
+    var user = req.user;
+    var usertoberemoved = req.params.username;
+    userModel.unFollowUser(user,usertoberemoved)
+        .then(function (status){
+            res.json(status)
+        });
+}
+
+
+function followUsers(req, res) {
+    var user = req.user;
+    var usersToFollow = req.body;
+    userModel.addFollowers(user,usersToFollow)
+        .then(function (status){
+            res.json(status)
+        });
+}
+
 
 function updateUser(req, res) {
     var user = req.body;

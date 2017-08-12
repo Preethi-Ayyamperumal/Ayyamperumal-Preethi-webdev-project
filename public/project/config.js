@@ -48,15 +48,29 @@
                 controller: "PaymentEditController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/followers/", {
+            .when("/profile/followers/", {
                 templateUrl: "views/lists/templates/followers-list.view.client.html",
                 controller: "FollowersController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
-            .when("/profile/:uid/following/", {
+            .when("/profile/following/", {
                 templateUrl: "views/lists/templates/follow-list.view.client.html",
                 controller: "FollowingController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
+            })
+            .when("/profile/users/", {
+                templateUrl: "views/lists/templates/user-list.view.client.html",
+                controller: "UserListController",
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/:uid/visitor/:vid", {
                 templateUrl: "views/user/templates/profile-visitor.view.client.html",
@@ -68,10 +82,13 @@
                 controller: "OrdersViewController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/cart", {
+            .when("/profile/cart/:iID", {
                 templateUrl: "views/order/templates/cart.view.client.html",
                 controller: "CartViewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/:uid/checkout", {
             templateUrl: "views/order/templates/checkout.view.client.html",

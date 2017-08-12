@@ -6,7 +6,8 @@
     function searchService($http) {
         var api = {
             "searchProduct": searchProduct,
-            "loadProduct":loadProduct
+            "loadProduct":loadProduct,
+            "insertProduct":insertProduct
         };
         return api;
 
@@ -22,6 +23,14 @@
         function loadProduct(productId) {
             var url = "/api/product/searchById/"+productId;
             return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function insertProduct(product) {
+            var url = "/api/product/insert/";
+            return $http.put(url,product)
                 .then(function (response) {
                     return response.data;
                 });

@@ -10,7 +10,14 @@
             "register":register,
             "findUserByUsername":findUserByUsername,
             "updateUser":updateUser,
-            "checkLogin" : checkLogin
+            "checkLogin" : checkLogin,
+            "unFollow" :unFollow,
+            "followUsers":followUsers,
+            "getFollowing":getFollowing,
+            "getUserstoFollow":getUserstoFollow,
+            "getFollowers":getFollowers,
+
+
         };
         return api;
 
@@ -44,6 +51,42 @@
 
         function checkLogin(){
             return $http.get('/api/loggedin')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function unFollow(username){
+        return $http.get('/api/unfollow/'+username)
+            .then(function(response) {
+                return response;
+            });
+         }
+
+
+        function getFollowing(){
+            return $http.get('/api/following')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function getFollowers(){
+            return $http.get('/api/followers')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function followUsers(selectedUsers){
+            return $http.put('/api/follow/',selectedUsers)
+                .then(function(response) {
+                    return response;
+                });
+        }
+
+        function getUserstoFollow() {
+            return $http.get('/api/tofollow')
                 .then(function(response) {
                     return response.data;
                 });

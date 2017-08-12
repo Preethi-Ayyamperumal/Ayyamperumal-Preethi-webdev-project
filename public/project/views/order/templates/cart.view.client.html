@@ -18,61 +18,21 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 visible-md visible-lg">
-                <img ng-src="https://images-na.ssl-images-amazon.com/images/I/41rjZFBVZVL._SY180_.jpg"></img>
+        <div class="row" ng-repeat="item in model.cartItems">
+            <div class="col-md-3 visible-md visible-lg" >
+                <img ng-src="{{item.thumbnailImage}}"></img>
             </div>
             <div class="col-xs-12  col-md-9">
                 <div class="row">
-                    <label>Product Name</label></div>
+                    <label>{{item.name}}</label></div>
                 <div class="row">
-                    <label>Product Price</label></div>
+                    <label>{{item.salePrice}}</label></div>
                 <div class="row">
-                    <label>Quantity</label></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 visible-md visible-lg">
-                <img ng-src="https://images-na.ssl-images-amazon.com/images/I/41rjZFBVZVL._SY180_.jpg"></img>
-            </div>
-            <div class="col-xs-12  col-md-9">
-                <div class="row">
-                    <label>Product Name</label></div>
-                <div class="row">
-                    <label>Product Price</label></div>
-                <div class="row">
-                    <label>Quantity</label></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 visible-md visible-lg">
-                <img ng-src="https://images-na.ssl-images-amazon.com/images/I/41rjZFBVZVL._SY180_.jpg"></img>
-            </div>
-            <div class="col-xs-12  col-md-9">
-                <div class="row">
-                    <label>Product Name</label></div>
-                <div class="row">
-                    <label>Product Price</label></div>
-                <div class="row">
-                    <label>Quantity</label></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3 visible-md visible-lg">
-                <img ng-src="https://images-na.ssl-images-amazon.com/images/I/41rjZFBVZVL._SY180_.jpg"></img>
-            </div>
-            <div class="col-xs-12  col-md-9">
-                <div class="row">
-                    <label>Product Name</label></div>
-                <div class="row">
-                    <label>Product Price</label></div>
-                <div class="row">
-                    <label>Quantity</label></div>
+                    <label>{{item.quantity}}</label></div>
             </div>
         </div>
     </div>
-    <div class="pav">
+
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
                 <div class="navbar-header navbar-right">
@@ -85,4 +45,3 @@
             </div>
         </nav>
     </div>
-</div>

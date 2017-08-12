@@ -5,14 +5,15 @@
     
     function orderService($http) {
         var api = {
-            "addtoCart": addtoCart,
-            "loadProduct":loadProduct
+            "updateCart": updateCart,
+            "loadProduct":loadProduct,
+             "getCart" :getCart
         };
         return api;
 
-        function addtoCart(productID) {
-            var url = "/api/cart/add/"+productID;
-            return $http.get(url)
+        function updateCart(cartItem) {
+            var url = "/api/cart/update/";
+            return $http.put(url,cartItem)
                 .then(function (response) {
                     if(response.hasOwnProperty("data") && response.data.hasOwnProperty("_id"))
                         return true;
@@ -27,6 +28,14 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function getCart(){
+            var url="/api/cart/";
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
         }
     }
 })();

@@ -2,34 +2,27 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()"><span
-                        class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Following</a>
-                <p class="navbar-text pull-right">
-                    <a href="" ng-click="model.addWebsite()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-plus pull-right"></span>
-                    </a>
-                </p>
+                <div class="navbar-right">
+                        <a class="navbar-brand" href="" ng_click="model.getAllUsers()"> <span
+                                class="white glyphicon glyphicon-search pull-right"></span>
+                        </a>
+                </div>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
         <ul class="list-group">
-            <li type="button" class="list-group-item">
-                <a href="" ng-click="model.loadVisitorProfile()">Alice</a>
-
-                <a href="" ng-click="model.editWebsite()">
-                    <span class="button pull-right">UnFollow</span>
-                </a>
-            </li>
-            <li type="button" class="list-group-item">
-                <a href="" ng-click="model.loadVisitorProfile()">Bob</a>
-
-                <a href="" ng-click="model.editWebsite()">
-                    <span class="button pull-right">UnFollow</span>
-                </a>
+            <li ng-repeat="follower in model.following"  type="button" class="list-group-item">
+                <div class="input-group">
+                    <a href="" ng-click="model.loadVisitorProfile(follower)">{{follower}}</a>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="model.unFollow(follower)">UnFollow</button>
+                    </span>
+                </div>
             </li>
         </ul>
+
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

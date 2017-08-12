@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var userSchema = require("./user.schema.server");
 var userModel = mongoose.model("userModel", userSchema);
-
+var cartModel=require("../cart/cart.model.server");
 userModel.createUser = createUser;
 userModel.updateUser = updateUser;
 
@@ -9,8 +9,13 @@ userModel.findUserById=findUserById;
 userModel.findAllUsers = findAllUsers;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
-userModel.findUserByFacebookId = findUserByFacebookId,
+userModel.findUserByFacebookId = findUserByFacebookId;
+userModel.unFollowUser=unFollowUser;
+userModel.addFollowers=addFollowers;
+userModel.getFollowers=getFollowers;
+userModel.getFollowing=getFollowing;
 
+userModel.getUserstoFollow=getUserstoFollow;
 module.exports = userModel;
 
 
@@ -19,8 +24,11 @@ function findUserByFacebookId(facebookId) {
 }
 
 function createUser(user) {
+    return userModel.create(user)
+        .then(function (user) {
 
-    return userModel.create(user);
+                return user;
+            });
 }
 
 
@@ -45,3 +53,30 @@ function findUserByCredentials(username, password) {
     return userModel.findOne({username: username, password: password});
 }
 
+
+function unFollowUser(user,username){
+    return userModel.findByIdAndUpdate(user._id,
+        {$pull :{following: username}});
+
+}
+
+function addFollowers(user,users){
+    return userModel.findByIdAndUpdate(user._id,
+        {$push: { following : { $each: users}}});
+}
+
+function getFollowing(userId){
+    return userModel.findById(userId).select('following -_id');
+}
+
+
+function getFollowers(username){
+    return userModel.find({following : username}).select('username -_id');
+}
+
+
+function getUserstoFollow(user){
+    var userstoremove = user.following;
+    userstoremove.push(user.username);
+    return userModel.find({username: {$nin : userstoremove}}).select('username -_id')
+}

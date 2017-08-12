@@ -14,8 +14,9 @@
             searchService.loadProduct(productId)
                 .then (function (response) {
                         model.product = response;
-                    model.cartItems=0;
-
+                        searchService.insertProduct(model.product).then(function(response){
+                            console.log(model.product);
+                        })
                 });
             }
         init();
@@ -31,11 +32,8 @@
         }
         function addtoCart()
         {
-                 orderService.addtoCart(model.product.itemId)
-                     .then(function (status) {
-                            if(status)
-                                model.cartItems+=1;
-                     })
+                 $location.url("/profile/cart/" + model.product.itemId);
+
         }
 
     }

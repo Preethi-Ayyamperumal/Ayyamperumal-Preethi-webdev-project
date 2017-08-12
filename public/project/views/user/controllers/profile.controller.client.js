@@ -61,12 +61,12 @@
         }
         function getFollowers()
         {
-            $location.url("/profile/" + model.userId+"/followers/");
+            $location.url("/profile/followers/");
         }
 
         function getFollowing()
         {
-            $location.url("/profile/" + model.userId+"/following/");
+            $location.url("/profile/following/");
         }
 
         function getOrders()
@@ -75,7 +75,7 @@
         }
         function getCart()
         {
-            $location.url("/profile/" + model.userId+"/cart/");
+            $location.url("/profile/cart/"+111111);
         }
         function getMessageCenter()
         {

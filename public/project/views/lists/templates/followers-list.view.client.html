@@ -15,19 +15,10 @@
     </nav>
     <div class="container-fluid">
         <ul class="list-group">
-            <li type="button" class="list-group-item">
-                <a href="" ng-click="model.loadVisitorProfile()">Alice</a>
-
-                <a href="" ng-click="model.editWebsite()">
-                    <span class="button pull-right">Block</span>
-                </a>
-            </li>
-            <li type="button" class="list-group-item">
-            <a href="" ng-click="model.loadVisitorProfile()">Bob</a>
-
-            <a href="" ng-click="model.editWebsite()">
-                <span class="button pull-right">UnBlock</span>
-            </a>
+            <li ng-repeat="follower in model.followers"  type="button" class="list-group-item">
+                <div class="input-group">
+                    <a href="" ng-click="model.loadVisitorProfile(follower.username)">{{follower.username}}</a>
+                </div>
             </li>
         </ul>
     </div>
