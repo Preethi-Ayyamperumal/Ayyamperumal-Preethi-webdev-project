@@ -9,7 +9,7 @@ var bcrypt = require('../../bCrypt');
 var facebookConfig = {
     clientID     : "298691627269838",
     clientSecret : "1c66d58197050af1002a6363722052bf",
-    callbackURL  : "http://hop-groceries-online.herokuapp.com/auth/facebook/callback"
+    callbackURL  : "http://shop-groceries-online.herokuapp.com/auth/facebook/callback"
 };
 
 var FacebookStrategy = require('passport-facebook').Strategy;
