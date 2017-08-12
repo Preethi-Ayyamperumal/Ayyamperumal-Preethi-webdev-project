@@ -17,5 +17,5 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./project/app");
-port = process.env.PORT || 3001;
+port = process.env.PORT || 3000;
 app.listen(port);
