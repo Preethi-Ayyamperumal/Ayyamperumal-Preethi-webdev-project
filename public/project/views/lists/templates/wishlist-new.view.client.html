@@ -19,7 +19,7 @@
     <ul class="list-group">
         <li ng-repeat="product in model.wishlist" type="button" class="list-group-item">
             <a href="" ng-click="model.loadProduct(product.itemID)">{{product.name}}</a>
-            <a href="" ng-click="model.removeItem(product._id)">
+            <a href="" ng-click="model.editItem(product._id)">
                 <span class="glyphicon glyphicon-remove pull-right"></span>
             </a>
         </li>

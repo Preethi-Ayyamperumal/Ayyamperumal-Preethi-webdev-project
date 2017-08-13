@@ -3,19 +3,22 @@
         .module("GroceryApp")
         .controller("productDetailController", productDetailController);
 
-    function productDetailController($sce,$routeParams,searchService,$location,orderService) {
+    function productDetailController($sce,$routeParams,searchService,$location,reviewService) {
         var model = this;
         var productId=$routeParams.productId;
         model.trustHtmlContent=trustHtmlContent;
-        model.isReviewedByUser=isReviewedByUser;
         model.addtoCart=addtoCart;
+        model.addtoWishList=addtoWishList;
+        model.addReview=addReview;
         model.date=new Date();
         function init() {
             searchService.loadProduct(productId)
                 .then (function (response) {
                         model.product = response;
                         searchService.insertProduct(model.product).then(function(response){
-                            console.log(model.product);
+                                reviewService.getReviewbyProduct(model.product.itemId).then(function (reviews){
+                                    model.reviews=reviews;
+                                })
                         })
                 });
             }
@@ -26,14 +29,22 @@
             var trustedHTML=$sce.trustAsHtml(rval);
             return trustedHTML;
         }
-        function isReviewedByUser()
-        {
-            return true
-        }
+
         function addtoCart()
         {
                  $location.url("/profile/cart/" + model.product.itemId);
 
+        }
+
+        function addReview()
+        {
+            $location.url("/profile/product/"+model.product.itemId+"/review/new");
+
+        }
+
+        function addtoWishList()
+        {
+            $location.url("/profile/product/"+model.product.itemId+"/wishlist/new/");
         }
 
     }

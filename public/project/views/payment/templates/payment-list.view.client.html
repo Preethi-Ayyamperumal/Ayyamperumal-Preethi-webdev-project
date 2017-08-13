@@ -2,9 +2,9 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Your Addresses</a>
+                <a class="navbar-brand">Your Payment Methods</a>
                 <p class="navbar-text pull-right">
-                    <a href="" ng-click="model.addAddress()" class="navbar-link"> <span
+                    <a href="" ng-click="model.addNewPayment()" class="navbar-link"> <span
                             class="white glyphicon glyphicon-plus pull-right"></span>
                     </a>
                 </p>
@@ -12,30 +12,22 @@
         </div>
     </nav>
     <div class="container-fluid">
-
-        <div ng-repeat="address in model.addresses">
+        <div ng-repeat="payment in model.payments">
             <div class="pav-widget">
                 <div class="pav-widget-toolbar">
-                    <a href="" ng-click="model.editAddress(address._id)">
+                    <a href="" ng-click="model.editPayment(payment._id)">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                 </div>
                 <div>
-                    <address>
-                        <strong>{{address.fullName}}</strong><br>
-                        {{address.streetAddress1}}<br>
-                        {{address.streetAddress2}}<br>
-                        {{address.city}}<br>
-                        {{address.state}}<br>
-                        {{address.zipCode}}<br>
-                        {{address.country}}<br>
-                        <abbr title="Phone">P:</abbr> {{address.phone}}
-                    </address>
+                   <label>{{payment.nameOnCard}}</label>
+                    <label>{{payment.cardNumber}}</label>
+                    <label>{{payment.expirationMonth}}:{{payment.expirationYear}}  </label>
+
                 </div>
             </div>
         </div>
-
-        </div>
+    </div>
 
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

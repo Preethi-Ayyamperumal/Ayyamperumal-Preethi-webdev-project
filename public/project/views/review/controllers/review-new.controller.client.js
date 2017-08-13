@@ -3,13 +3,27 @@
         .module("GroceryApp")
         .controller("NewReviewController", NewReviewController);
 
-    function NewReviewController($location, $routeParams) {
+    function NewReviewController($location, $routeParams,reviewService) {
         var model = this;
+        model.addReview=addReview;
+        model.getReviewList=getReviewList;
         function init() {
-            model.userId = $routeParams.uid;
-            model.ratingValue=0;
+            model.pid=$routeParams.pid;
+            reviewService.getReviewByUserByProduct(model.pid).then(function(response){
+                model.review=response;
+            })
         }
-
+        function addReview()
+        {
+            model.review.itemID=model.pid;
+            reviewService.addReview(model.review)
+                .then(function(review){
+                $location.url("/profile/review");
+        });
+        }
+        function getReviewList(){
+            $location.url("/profile/review");
+        }
         init();
     }
 })();

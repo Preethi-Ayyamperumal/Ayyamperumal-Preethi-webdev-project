@@ -33,17 +33,36 @@
                 controllerAs: "model",
                 resolve: { loggedInUser: checkLoggedin }
             })
-            .when("/profile/:uid/address/", {
+            .when("/profile/address", {
                 templateUrl: "views/shipping/templates/address-list.view.client.html",
                 controller: "AddressListController",
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
+            })
+            .when("/profile/address/new", {
+                templateUrl: "views/shipping/templates/address-new.view.client.html",
+                controller: "AddressNewController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/address/:aid", {
+            .when("/profile/address/:aid/", {
                 templateUrl: "views/shipping/templates/address-edit.view.client.html",
                 controller: "AddressEditController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/payment/:payId", {
+
+            .when("/profile/payment/", {
+                templateUrl: "views/payment/templates/payment-list.view.client.html",
+                controller: "PaymentListController",
+                controllerAs: "model"
+            })
+            .when("/profile/payment/new", {
+                templateUrl: "views/payment/templates/payment-new.view.client.html",
+                controller: "PaymentNewController",
+                controllerAs: "model"
+            })
+            .when("/profile/payment/:payid/", {
                 templateUrl: "views/payment/templates/payment-edit.view.client.html",
                 controller: "PaymentEditController",
                 controllerAs: "model"
@@ -59,6 +78,22 @@
             .when("/profile/following/", {
                 templateUrl: "views/lists/templates/follow-list.view.client.html",
                 controller: "FollowingController",
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
+            })
+            .when("/profile/wishlist/", {
+                templateUrl: "views/lists/templates/wish-list.view.client.html",
+                controller: "WishListViewController",
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
+            })
+            .when("/profile/product/:pid/wishlist/new/", {
+                templateUrl: "views/lists/templates/wishlist-new.view.client.html",
+                controller: "WishListNewController",
                 controllerAs: "model",
                 resolve: {
                     loggedInUser: checkLoggedin
@@ -95,35 +130,44 @@
             controller: "CheckoutController",
             controllerAs: "model"
             })
-            .when("/profile/:uid/message", {
+            .when("/profile/message", {
                 templateUrl: "views/message/templates/message-list.view.client.html",
                 controller: "MessageListController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/message/new", {
+            .when("/profile/message/new", {
                 templateUrl: "views/message/templates/message-new.view.client.html",
                 controller: "NewMessageController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/message/:mId", {
+            .when("/profile/message/:mId", {
                 templateUrl: "views/message/templates/message-edit.view.client.html",
                 controller: "EditMessageController",
                 controllerAs: "model"
             })
-            .when("/profile/:uid/review", {
+            .when("/profile/review", {
                 templateUrl: "views/review/templates/review-list.view.client.html",
                 controller: "ReviewListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
-            .when("/profile/:uid/product/:pid/review/new", {
+            .when("/profile/product/:pid/review/new", {
                 templateUrl: "views/review/templates/review-new.view.client.html",
                 controller: "NewReviewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
-            .when("/profile/:uid/product/:pid/review", {
+            .when("/profile/review/:rid", {
                 templateUrl: "views/review/templates/review-edit.view.client.html",
                 controller: "EditReviewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/search/:productName", {
                 templateUrl: "views/product/templates/product-list.view.client.html",
@@ -152,7 +196,7 @@
                     deferred.resolve(user);
                 } else {
                     deferred.reject();
-                    $location.url('/');
+                    $location.url('/login');
                 }
             });
         return deferred.promise;

@@ -9,13 +9,13 @@
                 <a class="navbar-brand" href="" ng-click="model.loadUserProfile()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="navbar-brand">New Message</a>
+                <a class="navbar-brand">New Review</a>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-right">
-                    <a class="navbar-brand" href="" ng-click="model.getOrders()">
+                    <a class="navbar-brand" href="" ng-click="model.getReviewList()">
                         Discard Draft
                     </a>
-                    <a class="navbar-brand" href="" ng-click="model.getOrders()">
+                    <a class="navbar-brand" href="" ng-click="model.addReview()">
                         Save Review
                     </a>
                 </div>
@@ -27,19 +27,19 @@
         <div class="row">
             <div class="col-xs-12">
                 <div>
-                    <label>Product Name</label></div>
+                    <label>{{model.review.name}}</label></div>
                     <label>Product Rating</label>
-                    <div data-angular-rating-icons ng-model="model.ratingValue"></div>
-                    <label>Summary of your Review</label>
+                    <div data-angular-rating-icons ng-model="model.review.rating"></div>
+                    <div><label>Summary of your Review</label></div>
                     <input name="description"
-                          ng-model="model.website.description"
+                          ng-model="model.review.title"
                           placeholder="Description"
                           class="form-control">
                     </input>
                 <label>Elaborate Review</label>
 
                 <textarea name="description"
-                          ng-model="model.website.description"
+                          ng-model="model.review.content"
                           placeholder="Description"
                           rows="5"
                           class="form-control"

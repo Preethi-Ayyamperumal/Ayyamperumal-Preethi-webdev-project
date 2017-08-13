@@ -2,9 +2,9 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Edit Address</a>
+                <a class="navbar-brand">New Payment</a>
                 <p class="navbar-text pull-right">
-                    <a href="" ng-click="model.updatePayment(model.payment)" class="navbar-link"> <span
+                    <a href="" ng-click="model.addPayment()" class="navbar-link"> <span
                             class="white glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </p>
@@ -31,17 +31,10 @@
         <label for="expiry">Expiration date</label>
         <input name="expiry"
                type="month"
-               ng-model="model.payment.expiry"
+               ng-model="model.payment.expdate"
                class="form-control"
                id="expiry"/>
-
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="SetAsDefault" aria-describedby="basic-addon2">
-            <span class="input-group-addon" id="basic-addon2"><input id="formatted" ng-model="model.payment.isDefault" type="checkbox"/></span>
-        </div>
-        <a class="btn btn-default btn-danger btn-block"
-           ng-click="model.deletePayment()"
-           role="button">Delete</a>
+    </div>
     </div>
 
 

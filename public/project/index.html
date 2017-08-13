@@ -29,11 +29,16 @@
     <script src="views/user/controllers/register.controller.client.js"></script>
     <script src="views/shipping/controllers/address-edit.controller.client.js"></script>
     <script src="views/shipping/controllers/address-list.controller.client.js"></script>
-
+    <script src="views/shipping/controllers/address-new.controller.client.js"></script>
+    <script src="views/payment/controllers/payment-new.controller.client.js"></script>
+    <script src="views/payment/controllers/payment-list.controller.client.js"></script>
     <script src="views/payment/controllers/payment-edit.controller.client.js"></script>
     <script src="views/lists/controllers/follower-list.controller.client.js"></script>
     <script src="views/lists/controllers/following-list.controller.client.js"></script>
     <script src="views/lists/controllers/user-list.controller.client.js"></script>
+    <script src="views/lists/controllers/wishlist.controller.client.js"></script>
+    <script src="views/lists/controllers/wishlist-new.controller.client.js"></script>
+
     <script src="views/user/controllers/profile-visitor.controller.client.js"></script>
     <script src="views/order/controllers/order-summary.controller.client.js"></script>
     <script src="views/order/controllers/cart.controller.client.js"></script>
@@ -50,6 +55,10 @@
     <script src="services/paginated.service.client.js"></script>
     <script src="services/order.service.client.js"></script>
     <script src="services/user.service.client.js"></script>
+    <script src="services/address.service.client.js"></script>
+    <script src="services/payment.service.client.js"></script>
+    <script src="services/message.service.client.js"></script>
+    <script src="services/review.service.client.js"></script>
 
     <script src="directives/search.controller.client.js"></script>
     <script src="directives/project-searchBar.js"></script>
@@ -65,15 +74,8 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href='../vendor/smartmenu/css/sm-core-css.css' rel='stylesheet' type='text/css' />
     <link href='../vendor/smartmenu/css/sm-blue/sm-blue.css' rel='stylesheet' type='text/css' />
-
-
-
-
 </head>
-
 <body>
-
-    <div ng-view></div>
-
+<div ng-view></div>
 </body>
 </html>

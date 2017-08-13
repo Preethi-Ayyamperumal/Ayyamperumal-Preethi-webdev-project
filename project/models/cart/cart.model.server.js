@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 var cartSchema = require("./cart.schema.server");
 var cartModel = mongoose.model("cartModel", cartSchema);
 
-var productModel = require("../product/product.model.server");
 
 cartModel.updateCart = updateCart;
 cartModel.getCart = getCart;
@@ -46,8 +45,8 @@ function getCarttest(userId) {
                 for(var key in cartitems[_obj].cartdata) {
                     finalobj[key] = cartitems[_obj].cartdata[key];
                 }
+
             }
-                return finalobj;
                 return finalobj;
     })
 }

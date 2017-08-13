@@ -4,25 +4,26 @@
         .module("GroceryApp")
         .controller("AddressListController", AddressListController)
 
-    function AddressListController($location, $routeParams) {
+    function AddressListController($location,addressService) {
         var model = this;
-        model.updateAddress=updateAddress;
+        model.addAddress=addAddress;
         model.editAddress=editAddress;
         function init() {
-            model.userId=123;
-            model.addressId=123;
+            addressService.getAddressess().then(function (addresses) {
+                model.addresses=addresses;
+            })
         }
 
         init();
 
 
-        function updateAddress(address)
+        function addAddress()
         {
-            $location.url("profile/")
+            $location.url("profile/address/new");
         }
-        function editAddress()
+        function editAddress(addressId)
         {
-            $location.url("profile/"+model.userId+"/address/"+model.addressId);
+            $location.url("profile/address/"+addressId);
         }
     }
 

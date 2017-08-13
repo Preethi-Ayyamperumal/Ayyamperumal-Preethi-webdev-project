@@ -19,8 +19,12 @@
         model.getMessageCenter=getMessageCenter;
         model.getReviews=getReviews;
         model.getCategory=getCategory;
+        model.getAddress=getAddress;
+        model.getPayment=getPayment;
+        model.getWishList=getWishList;
         function init() {
             model.user=loggedInUser;
+
         }
 
         init();
@@ -69,6 +73,26 @@
             $location.url("/profile/following/");
         }
 
+        function getFollowing()
+        {
+            $location.url("/profile/wishlist/");
+        }
+        function getAddress()
+        {
+            $location.url("/profile/address/");
+        }
+
+        function getPayment()
+        {
+            $location.url("/profile/payment/");
+        }
+        function getWishList()
+        {
+            $location.url("/profile/wishlist/");
+        }
+
+
+
         function getOrders()
         {
             $location.url("/profile/" + model.userId+"/orders/");
@@ -83,7 +107,7 @@
         }
         function getReviews()
         {
-            $location.url("/profile/" + model.userId+"/review/");
+            $location.url("/profile/review/");
         }
 
         function getCategory()

@@ -16,6 +16,9 @@
             "getFollowing":getFollowing,
             "getUserstoFollow":getUserstoFollow,
             "getFollowers":getFollowers,
+            "getWishList":getWishList,
+            "deleteWishListItem":deleteWishListItem,
+            "addtoWishList":addtoWishList
 
 
         };
@@ -87,6 +90,27 @@
 
         function getUserstoFollow() {
             return $http.get('/api/tofollow')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function getWishList(){
+            return $http.get('/api/wishlist')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function deleteWishListItem(itemID) {
+            return $http.delete('/api/wishlist/'+itemID)
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function addtoWishList(productID){
+            return $http.get('/api/wishlist/'+productID)
                 .then(function(response) {
                     return response.data;
                 });

@@ -2,9 +2,9 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Edit Address</a>
+                <a class="navbar-brand">New Address</a>
                 <p class="navbar-text pull-right">
-                    <a href="" ng-click="model.updateAddress()" class="navbar-link"> <span
+                    <a href="" ng-click="model.addAddress(model.address)" class="navbar-link"> <span
                             class="white glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </p>
@@ -45,7 +45,7 @@
             <input name="state"
                    ng-model="model.address.state"
                    type="text"
-                   placeholder="Maschussetts"
+                   placeholder="Massachusetts"
                    class="form-control"
                    id="state"/>
             <label for="zipCode">Zip code</label>
@@ -60,14 +60,6 @@
                    type="number"
                    class="form-control"
                    id="phoneNumber"/>
-
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="SetAsDefault" aria-describedby="basic-addon2">
-            <span class="input-group-addon" id="basic-addon2"><input id="formatted" ng-model="model.address.isDefault" type="checkbox"/></span>
-        </div>
-        <a class="btn btn-default btn-danger btn-block"
-           ng-click="model.deleteAddress()"
-           role="button">Delete</a>
         </div>
 
 

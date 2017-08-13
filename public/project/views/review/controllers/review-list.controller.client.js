@@ -3,26 +3,19 @@
         .module("GroceryApp")
         .controller("ReviewListController", ReviewListController);
 
-    function ReviewListController($location, $routeParams) {
+    function ReviewListController($location, reviewService) {
         var model = this;
-        model.editMessage=editMessage;
-        model.newMessage=newMessage;
-        model.isReviewEmpty=isReviewEmpty;
+        model.editReview=editReview;
+
         function init() {
-            model.userId = 123;
-            model.mId=123;
-            model.ratingValue=4;
+            reviewService.getReviewforUser().then(function(reviews){
+                model.reviews=reviews;
+            })
         }
-        function editMessage(){
-            $location.url("profile/"+model.userId+"/message/"+ model.mId);
-        }
-        function newMessage(){
-            $location.url("profile/"+model.userId+"/message/new");
+        function editReview(reviewID){
+            $location.url("profile/review/"+ reviewID);
         }
 
-        function isReviewEmpty(){
-            return false;
-        }
         init();
 
     }
