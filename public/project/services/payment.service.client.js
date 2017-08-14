@@ -9,7 +9,8 @@
             "deletePayment":deletePayment,
              "getAllPayment" :getAllPayment,
             "getPaymentbyID" : getPaymentbyID,
-            "updatePayment" : updatePayment
+            "updatePayment" : updatePayment,
+            "getDefaultPayment":getDefaultPayment
         };
         return api;
 
@@ -34,6 +35,14 @@
 
         function getAllPayment(){
             var url="/api/payment/";
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
+        function getDefaultPayment(){
+            var url="/api/paymentdefault/";
             return $http.get(url)
                 .then(function (response){
                     return response.data;

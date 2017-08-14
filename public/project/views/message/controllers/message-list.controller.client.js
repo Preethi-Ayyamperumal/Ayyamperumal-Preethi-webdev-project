@@ -3,22 +3,31 @@
         .module("GroceryApp")
         .controller("MessageListController", MessageListController);
 
-    function MessageListController($location,messageService) {
+    function MessageListController($location,messageService,$route) {
         var model = this;
-        model.editMessage=editMessage;
         model.newMessage=newMessage;
+        model.deleteMessage=deleteMessage;
+        model.readMessage=readMessage;
         function init() {
-           messageService.getMessages().then(function(messages){
-               model.messages=messages;
+           messageService.getSentMessages().then(function(messages){
+               model.sentmessages=messages;
+               messageService.getReceivedMessages().then(function(messages){
+                   model.receivedmessages=messages;
            });
-        }
-        function editMessage(){
-            $location.url("profile/"+model.userId+"/message/"+ model.mId);
-        }
-        function newMessage(){
-            $location.url("profile/"+model.userId+"/message/new");
-        }
+        })}
         init();
+
+        function newMessage(){
+            $location.url("profile/newmessage");
+        }
+        function readMessage(messageID) {
+            $location.url("profile/message/"+messageID);
+        }
+        function deleteMessage(messageID){
+            messageService.deleteMessage(messageID).then(function (status){
+                $route.reload();
+            })
+        }
 
     }
 })();

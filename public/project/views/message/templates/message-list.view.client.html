@@ -14,51 +14,56 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-                <label>Messages</label>
-                <table id="messages" class="table table-bordered">
+                <label>INBOX</label>
+                <table id="messages" class="table table-striped">
                     <thead>
                     <tr>
                         <th>FROM</th>
                         <th>SUBJECT</th>
                         <th>DATE</th>
-                        <th>SELECT</th>
+                        <th class="text-right">DELETE</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="message in model.messages">
-                        <td>Admin</td>
+                    <tr ng-repeat="message in model.receivedmessages">
+                        <td>{{message.From.username}}</td>
                         <td>
-                            <a href="" ng-click="model.editMessage()">Subject
+                            <a href="" ng-click="model.readMessage(message._id)">{{message.subject}}
                             </a>
                         </td>
-                        <td>07/14/2017</td>
-                        <td>$30</td>
-
-                    </tr>
-                    <tr>
-                        <td>Admin</td>
-                        <td>
-                            <a href="" ng-click="model.editMessage()">Subject
-                            </a>
-                        </td>
-                        <td>07/14/2017</td>
-                        <td>$30</td>
-                    </tr>
-                    <tr>
-                        <td>Admin</td>
-                        <td>
-                            <a href="" ng-click="model.editMessage()">Subject
-                            </a>
-                        </td>
-                        <td>07/14/2017</td>
-                        <td>$30</td>
+                        <td>{{message.message_date}}</td>
+                        <td> <a href="" ng-click="model.deleteMessage(message._id)" class="navbar-link"><span class="glyphicon glyphicon-remove pull-right"></span>
+                        </a></td>
                     </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
+                <label>OUTBOX</label>
+                <table id="sentmessages" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>TO</th>
+                        <th>SUBJECT</th>
+                        <th>DATE</th>
+                        <th class="text-right">DELETE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="message in model.sentmessages">
+                        <td>{{message.To.username}}</td>
+                        <td>
+                            <a href="" ng-click="model.readMessage(message._id)">{{message.subject}}
+                            </a>
+                        </td>
+                        <td>{{message.message_date}}</td>
+                        <td>
+                           <a href="" ng-click="model.deleteMessage(message._id)" class="navbar-link">
+                                <span class="glyphicon glyphicon-remove pull-right">
+                                </span>
+                                </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

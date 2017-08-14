@@ -10,7 +10,10 @@
         function init() {
             model.pid=$routeParams.pid;
             reviewService.getReviewByUserByProduct(model.pid).then(function(response){
-                model.review=response;
+                if(response.length===0)
+                    model.review={};
+                else
+                    model.review=response;
             })
         }
         function addReview()

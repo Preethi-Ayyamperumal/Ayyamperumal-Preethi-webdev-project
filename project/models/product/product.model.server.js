@@ -4,7 +4,8 @@ var productModel = mongoose.model("productModel", productSchema);
 //var websiteModel = require("../website/website.model.server");
 productModel.updateProduct = updateProduct;
 productModel.insertProduct=insertProduct;
-productModel.insertProducts=insertProducts;
+productModel.getProducts=getProducts;
+productModel.deleteProduct=deleteProduct;
 
 module.exports = productModel;
 
@@ -21,15 +22,9 @@ function insertProduct(product) {
         })
 }
 
-function insertProducts(products) {
-    var asynccalls=[];
-    var items=products[0].lineitems;
-    for (var i in items ){
-        if(items[i].itemID)
-        {
-            console.log(items[i].itemID);
-        }
-    }
+function getProducts() {
+    return productModel.find();
+
 }
 
 
@@ -42,6 +37,10 @@ function updateProduct(productID) {
                 return status;
             }
         })
+}
+
+function deleteProduct(productID) {
+    return productModel.findByIdAndRemove(productID);
 }
 
 

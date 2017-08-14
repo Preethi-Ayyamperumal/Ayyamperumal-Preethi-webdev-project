@@ -12,6 +12,7 @@
             "getReviewbyID":getReviewbyID,
             "getReviewByUserByProduct":getReviewByUserByProduct,
             "getReviewbyProduct":getReviewbyProduct,
+            "getReviewByUsername":getReviewByUsername
 
         };
         return api;
@@ -59,6 +60,14 @@
         }
 
 
+
+        function getReviewByUsername(username){
+            var url="/api/user/review/"+username;
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
         function getReviewbyID(reviewID){
             var url="/api/review/"+reviewID;
             return $http.get(url)

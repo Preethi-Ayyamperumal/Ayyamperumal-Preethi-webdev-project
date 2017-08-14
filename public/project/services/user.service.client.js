@@ -9,6 +9,7 @@
             "logout":logout,
             "register":register,
             "findUserByUsername":findUserByUsername,
+            "getVisitorInfo":getVisitorInfo,
             "updateUser":updateUser,
             "checkLogin" : checkLogin,
             "unFollow" :unFollow,
@@ -18,7 +19,11 @@
             "getFollowers":getFollowers,
             "getWishList":getWishList,
             "deleteWishListItem":deleteWishListItem,
-            "addtoWishList":addtoWishList
+            "addtoWishList":addtoWishList,
+            "getUsersByRole":getUsersByRole,
+            "addUser":addUser,
+            "deleteUserAuthorised":deleteUserAuthorised,
+            "updateUserAuthorized":updateUserAuthorized
 
 
         };
@@ -36,8 +41,21 @@
             return $http.post("/api/register", user);
         }
 
+
+        function addUser(user) {
+            return $http.post("/api/user/add", user);
+        }
+
         function findUserByUsername(username) {
             var url = "/api/user?username="+username;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function getVisitorInfo(username) {
+            var url = "/api/visitor/"+username;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -47,6 +65,22 @@
         function updateUser(user) {
             var url = "/api/user";
             return $http.put(url,user)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function updateUserAuthorized(userID,user) {
+            var url = "/api/manage/user/"+userID;
+            return $http.put(url,user)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function deleteUserAuthorised(userID) {
+            var url = "/api/user/"+userID;
+            return $http.delete(url)
                 .then(function (response) {
                     return response.data;
                 });
@@ -76,6 +110,12 @@
 
         function getFollowers(){
             return $http.get('/api/followers')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+        function getUsersByRole(role){
+            return $http.get('/api/users/role/'+role)
                 .then(function(response) {
                     return response.data;
                 });

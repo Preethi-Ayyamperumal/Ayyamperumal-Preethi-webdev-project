@@ -25,16 +25,23 @@
 
     <div class="container-fluid">
         <label for="category">Choose a category for your query</label>
-        <select id="category"  class="form-control">
-            <option value="option-1">Shipping</option>
-            <option value="option-2">Order</option>
-            <option value="option-3">Others</option>
-            <!--<option ng-repeat="x in names">{{x}}</option>-->
+        <select id="category"  class="form-control" ng-model="model.message.category">
+            <option value="ORDERS">ORDERS</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="ACCOUNT">ACCOUNT</option>
+            <option value="PRODUCTS">PRODUCTS</option>
         </select>
-        <label for="message">Message</label>
+
+        <label for="subject">Subject</label>
+        <input id="subject"
+                type="text"
+                ng-model="model.message.subject"
+                class="form-control"/>
+        <label for="message">Message Description</label>
         <textarea
                 id="message"
                 rows="10"
+                ng-model="model.message.message_description"
                 class="form-control"></textarea>
 
     </div>

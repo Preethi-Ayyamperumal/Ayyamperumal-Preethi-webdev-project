@@ -20,9 +20,12 @@
                 .then(
                     function(response) {
                         var user = response.data;
-                        $location.url("/profile");
+                        $location.url("/");
                     }).catch( function(err){
-               model.errorMessage="Username or Password Incorrect";
+                        if(err.data === "Unauthorized")
+                            model.errorMessage="Username or Password Incorrect";
+                        else
+                            model.errorMessage="You are blocked to login. Please contact Administrator.";
             });
 
         }

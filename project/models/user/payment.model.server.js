@@ -6,11 +6,15 @@ paymentModel.findPaymentById = findPaymentById;
 paymentModel.addPayment = addPayment;
 paymentModel.updatePayment = updatePayment;
 paymentModel.deletePayment = deletePayment;
-
+paymentModel.getDefaultPayment=getDefaultPayment;
 module.exports = paymentModel;
 
 function getPayment(userID) {
     return paymentModel.find({_user: userID});
+}
+
+function getDefaultPayment(userID) {
+    return paymentModel.findOne({_user: userID,type:'DEFAULT'});
 }
 
 function updatePayment(paymentID,payment) {
@@ -24,6 +28,7 @@ function deletePayment(paymentID) {
 
 function addPayment(userID,payment) {
     payment._user=userID;
+    payment.type='DEFAULT';
     return paymentModel.create(payment);
 }
 

@@ -8,3 +8,4 @@ require("./services/wishlist.service.server");
 require("./services/address.service.server");
 require("./services/payment.service.server");
 require("./services/review.service.server");
+require("./services/message.service.server");

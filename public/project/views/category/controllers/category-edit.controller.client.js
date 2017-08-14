@@ -43,15 +43,8 @@
         }
 
 
-        function setSelected(categoryID) {
-            paginatedService.getProducts(categoryID)
-                .then(function (response) {
-                    model.products=response;
-                    model.subcategory_selected=true;
 
-                });
 
-        }
 
 
         function loadProduct(productId){

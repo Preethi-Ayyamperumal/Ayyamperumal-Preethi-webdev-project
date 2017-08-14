@@ -14,7 +14,8 @@
             .when("/", {
                 templateUrl: "views/home/home.view.client.html",
                 controller: "homeController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {CurrentUser:getCurrentUser}
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
@@ -107,14 +108,9 @@
                     loggedInUser: checkLoggedin
                 }
             })
-            .when("/profile/:uid/visitor/:vid", {
+            .when("/profile/visitor/:vid", {
                 templateUrl: "views/user/templates/profile-visitor.view.client.html",
                 controller: "VisitorProfileController",
-                controllerAs: "model"
-            })
-            .when("/profile/:uid/orders", {
-                templateUrl: "views/order/templates/order-summary.view.client.html",
-                controller: "OrdersViewController",
                 controllerAs: "model"
             })
             .when("/profile/cart/:iID", {
@@ -125,7 +121,7 @@
                     loggedInUser: checkLoggedin
                 }
             })
-            .when("/profile/:uid/checkout", {
+            .when("/profile/checkout", {
             templateUrl: "views/order/templates/checkout.view.client.html",
             controller: "CheckoutController",
             controllerAs: "model"
@@ -133,17 +129,24 @@
             .when("/profile/message", {
                 templateUrl: "views/message/templates/message-list.view.client.html",
                 controller: "MessageListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {CurrentUser:getCurrentUser}
+
             })
-            .when("/profile/message/new", {
-                templateUrl: "views/message/templates/message-new.view.client.html",
-                controller: "NewMessageController",
-                controllerAs: "model"
-            })
+
             .when("/profile/message/:mId", {
                 templateUrl: "views/message/templates/message-edit.view.client.html",
                 controller: "EditMessageController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {CurrentUser:getCurrentUser}
+
+            })
+            .when("/profile/newmessage/", {
+                templateUrl: "views/message/templates/message-new.view.client.html",
+                controller: "NewMessageController",
+                controllerAs: "model",
+                resolve: {CurrentUser:getCurrentUser}
+
             })
             .when("/profile/review", {
                 templateUrl: "views/review/templates/review-list.view.client.html",
@@ -184,6 +187,69 @@
                 controller: "CategoryEditController",
                 controllerAs: "model"
             })
+            .when("/admin", {
+            templateUrl: "views/admin/templates/admin.view.client.html",
+            controller: "AdminController",
+            controllerAs: "model",
+            resolve:
+                { CurrentUser: getCurrentUser }
+            })
+            .when("/manager", {
+                templateUrl: "views/admin/templates/admin.view.client.html",
+                controller: "AdminController",
+                controllerAs: "model",
+                resolve:
+                    { CurrentUser: getCurrentUser }
+            })
+            .when("/customers", {
+            templateUrl: "views/database/templates/customer.view.client.html",
+            controller: "CustomerController",
+            controllerAs: "model",
+            resolve:
+                { loggedInUser: checkLoggedin }
+            })
+            .when("/managers", {
+                templateUrl: "views/database/templates/manager.view.client.html",
+                controller: "ManagerController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
+            .when("/products", {
+                templateUrl: "views/database/templates/product.view.client.html",
+                controller: "ProductController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
+            .when("/products/add", {
+                templateUrl: "views/database/templates/product-add.view.client.html",
+                controller: "ProductAddController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
+            .when("/orders", {
+                templateUrl: "views/database/templates/order.view.client.html",
+                controller: "OrdersController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
+            .when("/profile/order", {
+                templateUrl: "views/order/templates/order-summary.view.client.html",
+                controller: "OrderListController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
+            .when("/profile/order/:oid", {
+                templateUrl: "views/order/templates/order.view.client.html",
+                controller: "OrderViewController",
+                controllerAs: "model",
+                resolve:
+                    { loggedInUser: checkLoggedin }
+            })
 
     }
 
@@ -197,6 +263,19 @@
                 } else {
                     deferred.reject();
                     $location.url('/login');
+                }
+            });
+        return deferred.promise;
+    };
+    var getCurrentUser = function($q, $timeout, $http, $location, $rootScope,UserService) {
+        var deferred = $q.defer();
+        UserService
+            .checkLogin()
+            .then(function (user) {
+                if (user !== '0') {
+                    deferred.resolve(user);
+                } else {
+                    deferred.resolve(null);
                 }
             });
         return deferred.promise;

@@ -1,0 +1,95 @@
+<div class="pav">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()"><span
+                        class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Order</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+            <label>Order Summary</label>
+            <table id="orderSummary" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in model.order.line_items">
+                    <td align="left">{{item.item_name}}</td>
+                    <td align="right">{{item.quantity}}</td>
+                </tr>
+                </tbody>
+                <tfoot align="right">
+                <tr>
+                    <td>SubTotal</td>
+                    <td>{{model.order.subtotal}}</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>{{model.order.total_shipping}}</td>
+                </tr>
+                <tr>
+                    <td>Grand Total</td>
+                    <td>{{model.order.grand_total}}</td>
+                </tr>
+                </tfoot>
+            </table>
+        <table id="address" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Shipping Address</th>
+            </tr>
+            </thead>
+            <tbody>
+                 <tr>  <td><strong>{{model.address.fullName}}</strong><br>
+                        {{model.address.streetAddress1}}<br>
+                        {{model.address.streetAddress2}}<br>
+                        {{model.address.city}}<br>
+                        {{model.address.state}}<br>
+                        {{model.address.zipCode}}<br>
+                        <abbr title="Phone">P:</abbr> {{model.address.phone}}</td>
+                 </tr>
+            </tbody>
+        </table>
+
+        <table id="payment" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Payment Details</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr> <td> {{model.payment.nameOnCard}}<br>
+                {{model.payment.cardNumber}}<br>
+                {{model.payment.expirationMonth}}<br>
+                {{model.payment.expirationYear}}<br></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-right">
+                <p class="navbar-text pull-right">
+                    <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-user pull-right"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+</div>

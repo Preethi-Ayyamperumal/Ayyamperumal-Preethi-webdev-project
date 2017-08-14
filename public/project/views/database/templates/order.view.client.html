@@ -1,0 +1,41 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">User Suggestions</a>
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="" ng-click="model.followUsers()">Follow Selected Users</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+        <div class="container-fluid">
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+            <ul class="list-group">
+                <li ng-repeat="user in model.otherUsers" type="button" class="list-group-item">
+                    <div class="input-group">
+                        <a href="" ng-click="model.loadVisitorProfile(user.username)">{{user.username}}</a>
+                        <span class="input-group-addon">
+                        <input type="checkbox" aria-label="..." ng-click="model.stateChanged(user.username)">
+                   </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <p class="navbar-text pull-right">
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

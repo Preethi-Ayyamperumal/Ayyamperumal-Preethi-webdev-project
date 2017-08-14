@@ -12,43 +12,56 @@
                 <a class="navbar-brand">Checkout</a>
                 <div class="navbar-right">
                     <a class="navbar-brand" href="" ng-click="model.getCart()">Review Cart</a>
-                    <a class="navbar-brand" href="" ng-click="model.getFollowers()">Place Your Order</a>
+                    <a class="navbar-brand" href="" ng-click="model.placeOrder()">Place Your Order</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
+        <div>
             <label>Order Summary</label>
-            <table id="orderSummary" class="table table-bordered">
+            <table id="orderSummary" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Description</th>
-                    <th class="text-right">Price</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>SubTotal</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td align="left">Items</td>
-                    <td align="right">$30</td>
-                </tr>
-                <tr>
-                    <td align="left">tax</td>
-                    <td align="right">$5</td>
-                </tr>
-                <tr>
-                    <td align="left"><strong>Order Total</strong></td>
-                    <td align="right"><strong>$35</strong></td>
+                <tr ng-repeat="item in model.cartItems">
+                    <td align="left">{{item.name}}</td>
+                    <td align="right">{{item.quantity}}</td>
+                    <td align="right">{{item.salePrice}}</td>
+                    <td align="right">{{item.subTotal}}</td>
                 </tr>
                 </tbody>
+                <tfoot align="right">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>SubTotal</td>
+                    <td>{{model.sub_total}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Shipping</td>
+                    <td>{{model.shipping}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Grand Total</td>
+                    <td>{{model.grand_total}}</td>
+                </tr>
+                </tfoot>
             </table>
-            </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-
             <label>Shipping Address</label>
             <div class="pav-widget">
                 <div class="pav-widget-toolbar">
@@ -58,10 +71,13 @@
                 </div>
                 <div>
                     <address>
-                        <strong>Twitter, Inc.</strong><br>
-                        1355 Market Street, Suite 900<br>
-                        San Francisco, CA 94103<br>
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                        <strong>{{model.address.fullName}}</strong><br>
+                        {{model.address.streetAddress1}}<br>
+                        {{model.address.streetAddress2}}<br>
+                        {{model.address.city}}<br>
+                        {{model.address.state}}<br>
+                        {{model.address.zipCode}}<br>
+                        <abbr title="Phone">P:</abbr> {{model.address.phone}}
                     </address>
                 </div>
             </div>
@@ -69,7 +85,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label for="payment">Payment Information</label>
+                <label>Payment Information</label>
                 <div class="pav-widget">
                     <div class="pav-widget-toolbar">
                         <a href="" ng-click="model.editAddressWidget()">
@@ -77,7 +93,10 @@
                         </a>
                     </div>
                     <div>
-                        <input id="payment" class="form-control" type="text" value="Card ending 4567"/>
+                        <label>{{model.payment.nameOnCard}}</label>
+                        <label> {{model.payment.cardNumber}}</label>
+                        <label> {{model.payment.expirationMonth}}</label>
+                        <label> {{model.payment.expirationYear}}</label>
                     </div>
                 </div>
             </div>

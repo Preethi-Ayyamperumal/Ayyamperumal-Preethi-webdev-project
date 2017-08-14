@@ -3,7 +3,9 @@ var messageModel = require("../models/message/message.model.server");
 
 // http handlers
 app.get("/api/message/:messageId", findMessageById);
-app.get("/api/message", getMessage);
+app.get("/api/sentmessage", getSentMessages);
+app.get("/api/receivedmessage", getReceivedMessages);
+app.post("/api/messagetomanagers", sendMessageToManagers);
 app.post("/api/message", addMessage);
 app.put("/api/message/:messageId", updateMessage);
 app.delete("/api/message/:messageId", deleteMessage);
@@ -33,10 +35,30 @@ function addMessage(req, res) {
         })
 }
 
-function getMessage(req, res) {
+function sendMessageToManagers(req, res) {
+    var user = req.user;
+    var message=req.body;
+    messageModel
+        .sendMessageToManagers(user._id,message)
+        .then(function (user) {
+            res.json(user);
+        })
+}
+
+function getSentMessages(req, res) {
     var user = req.user;
     messageModel
-        .getMessage(user._id)
+        .getSentMessages(user._id)
+        .then(function (review) {
+            res.json(review);
+
+        });
+}
+
+function getReceivedMessages(req, res) {
+    var user = req.user;
+    messageModel
+        .getReceivedMessages(user._id)
         .then(function (review) {
             res.json(review);
 
@@ -46,11 +68,8 @@ function getMessage(req, res) {
 
 function deleteMessage(req, res) {
     var messageId = req.params.messageId;
-    var user = req.user;
-
-
     messageModel
-        .deleteMessage(user._id, messageId)
+        .deleteMessage(messageId)
         .then(function (status) {
             res.json(status);
         }, function (err) {
@@ -62,9 +81,8 @@ function deleteMessage(req, res) {
 
 function findMessageById(req, res) {
     var messageId = req.params.messageId;
-    var user = req.user;
     messageModel
-        .findMessageById(user._id,messageId)
+        .getMessageById(messageId)
         .then(function (message) {
             if(message === null)
                 res.status(200).json({ error: 'message' });

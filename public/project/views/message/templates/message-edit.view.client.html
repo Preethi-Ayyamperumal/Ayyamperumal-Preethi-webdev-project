@@ -9,46 +9,74 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-right">
                     <a class="navbar-brand" href="" ng-click="model.deleteMessage()">
-                        Delete Message
+                    Delete Message
                     </a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-horizontal">
                     <label>From:</label>
-                    <label>From:</label>
+                    <label> {{model.message.From.username}}</label>
 
                 </div>
                 <div class="form-horizontal">
                     <label>Sent:</label>
-                    <label>Sent:</label>
+                    <label> {{model.message.To.username}}</label>
                 </div>
                 <div class="form-horizontal">
-                    <label>To:</label>
-                    <label>To:</label>
+                    <label>Date:</label>
+                    <label>{{model.message.message_date}}</label>
                 </div>
                 <div class="form-horizontal">
-                    <label>Subject:</label>
-                    <label>Subject:</label>
-                </div>
-                <div class="form-horizontal">
-                    <label>Message ID:</label>
-                    <label>Message ID</label>
+                    <label>Subject :</label>
+                    <label>{{model.message.subject}}</label>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description"
-                          ng-model="model.website.description"
-                          placeholder="Description"
-                          rows="5"
-                          class="form-control"
-                          id="description"></textarea>
+                    <h6>{{model.message.message_description}}</h6>
                 </div>
+                <a ng-if="!model.isUserReplying" class="btn btn-default btn-success btn-block"
+                   ng_click="model.setUserReplying()"
+                   role="button">Send A Reply</a>
+            </div>
+        </div>
+        <div class="row" ng-if="model.isUserReplying">
+            <div class="col-xs-12">
+                <div class="form-horizontal">
+                    <label>From:</label>
+                    <label>{{model.reply.From.username}}</label>
+
+                </div>
+                <div class="form-horizontal">
+                    <label>Sent:</label>
+                    <label>{{model.reply.To.username}}</label>
+                </div>
+                <div class="form-horizontal">
+                    <label>Date:</label>
+                    <label>{{model.reply.message_date}}</label>
+                </div>
+                <div class="form-horizontal">
+                    <label for="subject">Subject</label>
+                    <input id="subject"
+                           type="text"
+                           ng-model="model.reply.subject"
+                           class="form-control"/>
+
+                </div>
+                <div class="form-group">
+                    <label for="message">Message Description</label>
+                    <textarea
+                            id="message"
+                            rows="10"
+                            ng-model="model.reply.message_description"
+                            class="form-control"></textarea>
+                </div>
+                <a class="btn btn-default btn-primary btn-block"
+                   ng_click="model.sendReply()"
+                   role="button">Send</a>
             </div>
         </div>
     </div>

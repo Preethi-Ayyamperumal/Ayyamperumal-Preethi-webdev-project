@@ -1,59 +1,39 @@
-<div class="pav" xmlns="http://www.w3.org/1999/html">
+<div class="pav">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand">Profile</a>
-                <p class="navbar-right">
-                    <a href="" class="white" ng-click="model.toggle()">{{model.followStatus}}</a>
-                </p>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
 
-        <label for="fullName">Full Name</label>
-        <input name="fullName"
-               ng-model="model.user.fullName"
+        <label for="firstName">First Name</label>
+        <input name="firstName"
+               ng-model="model.user.firstName"
                type="text"
-               readonly
-               placeholder="Alice Wonderland"
+               placeholder="alice"
                class="form-control"
-               id="fullName"/>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-                <a href="" ng-click="model.getFollowers()">
-                    10
-                </a>
-            </div>
-            <label>Followers</label>
+               id="firstName"/>
+        <label for="lastName">Last Name</label>
+        <input name="lastName"
+               ng-model="model.user.lastName"
+               type="text"
+               placeholder="wonderland"
+               class="form-control"
+               id="lastName"/>
+
+        <label ng-if="model.reviews.length">Reviews</label>
+        <div ng-repeat="review in model.reviews">
+            <div class="pav-widget disabled">
+                    <h3> {{review.name}}</h3></div>
+                    <div>  {{review.review_date}}</div>
+                    <div data-angular-rating-icons ng-model="review.rating" ></div>
+                    <div><h5><strong>{{review.review_title}}</strong></h5></div>
+                    <div>
+                        <h6>{{review.review_content}}</h6>
+                    </div>
         </div>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-                <a href="" ng-click="model.getFollowing()">
-                    10
-                </a>
-            </div>
-            <label>Following</label>
-        </div>
-        <label>Reviews</label>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-            <a href="" ng-click="model.editAddressWidget()">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            </div>
-             <input
-                     name="reviews"
-                     ng-model="model.user.address"
-                     type="text"
-                     readonly
-                     class="form-control"
-                     id="reviews"></input>
-        </div>
-
-
-
-
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

@@ -3,14 +3,16 @@
         .module("GroceryApp")
         .controller("homeController", homeController);
     
-    function homeController(categoryService,$location,paginatedService) {
+    function homeController(categoryService,$location,paginatedService,CurrentUser,UserService) {
         var model = this;
         model.updateCategories=updateCategories;
         model.setSelected=setSelected;
         model.setSubCategory=setSubCategory;
          model.loadProduct=loadProduct;
+         model.logout=logout;
 
         function init() {
+            model.currentUser=CurrentUser;
             categoryService.getCategories()
                 .then (function (response) {
                     model.categories = response;
@@ -24,6 +26,15 @@
                 .then (function (response) {
                     location.reload()
                 });
+        }
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function(response) {
+                        $location.url("/login");
+                    });
         }
 
         function setSubCategory(category){

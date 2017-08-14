@@ -73,10 +73,6 @@
             $location.url("/profile/following/");
         }
 
-        function getFollowing()
-        {
-            $location.url("/profile/wishlist/");
-        }
         function getAddress()
         {
             $location.url("/profile/address/");
@@ -91,11 +87,9 @@
             $location.url("/profile/wishlist/");
         }
 
-
-
         function getOrders()
         {
-            $location.url("/profile/" + model.userId+"/orders/");
+            $location.url("/profile/order/");
         }
         function getCart()
         {
@@ -103,7 +97,7 @@
         }
         function getMessageCenter()
         {
-            $location.url("/profile/" + model.userId+"/message/");
+            $location.url("/profile/message/");
         }
         function getReviews()
         {

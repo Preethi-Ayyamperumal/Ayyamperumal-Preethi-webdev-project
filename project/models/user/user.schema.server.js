@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var userSchema = mongoose.Schema({
-    role: {type: String, enum:["ADMIN", "CUSTOMER", "MANAGER"]},
+    role: {type: String, default:'CUSTOMER' ,enum:["ADMIN", "CUSTOMER", "MANAGER"]},
     username: String,
     password: String,
     facebook: {
@@ -13,7 +13,7 @@ var userSchema = mongoose.Schema({
     phone:String,
     dob:Date,
     following:[ this ],
-    isBlocked:Boolean,
+    status:{type: String, default:'ACTIVE' ,enum:["ACTIVE", "BLOCKED"]},
     dateCreated:{type: Date, default: Date.now}
 }, {collection: "user"});
 module.exports = userSchema;

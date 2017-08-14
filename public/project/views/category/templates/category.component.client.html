@@ -7,7 +7,7 @@
                 <span ng-if="category.children.length" class="caret pull-right"></span>
             </button>
             <!--<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>-->
-            <ul ng-if="model.subCategory.length" class="dropdown-menu dropdown-menu-right list-group">
+            <ul ng-if="model.subCategory.length" class="dropdown-menu list-group">
                 <li ng-repeat="subCat in model.subCategory" class="list-group-item list-group-item-info">
                     <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a></li>
             </ul>

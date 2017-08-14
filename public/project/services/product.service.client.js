@@ -7,7 +7,10 @@
         var api = {
             "searchProduct": searchProduct,
             "loadProduct":loadProduct,
-            "insertProduct":insertProduct
+            "insertProduct":insertProduct,
+            "getAllProducts":getAllProducts,
+            "deleteProduct":deleteProduct
+
         };
         return api;
 
@@ -31,6 +34,22 @@
         function insertProduct(product) {
             var url = "/api/product/insert/";
             return $http.put(url,product)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function getAllProducts() {
+            var url = "/api/product/";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function deleteProduct(productID) {
+            var url = "/api/product/"+productID;
+            return $http.delete(url)
                 .then(function (response) {
                     return response.data;
                 });

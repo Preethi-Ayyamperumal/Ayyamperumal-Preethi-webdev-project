@@ -8,6 +8,7 @@ reviewModel.updateReview = updateReview;
 reviewModel.deleteReview = deleteReview;
 reviewModel.getReviewByUserByPID=getReviewByUserByPID;
 reviewModel.getReviewForProduct=getReviewForProduct;
+reviewModel.getReviewByUsername=getReviewByUsername;
 module.exports = reviewModel;
 
 /*function getReview(userID) {
@@ -61,6 +62,13 @@ function getReviewForProduct(productID) {
 
 function getReviewByUserByPID(userID,productID) {
     return reviewModel.find({reviewed_by: userID,itemID:productID});
+}
+
+function getReviewByUsername(username) {
+    return reviewModel.find({reviewer_username:username}).populate('reviewdata')
+        .exec(function (err,reviewItems) {
+            return reviewItems;
+        })
 }
 function updateReview(reviewID,review) {
     return reviewModel.update({_id: reviewID},

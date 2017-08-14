@@ -22,20 +22,25 @@ passport.deserializeUser(deserializeUser);
 
 
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-app.post  ('/api/login', passport.authenticate('local'), login);
-app.post  ('/api/logout', logout);
-app.post ('/api/register', register);
-app.get ('/api/user', findAllUsers);
-app.get ('/api/loggedin', loggedin);
+app.post('/api/login', passport.authenticate('local'), login);
+app.post('/api/logout', logout);
+app.post('/api/register', register);
+app.get('/api/user', findAllUsers);
+app.get('/api/visitor/:username',getVisitorInfo);
+
+app.post('/api/user/add', addUser);
+app.get('/api/loggedin', loggedin);
 app.put("/api/user", updateUser);
+app.put("/api/manage/user/:uid", updateUserAuthorized);
+app.delete("/api/user/:uid", deleteUser);
 app.get ('/api/following', getFollowing);
 app.get ('/api/followers', getFollowers);
-
+app.get ('/api/users/role/:role',getUsersByRole);
 app.get ('/api/unfollow/:username', unFollow);
 app.put("/api/follow", followUsers);
 app.get("/api/tofollow", getUserstoFollow);
 
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/project/#!/profile',
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/project/#!/',
         failureRedirect: '/project/#!/login' }));
 
 function getFollowing(req, res) {
@@ -52,6 +57,16 @@ function getFollowers(req, res) {
             res.json(users)
         });
 }
+
+function getUsersByRole(req, res) {
+    var role = req.params.role;
+
+    userModel.getUsersByRole(role)
+        .then(function (users){
+            res.json(users)
+        });
+}
+
 
 function getUserstoFollow(req, res) {
     var user = req.user;
@@ -84,10 +99,37 @@ function followUsers(req, res) {
 
 
 function updateUser(req, res) {
+    var user = req.user;
+    var userobj=req.body;
+    userModel
+        .updateUser(userobj)
+        .then(function (status) {
+            res.json(status);
+        }, function (err) {
+            res.status(404).json({ error: 'message' });
+        });
+}
+
+function updateUserAuthorized(req, res) {
+    var userID = req.params.uid;
     var user = req.body;
 
     userModel
-        .updateUser(user)
+        .updateUserAuthorized(userID,user)
+        .then(function (status) {
+            res.json(status);
+        }, function (err) {
+            res.status(404).json({ error: 'message' });
+        });
+}
+
+
+
+function deleteUser(req, res) {
+    var userID = req.params.uid;
+
+    userModel
+        .deleteUser(userID)
         .then(function (status) {
             res.json(status);
         }, function (err) {
@@ -97,7 +139,10 @@ function updateUser(req, res) {
 
 function login(req, res) {
     var user = req.user;
-    res.json(user);
+    if(user.status === "ACTIVE") {
+        res.json(user);
+    }else
+        res.status(401).json("Blocked User");
 }
 
 function logout(req, res) {
@@ -127,6 +172,30 @@ function findAllUsers(req, res) {
     }
 }
 
+function getVisitorInfo(req, res) {
+    var username = req.params.username;
+    if(username) {
+        userModel
+            .findUserByUsername(username)
+            .then(function (user) {
+                if(user) {
+                    var visitorInfo={};
+                    visitorInfo.firstName=user._doc.firstName;
+                    visitorInfo.lastName=user._doc.lastName;
+                    res.json(visitorInfo);
+                } else {
+                    res.sendStatus(404);
+                }
+            });
+    } else {
+        userModel
+            .findAllUsers()
+            .then(function (users) {
+                res.json(users);
+            });
+    }
+}
+
 
 function loggedin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
@@ -141,11 +210,16 @@ function localStrategy(username, password, done) {
                 {
                     return done(null, false);
                 }
-                if(bcrypt.compareSync(password, user.password)) {
-                    return done(null, user);
+                if(bcrypt.compareSync(password, user.password) )
+                {
+                        return done(null, user);
+                }
+                else
+                {
+                    return done(null, false,{ message: 'Incorrect Username or Password.'});
                 }
             },
-            function(err) {
+            function(err, user, info) {
                 if (err) { return done(err); }
             }
         );
@@ -165,6 +239,24 @@ function register (req, res) {
                     } else {
                         res.json(user);
                     }});
+                }
+            }
+        );
+}
+
+function addUser (req, res) {
+    var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
+    userModel
+        .createUser(user)
+        .then(
+            function(user){
+                if(user){
+                    res.json(user);
+                }
+                else
+                {
+                    console.log("error");
                 }
             }
         );

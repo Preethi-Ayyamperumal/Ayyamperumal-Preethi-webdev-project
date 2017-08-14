@@ -4,6 +4,8 @@ var reviewModel = require("../models/review/review.model.server");
 // http handlers
 app.get("/api/review/:reviewId", findReviewById);
 app.get("/api/user/review", getReview);
+app.get("/api/user/review/:username", getReviewByUsername);
+
 app.get("/api/user/review/product/:productId", getReviewByUserByPID);
 app.get("/api/product/:productID/review",getReviewForProduct )
 app.post("/api/user/review", addReview);
@@ -99,7 +101,31 @@ function getReviewByUserByPID(req, res) {
         });
 
 }
+function getReviewByUsername(req, res) {
+    var username = req.params.username;
 
+    reviewModel.getReviewByUsername(username)
+        .then(function (reviewItems) {
+            var returndata=[];
+
+            var finalobj={};
+            for(var _obj in reviewItems)
+            {
+                finalobj={};
+                for(var key in reviewItems[_obj].reviewdata._doc) {
+                    finalobj[key] = reviewItems[_obj].reviewdata._doc[key];
+                }
+                for(var key in reviewItems[_obj]._doc) {
+                    finalobj[key] = reviewItems[_obj]._doc[key];
+                }
+
+                returndata.push(finalobj);
+            }
+            res.json(returndata);
+
+        });
+
+}
 
 function deleteReview(req, res) {
     var reviewId = req.params.reviewId;

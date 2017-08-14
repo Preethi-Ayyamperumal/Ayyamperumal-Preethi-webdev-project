@@ -14,13 +14,14 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a ng-show="!currentUser" href="#!/login">Login</a></li>
-                <li><a ng-show="!currentUser" href="#!/register">Register</a></li>
-                <li><a ng-show="currentUser"  href="#!/profile/{{currentUser._id}}">Profile</a></li>
-                <li><a ng-show="currentUser"  href="#!/logout">Logout</a></li>
-                <li><a ng-show="currentUser.isAdmin" href="#!/admin">Admin</a></li>
-                <li><a href="#!/about">About</a></li>
-                <li><a href="#!/contact">Contact</a></li>
+                <li><a ng-show="!model.currentUser" href="#!/login">Login</a></li>
+                <li><a ng-show="!model.currentUser" href="#!/register">Register</a></li>
+                <li><a ng-show="model.currentUser"  href="#!/profile">Profile</a></li>
+                <li><a ng-show="model.currentUser"  href="" ng-click="model.logout()">Logout</a></li>
+                <li><a ng-show="model.currentUser.role === 'ADMIN'" href="#!/admin">Admin</a></li>
+                <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/manager">Manager</a></li>
+                <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/messages">Inbox</a></li>
+
             </ul>
             <search-bar></search-bar>
         </div><!--/.nav-collapse -->
@@ -29,6 +30,6 @@
 
 <div class="container-fluid">
             <div ng-include="'views/category/templates/category.component.client.html'"></div>
-    </div>
+</div>
 
 

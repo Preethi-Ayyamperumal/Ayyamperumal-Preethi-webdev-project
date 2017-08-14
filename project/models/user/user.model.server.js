@@ -14,8 +14,10 @@ userModel.unFollowUser=unFollowUser;
 userModel.addFollowers=addFollowers;
 userModel.getFollowers=getFollowers;
 userModel.getFollowing=getFollowing;
-
+userModel.getUsersByRole=getUsersByRole;
 userModel.getUserstoFollow=getUserstoFollow;
+userModel.deleteUser=deleteUser;
+userModel.updateUserAuthorized=updateUserAuthorized;
 module.exports = userModel;
 
 
@@ -26,7 +28,6 @@ function findUserByFacebookId(facebookId) {
 function createUser(user) {
     return userModel.create(user)
         .then(function (user) {
-
                 return user;
             });
 }
@@ -36,6 +37,12 @@ function updateUser(user) {
     return userModel.findOneAndUpdate({username:user.username}, {$set: user});
 }
 
+function updateUserAuthorized(userID,user) {
+    return userModel.findOneAndUpdate({username:user.username}, {$set: user});
+}
+function deleteUser(userID) {
+    return userModel.findByIdAndRemove(userID);
+}
 function findUserById(userID) {
     return userModel.findById(userID);
 }
@@ -43,6 +50,10 @@ function findUserById(userID) {
 
 function findAllUsers() {
     return userModel.find();
+}
+
+function getUsersByRole(role) {
+    return userModel.find({role:role});
 }
 
 function findUserByUsername(username) {

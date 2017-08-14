@@ -1,0 +1,97 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Managers</a>
+                <div class="navbar-right">
+                    <a class="navbar-brand"  href="" ng-click="model.addManager()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-plus pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+        <div ng-show="model.showNewManagerDiv">
+            <label for="username">Username</label>
+            <input name="username"
+                   ng-model="model.user.username"
+                   type="text"
+                   placeholder="alice"
+                   class="form-control"
+                   id="username"/>
+
+            <label for="role">Role</label>
+            <select name="password"
+                    ng-model="model.user.role"
+                    class="form-control"
+                    id="role">
+                <option value="CUSTOMER">Customer</option>
+                <option value="MANAGER">Manager</option>
+            </select>
+            <label for="blocked">Status</label>
+            <select name="password"
+                    ng-model="model.user.status"
+                    class="form-control"
+                    id="blocked">
+                <option value="BLOCKED">Blocked</option>
+                <option value="ACTIVE">Active</option>
+            </select>
+            <a class="btn btn-default btn-success btn-block"
+               ng_click="model.register()"
+               role="button">Add User</a>
+        </div>
+        <table class="table  table-striped ">
+            <thead>
+            <tr>
+                <td>USERNAME</td>
+                <td>ROLE</td>
+                <td>STATUS</td>
+                <td>SAVE</td>
+                <td>DELETE</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="manager in model.managers">
+                <td><a href="" ng-click="model.loadVisitorProfile(manager.username)">{{manager.username}}</a></td>
+                <td><select name="password"
+                            ng-model="manager.role">
+                    <<option value="CUSTOMER">Customer</option>
+                    <option value="MANAGER">Manager</option>
+                </select></td>
+                <td> <select name="password"
+                             ng-model="manager.status">
+                    <option value=BLOCKED>Blocked</option>
+                    <option value=ACTIVE>Active</option>
+                </select></td>
+                <td><a href="" ng-click="model.saveManager(manager._id,manager)" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok pull-right"></span>
+                </a></td>
+                <td>  <span >
+                         <a href="" ng-click="model.deleteManager(manager._id)" class="navbar-link">
+                             <span class="glyphicon glyphicon-remove pull-right"></span>
+                         </a>
+                        </span></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <p class="navbar-text pull-right">
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

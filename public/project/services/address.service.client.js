@@ -9,7 +9,8 @@
             "addAddress":addAddress,
              "getAddressess" :getAddressess,
             "deleteAddress":deleteAddress,
-            "getAddress" :getAddress
+            "getAddress" :getAddress,
+            "getDefaultAddress":getDefaultAddress
 
         };
         return api;
@@ -47,7 +48,13 @@
                     return response.data;
                 });
         }
-
+        function getDefaultAddress() {
+            var url = "/api/addressdefault/";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
         function getAddressess(){
             var url = "/api/address/";
             return $http.get(url)

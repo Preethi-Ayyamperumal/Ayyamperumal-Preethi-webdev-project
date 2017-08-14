@@ -7,6 +7,7 @@ cartModel.updateCart = updateCart;
 cartModel.getCart = getCart;
 cartModel.getCarttest=getCarttest;
 cartModel.createCartforUser=createCartforUser;
+cartModel.clearCart=clearCart;
 module.exports = cartModel;
 
 
@@ -31,6 +32,11 @@ function updateCart(userId,product) {
 function getCart(userId) {
     return cartModel.find({_user:userId});
 }
+
+function clearCart(userId) {
+    return cartModel.remove({_user:userId});
+}
+
 
 function getCarttest(userId) {
     return cartModel.find({_user:userId}).populate('cartdata')

@@ -4,25 +4,23 @@
         .module("GroceryApp")
         .controller("VisitorProfileController", VisitorProfileController)
 
-    function VisitorProfileController($location, $routeParams) {
+    function VisitorProfileController($location, $routeParams,UserService,reviewService) {
         var model = this;
-        model.toggle=toggle;
         function init() {
-            model.userId=123;
-            model.addressId=123;
-            model.paymentId=123;
-            model.followStatus="Follow";
+            model.visitorname=$routeParams.vid;
+            UserService.getVisitorInfo(model.visitorname).then(function (visitor) {
+                model.user=visitor;
+                reviewService.getReviewByUsername(model.visitorname).then(function (reviews){
+                    model.reviews=reviews;
+                })
+
+            })
         }
 
         init();
 
 
-       function toggle() {
-           if(model.followStatus === "Follow")
-               model.followStatus="UnFollow";
-           else
-               model.followStatus="Follow";
-       }
+
 
     }
 

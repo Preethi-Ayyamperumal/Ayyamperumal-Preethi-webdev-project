@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var orderSchema = mongoose.Schema({
     _user:{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
     line_items : [{
-        item: {type: mongoose.Schema.Types.ObjectId, ref:"ProductModel"},
+        item_name: String,
         quantity: Number
     }],
     shipping_address:{type: mongoose.Schema.Types.ObjectId, ref:"AddressModel"},
@@ -11,6 +11,6 @@ var orderSchema = mongoose.Schema({
     total_shipping:Number,
     grand_total:Number,
     delivered_Date:Date,
-    ordered_Date:Date
+    ordered_Date:{type:Date,default:Date.now}
 }, {collection: "order"});
 module.exports = orderSchema;

@@ -4,6 +4,7 @@ var paymentModel = require("../models/user/payment.model.server");
 // http handlers
 app.get("/api/payment/:paymentId", findPaymentById);
 app.get("/api/payment", getPayment);
+app.get("/api/paymentdefault/", getDefaultPayment);
 app.post("/api/payment", addPayment);
 app.put("/api/payment/:paymentId", updatePayment);
 app.delete("/api/payment/:paymentId", deletePayment);
@@ -42,7 +43,16 @@ function getPayment(req, res) {
         });
 
 }
+function getDefaultPayment(req, res) {
+    var user = req.user;
+    paymentModel
+        .getDefaultPayment(user._id)
+        .then(function (payment) {
+            res.json(payment);
 
+        });
+
+}
 function deletePayment(req, res) {
     var paymentId = req.params.paymentId;
 
