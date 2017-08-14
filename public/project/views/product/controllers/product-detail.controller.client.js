@@ -15,6 +15,8 @@
             searchService.loadProduct(productId)
                 .then (function (response) {
                         model.product = response;
+                        if(!response.availableOnline)
+                            model.product.salePrice="20.76";
                         searchService.insertProduct(model.product).then(function(response){
                                 reviewService.getReviewbyProduct(model.product.itemId).then(function (reviews){
                                     model.reviews=reviews;

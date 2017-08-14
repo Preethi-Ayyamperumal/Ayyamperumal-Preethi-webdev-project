@@ -10,6 +10,7 @@
         model.setSelected=setSelected;
         model.setSubCategory=setSubCategory;
         model.loadProduct=loadProduct;
+        model.getPagination=getPagination;
 
         function init() {
             categoryService.getCategories()
@@ -27,6 +28,15 @@
                 });
         }
 
+        function setSelected(categoryID){
+            paginatedService.getProducts(categoryID)
+                .then(function (response) {
+                    model.products=response;
+
+                    model.subcategory_selected=true;
+
+                });
+        }
         function setSubCategory(category){
             if(category.children.length >0 )
                 model.subCategory=category.children;
@@ -36,14 +46,18 @@
                 paginatedService.getProducts(category.id)
                     .then(function (response) {
                         model.products=response;
+
                         model.subcategory_selected=true;
 
                     });
+
             }
         }
 
 
-
+        function getPagination(){
+            return new Array(model.products.length%10);
+        }
 
 
 

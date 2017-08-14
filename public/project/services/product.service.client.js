@@ -14,12 +14,11 @@
         };
         return api;
 
-        function searchProduct(productName) {
-            productName = productName.replace(/\s\s*/g, '+');
-            var url = "/api/product/searchByName/"+productName;
-            return $http.get(url)
+        function searchProduct(product) {
+            var url = "/api/product/searchByName?productName="+product.productName+"&start="+product.start;
+            return $http.get(url,product)
                 .then(function (response) {
-                    return response.data.items;
+                    return response.data;
                 });
         }
 

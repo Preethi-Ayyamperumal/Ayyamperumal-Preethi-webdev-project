@@ -1,13 +1,25 @@
+<div class="text-center">
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="ng-class:model.previousState"><a href="" ng-click="model.getPrevious()">Previous</a></li>
+            <li class="ng-class:model.nextState"><a  href="" ng-click="model.getNext()">Next</a></li>
+        </ul>
+    </nav>
+</div>
+
 <table class="table">
-    <tr ng-repeat="product in model.products" ng-if=product.availableOnline>
+    <tr ng-repeat="product in model.products">
         <td>
             <img ng-src="{{product.thumbnailImage}}"></img>
             <a href="" ng-click="model.loadProduct(product.itemId)">{{product.name}}</a>
         </td>
-
-        <td>
-        </td>
-
-
     </tr>
 </table>
+<div class="text-center">
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="ng-class:model.previousState"><a href="" ng-click="model.getPrevious()">Previous</a></li>
+            <li class="ng-class:model.nextState"><a  href="" ng-click="model.getNext()">Next</a></li>
+        </ul>
+    </nav>
+</div>

@@ -3,7 +3,7 @@ const app = require('../../express');
 const https = require('https');
 var categoryModel = require("../models/category/product_category.model.server");
 
-app.get('/api/product/searchByName/:productName', searchByName);
+app.get('/api/product/searchByName/', searchByName);
 app.get('/api/product/searchById/:productId', searchById);
 app.get('/api/category/update', updateCategories);
 app.get('/api/paginated/:categoryID', getPaginatedProducts);
@@ -41,8 +41,9 @@ function updateCategories(req, res) {
 
 
 function searchByName(req, res) {
-    var productName   = req.params.productName;
-    var path='/v1/search?query=+'+productName+'&format=json&apiKey='+apiKey;
+    var productName   = req.query.productName;
+    var start = req.query.start;
+    var path='/v1/search?query='+productName+'&format=json&categoryId=976759&apiKey='+apiKey+'&start='+start;
     walmartSearchQuery(path)
         .then(function(response){
             res.json(response);
