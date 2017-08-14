@@ -89,5 +89,5 @@ function getFollowers(username){
 function getUserstoFollow(user){
     var userstoremove = user.following;
     userstoremove.push(user.username);
-    return userModel.find({username: {$nin : userstoremove}}).select('username -_id')
+    return userModel.find({username: {$nin : userstoremove},role:'CUSTOMER'}).select('username -_id')
 }
