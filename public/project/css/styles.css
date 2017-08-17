@@ -192,7 +192,7 @@ body {
 }
 
 .pv .navbar-default {
-    background-color:darkgray;
+    background-color:slategray;
 }
 .col2 {
     background-color:slategray;
@@ -213,3 +213,13 @@ body {
 .address{
     height:220px
 }
+
+.nowrap {
+    white-space: nowrap;
+}
+
+
+.bottom-margin {
+    margin-bottom: 10px;
+}
+
