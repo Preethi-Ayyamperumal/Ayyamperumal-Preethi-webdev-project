@@ -11,8 +11,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 // app.use(session({ secret: process.env.SESSION_SECRET }));
-app.use(session({ secret: "Testefwfds" }));
-
+if(process.env.MLAB_PASSWORD_WEBDEV)
+{
+    app.use(session({ secret: process.env.SESSION_SECRET }));
+}
+else
+{
+    app.use(session({secret: "Testefwfds"}));
+}
 app.use(passport.initialize());
 app.use(passport.session());
 

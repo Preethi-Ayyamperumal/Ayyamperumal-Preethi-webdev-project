@@ -5,16 +5,18 @@ var app = require('../../express');
 var userModel=require("../models/user/user.model.server");
 var passport = require('passport');
 var bcrypt = require('../../bCrypt');
+
 var facebookConfig = {
-    clientID     : "298691627269838",
-    clientSecret : "1c66d58197050af1002a6363722052bf",
-    callbackURL  : "http://localhost:3001/auth/facebook/callback"
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
 };
 var googleConfig = {
-    clientID     : "474172909306-5jb22a2esodf5cqu1db8gcgj7vn86dar.apps.googleusercontent.com",
-    clientSecret : "h2ZpJ6WtPSZLdqrJzZLCpVVm",
-    callbackURL  : "http://localhost:3001/auth/google/callback"
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
 };
+
 var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LocalStrategy = require('passport-local').Strategy;
