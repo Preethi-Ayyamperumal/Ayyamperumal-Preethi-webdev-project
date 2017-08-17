@@ -5,29 +5,22 @@ var app = require('../../express');
 var userModel=require("../models/user/user.model.server");
 var passport = require('passport');
 var bcrypt = require('../../bCrypt');
-
 var facebookConfig = {
     clientID     : "298691627269838",
     clientSecret : "1c66d58197050af1002a6363722052bf",
-    callbackURL  : "http://shop-groceries-online.herokuapp.com/auth/facebook/callback"
+    callbackURL  : "http://localhost:3001/auth/facebook/callback"
 };
-
 var googleConfig = {
     clientID     : "474172909306-5jb22a2esodf5cqu1db8gcgj7vn86dar.apps.googleusercontent.com",
     clientSecret : "h2ZpJ6WtPSZLdqrJzZLCpVVm",
-    callbackURL  : "http://shop-groceries-online.herokuapp.com/auth/google/callback"
+    callbackURL  : "http://localhost:3001/auth/google/callback"
 };
 var FacebookStrategy = require('passport-facebook').Strategy;
-
-
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
-
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
-
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
@@ -43,7 +36,8 @@ app.post('/api/user/add', addUser);
 app.get('/api/loggedin', loggedin);
 app.put("/api/user", updateUser);
 app.put("/api/manage/user/:uid", updateUserAuthorized);
-app.delete("/api/user/:uid", deleteUser);
+app.delete("/api/manage/user/:uid", deleteUserAuthorized);
+app.delete("/api/user/", deleteUser);
 app.get ('/api/following', getFollowing);
 app.get ('/api/followers', getFollowers);
 app.get ('/api/users/role/:role',getUsersByRole);
@@ -142,7 +136,7 @@ function updateUserAuthorized(req, res) {
 
 
 
-function deleteUser(req, res) {
+function deleteUserAuthorized(req, res) {
     var userID = req.params.uid;
 
     userModel
@@ -153,6 +147,20 @@ function deleteUser(req, res) {
             res.status(404).json({ error: 'message' });
         });
 }
+
+
+function deleteUser(req, res) {
+    var user = req.user;
+
+    userModel
+        .deleteUser(user._id)
+        .then(function (status) {
+            res.json(status);
+        }, function (err) {
+            res.status(404).json({ error: 'message' });
+        });
+}
+
 
 function login(req, res) {
     var user = req.user;

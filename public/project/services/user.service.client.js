@@ -23,7 +23,8 @@
             "getUsersByRole":getUsersByRole,
             "addUser":addUser,
             "deleteUserAuthorised":deleteUserAuthorised,
-            "updateUserAuthorized":updateUserAuthorized
+            "updateUserAuthorized":updateUserAuthorized,
+            "unRegister":unRegister
 
 
         };
@@ -79,7 +80,15 @@
         }
 
         function deleteUserAuthorised(userID) {
-            var url = "/api/user/"+userID;
+            var url = "/api/manage/user/"+userID;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function unRegister() {
+            var url = "/api/user/";
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;

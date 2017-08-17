@@ -21,9 +21,10 @@
         model.getAddress=getAddress;
         model.getPayment=getPayment;
         model.getWishList=getWishList;
+        model.unRegister=unRegister;
         function init() {
-            model.loggedInUser=loggedInUser;
-
+            model.user=loggedInUser;
+            model.user.dob=new Date(loggedInUser.dob);
         }
 
         init();
@@ -103,7 +104,10 @@
         {
             $location.url("/category/update");
         }
-
+        function unRegister() {
+            UserService.unRegister().then(function (status) {
+            })
+        }
 
     }
 

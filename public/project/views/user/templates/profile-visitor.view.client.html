@@ -10,18 +10,22 @@
         <div class="row">
             <div class="col-sm-6">
                 <h3 class="text-center"><strong>Personal Information</strong></h3>
+                <label for="username">Username</label>
+                <input name="username"
+                       ng-model="model.user.username"
+                       type="text"
+                       class="form-control"
+                       id="username"/>
                 <label for="firstName">First Name</label>
                 <input name="firstName"
                        ng-model="model.user.firstName"
                        type="text"
-                       placeholder="alice"
                        class="form-control"
                        id="firstName"/>
                 <label for="lastName">Last Name</label>
                 <input name="lastName"
                        ng-model="model.user.lastName"
                        type="text"
-                       placeholder="wonderland"
                        class="form-control"
                        id="lastName"/>
             </div>

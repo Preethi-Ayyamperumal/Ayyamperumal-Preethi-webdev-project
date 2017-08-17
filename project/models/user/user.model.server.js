@@ -10,6 +10,7 @@ userModel.findAllUsers = findAllUsers;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByFacebookId = findUserByFacebookId;
+userModel.findUserByGoogleId=findUserByGoogleId;
 userModel.unFollowUser=unFollowUser;
 userModel.addFollowers=addFollowers;
 userModel.getFollowers=getFollowers;
@@ -23,6 +24,10 @@ module.exports = userModel;
 
 function findUserByFacebookId(facebookId) {
     return userModel.findOne({'facebook.id': facebookId});
+}
+
+function findUserByGoogleId(googleID) {
+    return userModel.findOne({'google.id': googleID});
 }
 
 function createUser(user) {
