@@ -2,7 +2,7 @@
 
 <div class="row">
     <div ng-repeat="product in model.products"  class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
-        <div class="thumbnail" style="height: 200px" >
+        <div class="thumbnail product" >
             <img ng-src="{{product.thumbnailImage}}"></img>
             <div class="caption">
                 <a href="" ng-click="model.loadProduct(product.itemId)" class="small text-success">{{product.name}}</a>

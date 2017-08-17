@@ -8,7 +8,6 @@
         var model = this;
         model.updateUser = updateUser;
         model.logout = logout;
-        model.loadUserWebsites = loadUserWebsites;
         model.loadUserProfile = loadUserProfile;
         model.editAddressWidget=editAddressWidget;
         model.editPaymentWidget=editPaymentWidget;
@@ -23,23 +22,19 @@
         model.getPayment=getPayment;
         model.getWishList=getWishList;
         function init() {
-            model.user=loggedInUser;
+            model.loggedInUser=loggedInUser;
 
         }
 
         init();
 
 
-        function loadUserWebsites() {
-            $location.url($location.url() + "/website/");
-        }
-
         function logout() {
             UserService
                 .logout()
                 .then(
                     function(response) {
-                        $location.url("/login");
+                        $location.url("/");
                     });
         }
 
@@ -56,12 +51,12 @@
         }
         function editAddressWidget()
         {
-            $location.url("/profile/" + model.userId+"/address/"+ model.addressId);
+            $location.url("/profile/address/");
         }
 
         function editPaymentWidget()
         {
-            $location.url("/profile/" + model.userId+"/payment/"+ model.paymentId);
+            $location.url("/profile/payment/");
         }
         function getFollowers()
         {

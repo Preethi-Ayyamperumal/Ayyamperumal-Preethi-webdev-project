@@ -4,27 +4,17 @@
             <div class="navbar-header">
                 <a class="navbar-brand">Profile</a>
                 <div class="navbar-right">
-                    <a class="navbar-brand" href="" ng-click="model.getReviews()">Your Reviews</a>
-                    <a class="navbar-brand" href="" ng-click="model.getMessageCenter()">Message Center</a>
-                    <a class="navbar-brand" href="" ng-click="model.getFollowers()">Followers</a>
-                    <a class="navbar-brand" href="" ng-click="model.getWishList()">WishList</a>
-
-                    <a class="navbar-brand" href="" ng-click="model.getFollowing()">Following</a>
-                    <a class="navbar-brand" href="" ng-click="model.getOrders()">Orders</a>
-                    <a class="navbar-brand" href="" ng-click="model.getCategory()">Categories</a>
-                    <a class="navbar-brand" href="" ng-click="model.getAddress()">Addressess</a>
-                    <a class="navbar-brand" href="" ng-click="model.getPayment()">Payment</a>
-
-                    <a href="" ng-click="model.getCart()" class="navbar-brand">Cart
                     </a>
-                    <a href="" ng-click="model.updateUser(model.user)" class="navbar-brand">Save Changes
+                    <a href="#!/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-
+<div class="row">
+    <div class="col-sm-6">
+        <h3 class="text-center"><strong>Personal Information</strong></h3>
         <label for="firstName">First Name</label>
         <input name="firstName"
                ng-model="model.user.firstName"
@@ -60,54 +50,45 @@
                type="date"
                class="form-control"
                id="dob"/>
-        <label>Addresses</label>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-            <a href="" ng-click="model.editAddressWidget()">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            </div>
-        <input name="address"
-               ng-model="model.user.address"
-               type="text"
-               class="form-control"
-               id="address"/>
-            </div>
 
-        <label>Payment Methods</label>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-                <a href="" ng-click="model.editPaymentWidget()">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
+                <a class="btn btn-default btn-success btn-block"
+                   ng_click="model.updateUser(model.user)"
+                   role="button">Save Changes</a>
+                <a class="btn btn-default btn-danger btn-block"
+                   ng_click="model.logout()"
+                   role="button">Logout</a></div>
+            <div class="col-sm-6"></div>
+
+
+    <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="text-center"><strong>Shipping & Payment</strong></h3>
+                    <a class="navbar-brand" href="" ng-click="model.editAddressWidget()">Addresses</a>
+                    <a class="navbar-brand" href="" ng-click="model.editPaymentWidget()">Payment Methods</a>
+                </div>
             </div>
-            <input name="payment"
-                   ng-model="model.user.address"
-                   type="text"
-                   class="form-control"
-                   id="payment"/>
-        </div>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-                <a href="" ng-click="model.getFollowers()">
-                    10
-                </a>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="text-center"><strong>Account Activity</strong></h3>
+                <a class="navbar-brand" href="" ng-click="model.getOrders()">Orders</a>
+                <a class="navbar-brand" href="" ng-click="model.getWishList()">WishList</a>
+                <a class="navbar-brand" href="" ng-click="model.getReviews()">Your Reviews</a>
+                <a class="navbar-brand" href="" ng-click="model.getMessageCenter()">Message Center</a>
             </div>
-            <label>Followers</label>
         </div>
-        <div class="pav-widget">
-            <div class="pav-widget-toolbar">
-                <a href="" ng-click="model.getFollowing()">
-                    10
-                </a>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="text-center"><strong>People</strong></h3>
+                <a class="navbar-brand" href="" ng-click="model.getFollowers()">Followers</a>
+                <a class="navbar-brand" href="" ng-click="model.getFollowing()">Following</a>
             </div>
-            <label>Following</label>
         </div>
-        <a class="btn btn-default btn-danger btn-block"
-           ng_click="model.logout()"
-           role="button">Logout</a>
+    </div>
+</div>
 
     </div>
+
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

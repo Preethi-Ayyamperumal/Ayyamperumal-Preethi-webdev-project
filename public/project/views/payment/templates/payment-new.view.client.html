@@ -15,7 +15,9 @@
     </nav>
     <div class="container-fluid">
 
-
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
             <label for="nameOnCard">Name on card</label>
             <input name="nameOnCard"
                    ng-model="model.payment.nameOnCard"
@@ -33,7 +35,7 @@
         <label for="expiry">Expiration date</label>
         <input name="expiry"
                type="month"
-               ng-model="model.payment.expdate"
+               ng-model="model.payment.expiry"
                class="form-control"
                id="expiry"/>
     </div>

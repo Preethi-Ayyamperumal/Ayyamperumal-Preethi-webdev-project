@@ -12,15 +12,26 @@ var facebookConfig = {
     callbackURL  : "http://shop-groceries-online.herokuapp.com/auth/facebook/callback"
 };
 
+var googleConfig = {
+    clientID     : "474172909306-5jb22a2esodf5cqu1db8gcgj7vn86dar.apps.googleusercontent.com",
+    clientSecret : "h2ZpJ6WtPSZLdqrJzZLCpVVm",
+    callbackURL  : "http://shop-groceries-online.herokuapp.com/auth/google/callback"
+};
 var FacebookStrategy = require('passport-facebook').Strategy;
+
+
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 app.post('/api/login', passport.authenticate('local'), login);
 app.post('/api/logout', logout);
@@ -42,6 +53,12 @@ app.get("/api/tofollow", getUserstoFollow);
 
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/project/#!/',
         failureRedirect: '/project/#!/login' }));
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/project/#!/',
+        failureRedirect: '/project/#!/login'
+    }));
 
 function getFollowing(req, res) {
     var user = req.user;
@@ -309,4 +326,41 @@ function facebookStrategy(token, refreshToken, profile, done) {
     function(err) {
         if (err) { return done(err); }
     });
+}
+
+function googleStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByGoogleId(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        google: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
 }

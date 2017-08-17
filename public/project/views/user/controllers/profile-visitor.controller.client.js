@@ -6,6 +6,7 @@
 
     function VisitorProfileController($location, $routeParams,UserService,reviewService) {
         var model = this;
+        model.loadProduct=loadProduct;
         function init() {
             model.visitorname=$routeParams.vid;
             UserService.getVisitorInfo(model.visitorname).then(function (visitor) {
@@ -19,7 +20,9 @@
 
         init();
 
-
+        function loadProduct(itemID) {
+            $location.url("/product/"+itemID);
+        }
 
 
     }

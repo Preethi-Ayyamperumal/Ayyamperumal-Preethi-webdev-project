@@ -12,18 +12,20 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div ng-repeat="payment in model.payments">
-            <div class="pav-widget">
-                <div class="pav-widget-toolbar">
-                    <a href="" ng-click="model.editPayment(payment._id)">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </div>
-                <div>
-                   <label>{{payment.nameOnCard}}</label>
-                    <label>{{payment.cardNumber}}</label>
-                    <label>{{payment.expirationMonth}}:{{payment.expirationYear}}  </label>
-
+        <div class="row">
+            <div ng-repeat="payment in model.payments"  class="col-xs-12 col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <div class="caption panel-heading text-center">
+                        <a ng-if="payment.type==='SECONDARY'" href="" ng-click="model.setDefaultPayment(payment._id)" class="text-success">Set as Default | </a>
+                        <a href="" ng-click="model.editPayment(payment._id)" class="text-danger">Edit</a>
+                        |
+                        <a href="" ng-click="model.deletePayment(payment._id)" class="text-danger">Delete</a>
+                    </div>
+                    <address>
+                        <label>Name on Card</label>  : {{payment.nameOnCard}}<br>
+                        <label>Card Number </label>  : {{payment.cardNumber}}<br>
+                        <label>Expiration  </label>  : {{payment.expirationMonth}}/{{payment.expirationYear}}
+                    </address>
                 </div>
             </div>
         </div>

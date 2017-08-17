@@ -3,6 +3,7 @@ var paymentModel = require("../models/user/payment.model.server");
 
 // http handlers
 app.get("/api/payment/:paymentId", findPaymentById);
+app.put("/api/paymentdefault/:paymentId", setDefaultPayment);
 app.get("/api/payment", getPayment);
 app.get("/api/paymentdefault/", getDefaultPayment);
 app.post("/api/payment", addPayment);
@@ -49,6 +50,18 @@ function getDefaultPayment(req, res) {
         .getDefaultPayment(user._id)
         .then(function (payment) {
             res.json(payment);
+
+        });
+
+}
+
+function setDefaultPayment(req, res) {
+    var user = req.user;
+    var paymentId = req.params.paymentId;
+    paymentModel
+        .setDefaultPayment(user._id,paymentId)
+        .then(function (status) {
+            res.json(status);
 
         });
 

@@ -13,7 +13,9 @@
         </div>
     </nav>
     <div class="container-fluid">
-
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
 
             <label for="nameOnCard">Name on card</label>
             <input name="nameOnCard"
@@ -25,7 +27,7 @@
             <label for="cardNumber">Card number</label>
             <input name="cardNumber"
                    ng-model="model.payment.cardNumber"
-                   type="number"
+                   type="String"
                    class="form-control"
                    id="cardNumber"/>
 
@@ -36,13 +38,6 @@
                class="form-control"
                id="expiry"/>
 
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="SetAsDefault" aria-describedby="basic-addon2">
-            <span class="input-group-addon" id="basic-addon2"><input id="formatted" ng-model="model.payment.isDefault" type="checkbox"/></span>
-        </div>
-        <a class="btn btn-default btn-danger btn-block"
-           ng-click="model.deletePayment()"
-           role="button">Delete</a>
     </div>
 
 

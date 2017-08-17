@@ -12,26 +12,26 @@
         </div>
     </nav>
     <div class="container-fluid">
-
-        <div ng-repeat="address in model.addresses">
-            <div class="pav-widget">
-                <div class="pav-widget-toolbar">
-                    <a href="" ng-click="model.editAddress(address._id)">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </div>
-                <div>
+        <div class="row">
+            <div ng-repeat="address in model.addresses"  class="col-xs-12 col-sm-6 col-md-3">
+                <div class="thumbnail address">
+                    <div class="caption panel-heading text-center">
+                        <a ng-if="address.type==='SECONDARY'" href="" ng-click="model.setDefaultAddress(address._id)" class="text-success">Set as Default | </a>
+                        <a href="" ng-click="model.editAddress(address._id)" class="text-danger">Edit</a>
+                        |
+                        <a href="" ng-click="model.deleteAddress(address._id)" class="text-danger">Delete</a>
+                    </div>
                     <address>
-                        <strong>{{address.fullName}}</strong><br>
-                        {{address.streetAddress1}}<br>
-                        {{address.streetAddress2}}<br>
-                        {{address.city}}<br>
-                        {{address.state}}<br>
-                        {{address.zipCode}}<br>
-                        {{address.country}}<br>
-                        <abbr title="Phone">P:</abbr> {{address.phone}}
+                        <strong>{{address.fullName}}</strong><br ng-if="address.fullName">
+                        {{address.streetAddress1}}<br ng-if="address.streetAddress1">
+                        {{address.streetAddress2}}<br ng-if="address.streetAddress2">
+                        {{address.city}}<br ng-if="address.city">
+                        {{address.state}}<br ng-if="address.state">
+                        {{address.zipCode}}<br ng-if="address.zipCode">
+                        {{address.country}}<br ng-if="address.country">
+                        <abbr ng-if="address.phone" title="Phone">P:</abbr> {{address.phone}}
                     </address>
-                </div>
+                    </div>
             </div>
         </div>
 
@@ -42,8 +42,8 @@
         <div class="container-fluid">
             <div class="navbar-header navbar-right">
                 <p class="navbar-text pull-right">
-                    <a href="" ng_click="model.loadUserProfile()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-user pull-right"></span>
+                    <a href="/project/#!" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-home pull-right"></span>
                     </a>
                 </p>
             </div>

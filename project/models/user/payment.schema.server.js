@@ -3,7 +3,7 @@ var paymentSchema = mongoose.Schema({
     _user:{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
     type: {type: String, enum:["DEFAULT", "SECONDARY"]},
     nameOnCard: String,
-    cardNumber: Number,
+    cardNumber: String,
     expirationMonth: Number,
     expirationYear:Number
 }, {collection: "payment"});

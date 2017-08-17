@@ -6,13 +6,11 @@
 
     function AddressEditController($location, $routeParams,addressService) {
         var model = this;
-        model.updateAddress=updateAddress;
-        model.deleteAddress=deleteAddress;
-
+        model.updateAddress = updateAddress;
         function init() {
-            model.addressId=$routeParams.aid;
+            model.addressId = $routeParams.aid;
             addressService.getAddress(model.addressId).then(function (address) {
-                model.address=address;
+                model.address = address;
             });
 
         }
@@ -20,19 +18,15 @@
         init();
 
 
-        function updateAddress()
-        {
-            addressService.editAddress(model.addressId,model.address).then(function (address) {
+        function updateAddress() {
+            if (model.address.isDefault === true)
+                model.address.type = 'DEFAULT';
+            else
+                model.address.type = 'SECONDARY'
+            addressService.editAddress(model.addressId, model.address).then(function (address) {
                 $location.url("profile/address");
             })
         }
 
-        function deleteAddress()
-        {
-            addressService.deleteAddress(model.addressId).then(function (status) {
-                $location.url("profile/address");
-            })}
-
     }
-
 })();

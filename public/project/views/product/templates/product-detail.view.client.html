@@ -1,6 +1,5 @@
 <div class="pav">
-
-<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/project/#!"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -8,60 +7,83 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
-    <div class="row">
-     <div class="col-xs-12">
-     <ul class="nav nav-pills pull-right">
-         <li role="presentation"><a href="" ng-click="model.addtoCart()">Add to Cart</a></li>
-         <li role="presentation"><a href="" ng-click="model.addtoWishList()">Add to WishList</a></li>
-         <li role="presentation"><a href="" ng-click="model.addReview()">Add Review</a></li>
-     </ul>
-     </div></div>
         <div class="row">
             <div class="col-xs-12">
-        <h4>{{model.product.name}}</h4>
-            </div></div>
-        <div class="row">
-            <div class="col-xs-12">
-        <div>Sales Price : {{model.product.salePrice}}</div>
-            </div></div>
-        <div class="row">
-            <div class="col-xs-12">
-        <h3>About Product</h3>
-            </div></div>
-        <div class="row">
-            <div class="col-xs-12">
-        <div>
-            <span ng-if='model.product.shortDescription' ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
-            <span ng-if='model.product.longDescription' ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="" ng-click="model.addtoCart()" class="text-primary mediumtext">Add to Cart</a>
+                    </li>
+                    <li role="presentation"><a href="" ng-click="model.addtoWishList()" class="text-primary mediumtext">Add to
+                        WishList</a></li>
+                    <li role="presentation"><a href="" ng-click="model.addReview()" class="text-primary mediumtext">Add Review</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-            </div></div>
+
         <div class="row">
             <div class="col-xs-12">
-        <div>
-            <img ng-src="{{model.product.mediumImage}}"></img>
+                <p class="text-danger largetext">{{model.product.name}}</p>
+            </div>
         </div>
-            </div></div>
+
         <div class="row">
             <div class="col-xs-12">
-        <div ng-if="model.product.size">Size : {{model.product.size}}</div>
-        <div>Customer Rating : {{model.product.customerRating}}/5</div>
-            </div></div>
-        <div>
-            <div ng-if="model.reviews.length" class="container-fluid">
-                <h2>Customer Reviews</h2>
-                <div class="row" ng-repeat="review in model.reviews">
-                    <div class="col-xs-12">
-                        <h4><b>{{review.reviewer_username}}</b></h4>
-                        <div>  {{ review.date | date : "mediumDate" }}</div>
-                        <div data-angular-rating-icons readonly ng-model="review.rating"></div>
-                        <div><h5>{{review.review_title}}</h5></div>
-                        <div>
-                            <h6>{{review.review_content}}</h6>
-                        </div>
-                    </div>
+                <p class="text-success">Price : <i class="fa fa-usd" aria-hidden="true"></i><strong>{{model.product.salePrice}}</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-success" ng-if="model.product.size">Size : {{model.product.size}}</div>
+                <div class="text-success" ng-if="model.product.customerRating">Customer Rating :
+                    <div data-angular-rating-icons readonly=true ng-model="model.product.customerRating"></div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="text-danger">About Product</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <span ng-if='model.product.shortDescription'
+                      ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
+                <span ng-if='model.product.longDescription'
+                      ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <img ng-src="{{model.product.largeImage}}" width="350" height="350"></img>
+            </div>
+        </div>
+
+
+        <hr>
+        <div ng-if="model.reviews.length">
+            <div class="row">
+            <div class="col-xs-12">
+                <p class="text-danger largetext">Customer Reviews</p>
+            </div>
+            </div>
+            <hr>
+                <div class="row" ng-repeat="review in model.reviews">
+                    <div class="col-xs-12">
+                        <div><a class="mediumtext" href="" ng-click="model.loadProduct(review.itemID)">{{review.reviewer_username}}</a></div>
+                        <div> {{ review.date | date : "mediumDate" }}</div>
+                        <div data-angular-rating-icons icon-size=15 readonly=true ng-model="review.rating"></div>
+                        <div><p>{{review.review_title}}</p></div>
+                        <div><p>{{review.review_content}}</p></div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
     </div>
-</div>
+        </div>

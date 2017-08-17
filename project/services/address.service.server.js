@@ -5,6 +5,7 @@ var addressModel = require("../models/user/address.model.server");
 app.get("/api/address/:addressId", findAddressById);
 app.get("/api/address", getAddress);
 app.get("/api/addressdefault", getDefaultAddress);
+app.put("/api/addressdefault/:addressId", setDefaultAddress);
 
 app.post("/api/address", addAddress);
 app.put("/api/address/:addressId", updateAddress);
@@ -63,6 +64,17 @@ function getDefaultAddress(req, res) {
         .getDefaultAddress(user._id)
         .then(function (addresses) {
             res.json(addresses);
+
+        });
+
+}
+function setDefaultAddress(req, res) {
+    var user = req.user;
+    var addressId = req.params.addressId;
+    addressModel
+        .setDefaultAddress(user._id,addressId)
+        .then(function (status) {
+            res.json(status);
 
         });
 

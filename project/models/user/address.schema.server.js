@@ -9,7 +9,6 @@ var addressSchema = mongoose.Schema({
     city:String,
     state:String,
     zipCode:String,
-    phone:String,
-    dob:Date
+    phone:Number
 }, {collection: "address"});
 module.exports = addressSchema;

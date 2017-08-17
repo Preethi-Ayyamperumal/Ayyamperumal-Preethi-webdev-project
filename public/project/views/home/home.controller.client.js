@@ -3,7 +3,7 @@
         .module("GroceryApp")
         .controller("homeController", homeController);
     
-    function homeController(categoryService,$location,paginatedService,CurrentUser,UserService,searchService) {
+    function homeController(categoryService,$location,paginatedService,CurrentUser,UserService,$route) {
         var model = this;
         model.updateCategories=updateCategories;
         model.setSelected=setSelected;
@@ -47,7 +47,7 @@
                 .logout()
                 .then(
                     function(response) {
-                        $location.url("/login");
+                        $route.reload();
                     });
         }
 
