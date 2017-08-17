@@ -1,28 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+    <title>My Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="project/css/styles.css">
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <h1>Web Dev Course Home Page</h1>
+<body class="col3">
+<div class="pv">
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container col3">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand white" href="#">My Profile</a>
+        </div>
+        <div class="collapse navbar-collapse col3" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#projects" class="white1">Projects</a></li>
+                <li><a href="#skills" class="white" >Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <p>
-        This is your website's home page. Your home page should have a picture of yourself, link to your assignments,
-        link to your final project implementation on Heroku, link to your GitHub,
-        link to a 5 minute video demoing your project. Your home page should look
-        spectacular. You should feel proud to share your homepage with your potential employer.
-        I should feel proud to share your homepage with my colleagues.
-    </p>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center col2">
+    <h1 class="margin col1">Preethi Ayyamperumal</h1>
+    <img src="../img/preethi.jpg" class="img-responsive img-circle main-image margin center-block"  alt="Preethi" width="350" height="350">
+    <h2>Computer Science Graduate Student, Northeastern University, Boston</h2>
+    <h3>Embedded Software Developer</h3>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/">Project</a>
-        </li>
-        <li>
-            <a href="https://github.com/Preethi-Ayyamperumal/Ayyamperumal-Preethi-webdev-project">GitHub Repository</a>
-        </li>
-    </ul>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+    <h3 class="margin">About Me</h3>
+    <p><h4>I am pursuing my Master's degree at Northeastern University specializing in Computer Networks and System
+    Software. In addition to that, I have 4 years of embedded software development experience at Caterpillar Inc.</h4> </p>
+</div>
+
+<div class="container-fluid bg-1 text-center">
+    <h3 class="margin">Github</h3>
+    <a href="https://github.com/Preethi-Ayyamperumal"><img src="../img/" class="img-responsive gitImage" alt=""></a>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center" id="projects">
+    <h3 class="margin">Web Projects</h3><br>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Website Builder</h4>
+            <p class="text-left">A Website Builder is a single-paged responsive web application used for creating customized forms</p>
+            <p class="text-left">This website has been developed using HTML5, CSS3, Bootstrap, Angular.js, and Nodejs.</p>
+            <p class="text-left">MongoDB is used to store profile information of each user.</p>
+            <p class="text-left">REST endpoints are used for interaction between client and server</p>
+            <br>
+            <div>
+            <a href="https://github.com/Preethi-Ayyamperumal/Ayyamperumal-Preethi-webdev"><button
+                    class="btn btn-responsive btn-block nocolor">Click to View Source
+            </button></a>
+            <a href="https://preethi-webdev.herokuapp.com/assignment/#!/"><button
+                    class="btn btn-responsive btn-block nocolor">Click to View  Website
+            </button></a>
+            </div>
+        </div>
+        <div class="col-sm-6 nowrap">
+            <h4>Grocery E-Store</h4>
+            <p class="text-left">Grocery E-Store is a single-paged responsive web application used to grocery shopping.</p>
+            <p class="text-left">This website has been developed using HTML5, CSS3, Bootstrap, Angular.js, and Nodejs</p>
+            <p class="text-left">MongoDB is used to store the user and product information.</p>
+            <p class="text-left">REST architecture is used for interaction between client and server</p>
+            <br>
+            <div>
+                <a class ="bottom-margin" href="http://localhost:3001/project/#!">
+                    <button class="btn btn-responsive btn-block bottom-margin nocolor">Click to View Website</button>
+                </a>
+                <a class="bottom-margin" href="https://github.com/Preethi-Ayyamperumal/Ayyamperumal-Preethi-webdev-project">
+                    <button class="btn btn-responsive btn-block bottom-margin nocolor">Click to View Source</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-1" id="qualifications">
+    <h3 class="margin text-center">Educational Qualification</h3><br>
+    <div class="col-sm-6">
+        <h4><p> <b>Northeastern University, Boston, MA</b>  (September 2015 – August 2017)</p></h4>
+        <p><i>Master of Science in Computer Science</i> GPA: 3.75/4 </p>
+        <p>Related Courses:  Program Design Paradigm, Fundamentals of Computer Networks, Analysis of Algorithms, Information Retrieval, Software Vulnerabilities and Security,
+            Computer Systems and Parallel data processing in MapReduce, Web Development</p>
+    </div>
+    <div class="col-sm-6">
+        <h4><p> <b>College of Engineering, Guindy, India. (Anna University)</b> (July 2011)</p></h4>
+        <p><i>Master of Science in Computer Science</i> GPA: 8.68/10</p>
+        <p>Related Courses: Object Oriented Programming, Data Structures, Algorithms and Computer Networks</p>
+
+    </div>
+
+</div>
+<div class="container-fluid bg-2" id="skills">
+    <h3 class="margin text-center">Skills</h3><br>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-center">Linux</p>
+            <p class="text-center">Spark</p>
+            <p class="text-center">C</p>
+            <p class="text-center">C++</p>
+            <p class="text-center">Java</p>
+            <p class="text-center">Qt</p>
+            <p class="text-center">MinGW</p>
+            <p class="text-center">MATLAB</p>
+            <p class="text-center">Git</p>
+            <p class="text-center">Hadoop MapReduce</p>
+        </div>
+        <div class="col-sm-6">
+            <p class="text-center">Bootstrap
+                </p>
+            <p class="text-center">JQuery
+                </p>
+            <p class="text-center">AngularJS</p>
+            <p class="text-center">Python</p>
+            <p class="text-center">Node.js</p>
+            <p class="text-center">Expressjs</p>
+            <p class="text-center">RestfulAPI</p>
+            <p class="text-center">MongoDB</p>
+            <p class="text-center">Racket</p>
+            <p class="text-center">UNIX shell scripts</p>
+        </div>
+    </div>
+</div>
+    <hr>
+
+<div class="container-fluid bg-1">
+    <h3 class="margin text-center">Publication</h3>
+    <div><p class="text-center">Published paper (No. 2014-0223235 A1) “System and Method for remotely monitoring machines” at USPTO along with three team members</p></div>
+</div>
+    <hr>
+
+<div class="container-fluid bg-1 ">
+    <h3 class="margin text-center">Experience</h3>
+
+    <div>
+        <h4>Linux Targets Engineering Intern</h4>
+        <p>The Mathworks</p>
+        <p>May 2016 - December 2016</p>
+        <p>Developed device driver features to support ARM/FPGA Communication using AXI Interface</p>
+        <hr>
+
+    </div>
+    <div>
+        <h4>Graduate Teaching Assistant</h4>
+        <p>Northeastern University</p>
+        <p>January 2016 - April 2016</p>
+        <p>Tutoring and grading for the course Computer Science and its Applications</p>
+        <hr>
+
+    </div>
+    <div>
+        <h4>Senior Associate Engineer</h4>
+        <p>December 2011 – April 2013</p>
+        <p>Caterpillar Inc., Chennai, India</p>
+        <p>Designed and developed embedded C++ application using design patterns for ARM/Linux platform.Performed code reviews and design reviews for embedded C++ applications.Ported C++ applications from MPC555/OSE to ARM/Linux platform by fixing various memory leaks, thread synchronization and byte order issues.Incorporated thread level signal handling for signals SIGSEGV and SIGPIPE in Linux using its API.
+Configured ARM/Linux kernel to interact with OTS USB cellular adapters that enabled internet access, messaging and phone calls on ARM platform using shell scripting and Linux device model understanding.
+Enabled automatic firmware loading and implemented Linux hot plug automation for USB network adapters using shell scripting, Linux services and utilities.
+Incorporated backporting of device drivers on ARM/Linux platform that ensured backward compatibility of USB network adapters using Linux cross compilation tools
+</p>
+    </div>
+    <hr>
+
+    <div>
+        <h4>Software Engineer Intern</h4>
+        <p>Caterpillar Inc., Chennai, India</p>
+        <p>Dec. 2010 – June 2011</p>
+        <p>Created a distributed test automation framework design for performing Hardware-in-the-loop (HIL) testing using TCP/IP and custom application protocols.Developed a GUI application to unit test embedded applications in Windows platform using Qt/C++.
+        </p>
+    </div>
+    <hr>
+
+    <div>
+        <h4>Software Engineer Intern</h4>
+        <p>Accel Frontline Limited, Chennai, India</p>
+        <p>Aug. 2009 – Dec. 2009</p>
+        <p>Developed an application to manage students' information of a university using Java and MVC.
+        </p>
+    </div>
+    <hr>
+
+
+</div>
+
+<div class="container-fluid bg-3 text-center" id="contact">
+    <h3 class="margin">Contact Me</h3><br>
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Address</p>
+            <p>23, Woodbine Rd, Apt #10</p>
+            <p>Boston, MA 01760</p>
+        </div>
+        <div class="col-sm-6">
+            <p>Phone & Email Address</p>
+            <p>Phone : +1 5083159971</p>
+            <p>Email Address: preeth.ceg@gmail.com</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 pull-right">
+    <a href="https://www.facebook.com/preethi.ayyamperumal"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+    <a href="https://www.linkedin.com/in/preethiayyamperumal/"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+</footer>
+</div>
 </body>
 </html>

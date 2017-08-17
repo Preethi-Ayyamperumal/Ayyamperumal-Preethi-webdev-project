@@ -2,7 +2,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#!profile" ><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand" ng-click="model.loadProduct()" ><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Cart</a>
                 <div class="navbar-right pull-right">
                     <a class="navbar-brand" href="" ng-click="model.checkOut()">Checkout</a>
@@ -11,30 +11,27 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="item in model.cartItems">
-        <div class="row" >
+        <div class="row" ng-repeat="item in model.cartItems">
             <div class="col-md-3 visible-md visible-lg" >
                 <img ng-src="{{item.thumbnailImage}}"></img>
             </div>
             <div class="col-xs-12  col-md-9">
-                 <div class="row">
-                    <label> {{item.name}}</label></div>
                 <div class="row">
-                    <label> {{item.salePrice}}</label></div>
+                    <label>{{item.name}}</label></div>
                 <div class="row">
-                    <label> {{item.quantity}}</label></div>
+                    <label>{{item.salePrice}}</label></div>
+                <div class="row">
+                    <label>{{item.quantity}}</label></div>
             </div>
         </div>
-            </li></ul>
     </div>
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
                 <div class="navbar-header navbar-right">
                     <p class="navbar-text pull-right">
-                        <a href="/project/#!/" class="navbar-link"> <span
-                                class="white glyphicon glyphicon-home pull-right"></span>
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
                         </a>
                     </p>
                 </div>

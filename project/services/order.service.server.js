@@ -6,8 +6,10 @@ app.post('/api/placeOrder/', placeOrder);
 
 app.get('/api/cart/', getCart);
 app.delete('/api/cart/', clearCart);
-
+app.delete('/api/order/:oid',deleteOrderByID);
 app.get('/api/orders/',getOrders);
+app.get('/api/allOrders/',getAllOrders);
+app.put('/api/order/:oid',updateOrderStatus);
 app.get('/api/order/:oid',getOrderByID);
 
 function placeOrder(req,res)
@@ -26,6 +28,13 @@ function getOrders(req,res)
             res.json(status);})
 }
 
+function getAllOrders(req,res)
+{
+    orderModel.getAllOrders()
+        .then(function (status) {
+            res.json(status);})
+}
+
 function getOrderByID(req,res)
 {
     var orderID=req.params.oid;
@@ -33,6 +42,25 @@ function getOrderByID(req,res)
         .then(function (status) {
             res.json(status);})
 }
+
+function deleteOrderByID(req,res)
+{
+    var orderID=req.params.oid;
+    orderModel.deleteOrderByID(orderID)
+        .then(function (status) {
+            res.json(status);})
+}
+
+function updateOrderStatus(req,res)
+{
+    var orderID=req.params.oid;
+    var order=req.body;
+    orderModel.updateOrderStatus(orderID,order)
+        .then(function (status) {
+            res.json(status);
+        })
+}
+
 
 function updateCart(req, res) {
     var cartItem = req.body;
@@ -61,13 +89,11 @@ function getCart(req,res) {
         }
         res.json(returndata);
     });
-
 }
 
 function clearCart(req,res){
     var user=req.user;
     cartModel.clearCart(user._id).then(function (status) {
-
         res.json(status);
     })
 }

@@ -2,32 +2,52 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
+                <a class="navbar-brand" href="#!/admin"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Products</a>
-                <div class="navbar-right">
-                    <a class="navbar-brand"  href="" ng-click="model.addProduct()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-plus pull-right"></span>
-                    </a>
+                <div class="dropdown pull-right">
+                    <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add By Category <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="category in model.categories">
+                            <a href="" ng-click="model.setSubCategory(category)">
+                                <span>{{category.name}}</span>
+                                </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
 
-        <ul class="nav nav-tabs">
+      <!--  <ul class="nav nav-tabs">
 
                 <li ng-repeat="category in model.categories" role="presentation" class="dropdown">
                     <a  ng-click="model.setSubCategory(category)" role="button" class= "dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span>{{category.name}}</span>
                         <span ng-if="category.children.length" class="caret"></span>
                     </a>
-                    <!--<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>-->
+                    &lt;!&ndash;<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>&ndash;&gt;
                     <ul ng-if="model.subCategory.length" class="dropdown-menu list-group">
                         <li ng-repeat="subCat in model.subCategory" class="list-group-item list-group-item-info">
                             <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a></li>
                     </ul>
                 </li>
 
-        </ul>
+        </ul>-->
+
+        <div ng-if="model.subCategory.length" class="btn-group btn-padded">
+            <div><label>Select Subcategory</label></div>
+            <button id="top" type="button" class="btn btn-default">{{model.categoryName}}</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu list-group">
+                <li ng-repeat="subCat in model.subCategory" class="list-group-item">
+                    <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a>
+                </li>
+            </ul>
+        </div>
                 <div ng-if="model.subcategory_selected">
                     <table class="table  table-striped ">
                         <thead>

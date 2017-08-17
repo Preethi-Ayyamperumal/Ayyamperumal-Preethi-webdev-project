@@ -2,18 +2,11 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand visible-md visible-sm visible-xs" ng-click="model.showWebsites()">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
+                <a class="navbar-brand" href="#!profile/review"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Edit Review</a>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-right">
                     <a class="navbar-brand" href="" ng-click="model.saveReview()">
-                        Save Review
-                    </a>
-                    <a class="navbar-brand" href="" ng-click="model.deleteReview()">
-                        Delete Review
-                    </a>
+                        <span class="glyphicon glyphicon-ok pull-right"></span></a>
                 </div>
             </div>
         </div>
@@ -41,6 +34,10 @@
                           class="form-control"
                           id="description">
                     </textarea>
+
+                <a class="btn btn-default btn-danger btn-block"
+                   ng_click="model.deleteReview(model.user)"
+                   role="button">Delete Review</a>
             </div>
 
         </div>

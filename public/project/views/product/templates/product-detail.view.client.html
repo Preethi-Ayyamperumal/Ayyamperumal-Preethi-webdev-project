@@ -1,50 +1,66 @@
 <div class="pav">
-    <nav class="navbar navbar-default navbar-fixed-top">
+
+<div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand"></a>
-                <div class="navbar-right">
-                    <a class="navbar-brand" href="" ng-click="model.addtoCart()">Add to Cart</a>
-                    <a class="navbar-brand" href="" ng-click="model.addtoWishList()">Add to WishList</a>
-                    <a class="navbar-brand" href="" ng-click="model.addReview()">Add Review</a>
-                </div>
+                <a class="navbar-brand" href="/project/#!"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Products</a>
             </div>
         </div>
-    </nav>
-
-    <div class="container-fluid">
-        <search-bar></search-bar>
     </div>
     <div class="container-fluid">
-
-        <h2>{{model.product.name}}</h2>
+    <div class="row">
+     <div class="col-xs-12">
+     <ul class="nav nav-pills pull-right">
+         <li role="presentation"><a href="" ng-click="model.addtoCart()">Add to Cart</a></li>
+         <li role="presentation"><a href="" ng-click="model.addtoWishList()">Add to WishList</a></li>
+         <li role="presentation"><a href="" ng-click="model.addReview()">Add Review</a></li>
+     </ul>
+     </div></div>
+        <div class="row">
+            <div class="col-xs-12">
+        <h4>{{model.product.name}}</h4>
+            </div></div>
+        <div class="row">
+            <div class="col-xs-12">
         <div>Sales Price : {{model.product.salePrice}}</div>
-
+            </div></div>
+        <div class="row">
+            <div class="col-xs-12">
         <h3>About Product</h3>
+            </div></div>
+        <div class="row">
+            <div class="col-xs-12">
         <div>
-            <span ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
-            <span ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
+            <span ng-if='model.product.shortDescription' ng-bind-html="model.trustHtmlContent(model.product.shortDescription)"> </span>
+            <span ng-if='model.product.longDescription' ng-bind-html="model.trustHtmlContent(model.product.longDescription)"> </span>
         </div>
-
+            </div></div>
+        <div class="row">
+            <div class="col-xs-12">
         <div>
-            <img ng-src="{{model.product.largeImage}}"></img>
+            <img ng-src="{{model.product.mediumImage}}"></img>
         </div>
+            </div></div>
+        <div class="row">
+            <div class="col-xs-12">
         <div ng-if="model.product.size">Size : {{model.product.size}}</div>
         <div>Customer Rating : {{model.product.customerRating}}/5</div>
+            </div></div>
         <div>
             <div ng-if="model.reviews.length" class="container-fluid">
                 <h2>Customer Reviews</h2>
-                    <div class="row" ng-repeat="review in model.reviews">
-                        <div class="col-xs-12">
-                            <h4><b>{{review.reviewer_username}}</b></h4>
-                            <div>  {{ review.date | date : "mediumDate" }}</div>
-                            <div data-angular-rating-icons readonly ng-model="review.rating"></div>
-                            <div><h5>{{review.review_title}}</h5></div>
-                            <div>
-                                <h6>{{review.review_content}}</h6>
-                            </div>
+                <div class="row" ng-repeat="review in model.reviews">
+                    <div class="col-xs-12">
+                        <h4><b>{{review.reviewer_username}}</b></h4>
+                        <div>  {{ review.date | date : "mediumDate" }}</div>
+                        <div data-angular-rating-icons readonly ng-model="review.rating"></div>
+                        <div><h5>{{review.review_title}}</h5></div>
+                        <div>
+                            <h6>{{review.review_content}}</h6>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,13 +1,8 @@
 <div class="pav">
-
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
-                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()"><span
+                <a class="navbar-brand" href="#!/profile/order"><span
                         class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Order</a>
             </div>
@@ -17,68 +12,61 @@
     <div class="container-fluid">
 
             <label>Order Summary</label>
+        <div class="table-responsive">
             <table id="orderSummary" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Product</th>
-                    <th>Quantity</th>
+                    <th class="text-right">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in model.order.line_items">
-                    <td align="left">{{item.item_name}}</td>
-                    <td align="right">{{item.quantity}}</td>
+                    <td align="left" class="small text-danger">{{item.item_name}}</td>
+                    <td align="right" class="text-danger">{{item.quantity}}</td>
                 </tr>
                 </tbody>
                 <tfoot align="right">
                 <tr>
-                    <td>SubTotal</td>
-                    <td>{{model.order.subtotal}}</td>
+                    <td><strong>SubTotal</strong></td>
+                    <td class="text-danger" >{{model.order.subtotal}}</td>
                 </tr>
                 <tr>
-                    <td>Shipping</td>
-                    <td>{{model.order.total_shipping}}</td>
+                    <td><strong>Shipping</strong></td>
+                    <td class="text-danger">{{model.order.total_shipping}}</td>
                 </tr>
                 <tr>
-                    <td>Grand Total</td>
-                    <td>{{model.order.grand_total}}</td>
+                    <td><strong>Grand Total</strong></td>
+                    <td class="text-danger"><strong>${{model.order.grand_total}}</strong></td>
                 </tr>
                 </tfoot>
             </table>
-        <table id="address" class="table table-striped">
-            <thead>
-            <tr>
-                <th>Shipping Address</th>
-            </tr>
-            </thead>
-            <tbody>
-                 <tr>  <td><strong>{{model.address.fullName}}</strong><br>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-12">
+            <H4 ng-if="model.address"><strong>Shipping Address</strong></H4>
+
+            <strong>{{model.address.fullName}}</strong><br>
                         {{model.address.streetAddress1}}<br>
                         {{model.address.streetAddress2}}<br>
                         {{model.address.city}}<br>
                         {{model.address.state}}<br>
                         {{model.address.zipCode}}<br>
-                        <abbr title="Phone">P:</abbr> {{model.address.phone}}</td>
-                 </tr>
-            </tbody>
-        </table>
+                        <abbr title="Phone">P:</abbr> {{model.address.phone}}
+        </div>
+        </div>
 
-        <table id="payment" class="table table-striped">
-            <thead>
-            <tr>
-                <th>Payment Details</th>
-            </tr>
-            </thead>
-            <tbody>
+        <div class="row">
+            <div class="col-xs-12">
+                <H4 ng-if="model.payment"><strong>Payment Details</strong></H4>
 
-            <tr> <td> {{model.payment.nameOnCard}}<br>
+                <strong>{{model.payment.nameOnCard}}</strong><br>
                 {{model.payment.cardNumber}}<br>
                 {{model.payment.expirationMonth}}<br>
                 {{model.payment.expirationYear}}<br></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+            </div>
+      </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

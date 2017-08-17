@@ -1,11 +1,12 @@
-<form class="navbar-form navbar-left">
-    <div class="form-group">
-        <input name="productname"
-               type="text"
-               ng-model="model.productname"
-               placeholder="E.g., Basmati Rice"
-               class="form-control"
-               id="productname"/>
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-xs-12 col-md-4">
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="model.productname" placeholder="Search for...">
+        <span class="input-group-btn">
+        <a class="btn btn-default  btn-primary " ng-click="model.searchProduct(model.productname)">
+            <span class="glyphicon glyphicon-search"></span></a></span>
     </div>
-    <a class="btn btn-default btn-primary" ng-click="model.searchProduct(model.productname)">Submit</a>
-</form>
+</div>
+<div class="col-md-4"></div>
+</div>

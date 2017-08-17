@@ -40,6 +40,7 @@ function updateCategories(req, res) {
 }
 
 
+
 function searchByName(req, res) {
     var productName   = req.query.productName;
     var start = req.query.start;
@@ -87,3 +88,5 @@ function walmartSearchQuery(path) {
     });
     return deferred.promise;
 }
+
+

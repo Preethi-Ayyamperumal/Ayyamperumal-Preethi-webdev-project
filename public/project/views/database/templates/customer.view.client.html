@@ -2,61 +2,64 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Customers</a>
-                <div class="navbar-right">
-                    <a class="navbar-brand"  href="" ng-click="model.addCustomer()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-plus pull-right"></span>
-                    </a>
-                </div>
+                <a class="navbar-brand" href="#!/admin"><span class="white glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Manage Customers</a>
+            <div class="navbar-right pull-right">
+                <a class="navbar-brand"  href="" ng-click="model.addCustomer()" class="navbar-link">
+                    <span class="white glyphicon glyphicon-plus pull-right"></span>
+                </a>
+            </div>
             </div>
         </div>
     </nav>
-        <div class="container-fluid">
-            <div ng-show="model.errorMessage" class="alert alert-danger">
-                {{model.errorMessage}}
-            </div>
-            <div ng-show="model.showNewCustomerDiv">
-                <label for="username">Username</label>
-                <input name="username"
-                       ng-model="model.user.username"
-                       type="text"
-                       placeholder="alice"
-                       class="form-control"
-                       id="username"/>
+    <div class="container-fluid">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+        <div ng-show="model.showNewCustomerDiv">
+            <label for="username">Username</label>
+            <input name="username"
+                   ng-model="model.user.username"
+                   type="text"
+                   placeholder="alice"
+                   class="form-control"
+                   id="username"/>
 
-                <label for="role">Role</label>
-                <select name="password"
-                       ng-model="model.user.role"
-                       class="form-control"
-                        id="role">
-                    <option value="CUSTOMER">Customer</option>
-                    <option value="MANAGER">Manager</option>
-                </select>
-                <label for="blocked">Status</label>
-                <select name="password"
-                        ng-model="model.user.status"
-                        class="form-control"
-                        id="blocked">
-                    <option value="BLOCKED">Blocked</option>
-                    <option value="ACTIVE">Active</option>
-                </select>
-                <a class="btn btn-default btn-success btn-block"
-                   ng_click="model.register()"
-                   role="button">Add User</a>
-            </div>
-            <table class="table  table-striped ">
+            <label for="role">Role</label>
+            <select name="password"
+                    ng-model="model.user.role"
+                    class="form-control"
+                    id="role">
+                <option value="CUSTOMER">Customer</option>
+                <option value="MANAGER">Manager</option>
+            </select>
+            <label for="blocked">Status</label>
+            <select name="password"
+                    ng-model="model.user.status"
+                    class="form-control"
+                    id="blocked">
+                <option value="BLOCKED">Blocked</option>
+                <option value="ACTIVE">Active</option>
+            </select>
+            <a class="btn btn-default btn-success btn-block"
+               ng_click="model.register()"
+               role="button">Add User</a>
+        </div>
+        <div class=" table-responsive">
+
+            <table class="table  table-striped">
                 <thead>
                 <tr>
-                    <td>USERNAME</td>
-                    <td>ROLE</td>
-                    <td>STATUS</td>
-                    <td>SAVE</td>
-                    <td>DELETE</td>
+                    <td class="active">USERNAME</td>
+                    <td class="active">ROLE</td>
+                    <td class="active">STATUS</td>
+                    <td class="active">SAVE</td>
+                    <td class="active text-right">DELETE</td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="customer in model.customers">
-                        <td><a href="" ng-click="model.loadVisitorProfile(customer.username)">{{customer.username}}</a></td>
+                    <td><a href="" ng-click="model.loadVisitorProfile(customer.username)">{{customer.username}}</a></td>
                     <td><select name="password"
                                 ng-model="customer.role">
                         <<option value="CUSTOMER">Customer</option>
@@ -68,8 +71,8 @@
                         <option value=ACTIVE>Active</option>
                     </select></td>
                     <td><a href="" ng-click="model.saveCustomer(customer._id,customer)" class="navbar-link">
-                             <span class="glyphicon glyphicon-ok pull-right"></span>
-                         </a></td>
+                        <span class="glyphicon glyphicon-ok pull-right"></span>
+                    </a></td>
                     <td>  <span >
                          <a href="" ng-click="model.deleteCustomer(customer._id)" class="navbar-link">
                              <span class="glyphicon glyphicon-remove pull-right"></span>
@@ -78,8 +81,8 @@
                 </tr>
                 </tbody>
             </table>
-
         </div>
+    </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

@@ -10,13 +10,13 @@
             "insertProduct":insertProduct,
             "getAllProducts":getAllProducts,
             "deleteProduct":deleteProduct
-
         };
         return api;
 
         function searchProduct(product) {
-            var url = "/api/product/searchByName?productName="+product.productName+"&start="+product.start;
-            return $http.get(url,product)
+            product.productName = product.productName.replace(/\s\s*/g, "+");
+            var url = "/api/product/searchByName?productName="+encodeURIComponent(product.productName)+"&start="+product.start;
+            return $http.get(url)
                 .then(function (response) {
                     return response.data;
                 });

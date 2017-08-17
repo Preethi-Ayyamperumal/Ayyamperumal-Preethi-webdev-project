@@ -2,8 +2,9 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
+                <a class="navbar-brand" href="#!/admin"><span class="white glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Products</a>
-                <div class="navbar-right">
+                <div class="navbar-right pull-right">
                     <a class="navbar-brand"  href="" ng-click="model.addProduct()" class="navbar-link"> <span
                             class="white glyphicon glyphicon-plus pull-right"></span>
                     </a>
@@ -20,11 +21,11 @@
                ng_click="model.searchWalmart()"
                role="button">Add Product From Walmart</a>
         </div>
-        <table class="table  table-striped ">
+        <table class="table  table-striped">
             <thead>
             <tr>
                 <td>PRODUCT</td>
-                <td>DELETE</td>
+                <td class="text-right">DELETE</td>
             </tr>
             </thead>
             <tbody>

@@ -2,10 +2,10 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Managers</a>
-                <div class="navbar-right">
-                    <a class="navbar-brand"  href="" ng-click="model.addManager()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-plus pull-right"></span>
+                <a class="navbar-brand" href="#!/admin"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Manage Managers</a>
+                <div class="navbar-right pull-right">
+                    <a  class="navbar-brand" href="" ng-click="model.addManager()" class="navbar-link"> <span class="white glyphicon glyphicon-plus pull-right"></span>
                     </a>
                 </div>
             </div>
@@ -44,7 +44,9 @@
                ng_click="model.register()"
                role="button">Add User</a>
         </div>
-        <table class="table  table-striped ">
+        <div class=" table-responsive">
+
+        <table class="table  table-striped">
             <thead>
             <tr>
                 <td>USERNAME</td>
@@ -78,7 +80,7 @@
             </tr>
             </tbody>
         </table>
-
+        </div>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

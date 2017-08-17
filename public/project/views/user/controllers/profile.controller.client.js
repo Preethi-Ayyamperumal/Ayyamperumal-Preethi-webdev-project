@@ -93,7 +93,7 @@
         }
         function getCart()
         {
-            $location.url("/profile/cart/"+111111);
+            $location.url("/profile/cart/");
         }
         function getMessageCenter()
         {

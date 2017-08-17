@@ -1,35 +1,61 @@
+<div class="pav navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="pav container-fluid">
+            <div class="navbar-header">
+                <button id=demo type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="dropdown">
+                    <a  href="" class="white dropdown-toggle navbar-brand " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Departments <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="category in model.categories">
+                            <a href="" ng-click="model.setSubCategory(category)">
+                                <span>{{category.name}}</span>
+                                <span ng-if="category.children.length" class="caret pull-right"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a ng-show="!model.currentUser" href="#!/login">Login</a></li>
+                    <li><a ng-show="!model.currentUser" href="#!/register">Register</a></li>
+                    <li><a ng-show="model.currentUser"  href="#!/profile">Profile</a></li>
+                    <li><a ng-show="model.currentUser"  href="" ng-click="model.logout()">Logout</a></li>
+                    <li><a ng-show="model.currentUser.role === 'ADMIN'" href="#!/admin">Admin</a></li>
+                    <li><a ng-show="model.currentUser.role === 'ADMIN'" href="#!/admin">Admin</a></li>
+                    <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/manager">Manager</a></li>
+                    <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/profile/message">Mail</a></li>
+                    <li><a href="#!/search"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
 
-<!-- Fixed navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Grocery Shopping Portal</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/login">Login</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/register">Register</a></li>
-                <li><a ng-show="model.currentUser"  href="#!/profile">Profile</a></li>
-                <li><a ng-show="model.currentUser"  href="" ng-click="model.logout()">Logout</a></li>
-                <li><a ng-show="model.currentUser.role === 'ADMIN'" href="#!/admin">Admin</a></li>
-                <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/manager">Manager</a></li>
-                <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/messages">Inbox</a></li>
-
-            </ul>
-            <search-bar></search-bar>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-
-<div class="container-fluid">
-            <div ng-include="'views/category/templates/category.component.client.html'"></div>
 </div>
 
 
+<div class="container-fluid">
+<!--
+    <div><search-bar></search-bar></div>
+-->
+    <div><button ng-if="model.categoryName" type="button" class="btn btn-success">{{model.categoryName}}</button></div>
+    <div ng-if="model.subCategory.length" class="btn-group btn-padded">
+        <button id="top" type="button" class="btn btn-success">{{model.currentSubcategory}}</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+            <ul class="dropdown-menu list-group">
+                <li ng-repeat="subCat in model.subCategory" class="list-group-item">
+                    <a href="" ng-click="model.setSelected(subCat)">{{subCat.name}}</a>
+                </li>
+            </ul>
+    </div>
+
+    <div ng-include="'views/category/templates/category.component.client.html'">
+    </div>
+
+</div>

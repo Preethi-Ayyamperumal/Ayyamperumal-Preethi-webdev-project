@@ -2,22 +2,10 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
-                <a class="navbar-brand" href="" ng-click="model.loadUserProfile()">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="navbar-brand">New Message</a>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="navbar-right">
-                    <a class="navbar-brand" href="" ng-click="model.discardDraft()">
-                        Discard Draft
-                    </a>
-                    <a class="navbar-brand" href="" ng-click="model.sendMessage()">
-                        Send Message
-                    </a>
+                <a class="navbar-brand" href="#!profile/message"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Draft </a>
+                <div class="navbar-right pull-right"><a class="navbar-brand" href="" ng-click="model.sendMessage()" class="navbar-link">
+                    <span class="glyphicon glyphicon-send  pull-right"></span></a>
                 </div>
             </div>
         </div>

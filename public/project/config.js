@@ -114,6 +114,14 @@
                 controllerAs: "model"
             })
             .when("/profile/cart/:iID", {
+                templateUrl: "views/order/templates/cart-add.view.client.html",
+                controller: "CartAddController",
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
+            })
+            .when("/profile/cart", {
                 templateUrl: "views/order/templates/cart.view.client.html",
                 controller: "CartViewController",
                 controllerAs: "model",
@@ -177,6 +185,11 @@
                 controller: "ProductListController",
                  controllerAs: "model"
              })
+            .when("/search", {
+                templateUrl: "views/product/templates/product-list.view.client.html",
+                controller: "ProductListController",
+                controllerAs: "model"
+            })
             .when("/product/:productId", {
                 templateUrl: "views/product/templates/product-detail.view.client.html",
                 controller: "productDetailController",
@@ -230,8 +243,8 @@
                     { loggedInUser: checkLoggedin }
             })
             .when("/orders", {
-                templateUrl: "views/database/templates/order.view.client.html",
-                controller: "OrdersController",
+                templateUrl: "views/database/templates/orders.view.client.html",
+                controller: "OrderController",
                 controllerAs: "model",
                 resolve:
                     { loggedInUser: checkLoggedin }

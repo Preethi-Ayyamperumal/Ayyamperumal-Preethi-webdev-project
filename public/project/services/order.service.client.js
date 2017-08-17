@@ -10,8 +10,11 @@
              "getCart" :getCart,
             "placeOrder":placeOrder,
             "getOrders":getOrders,
+            "getAllOrders":getAllOrders,
             "clearCart": clearCart,
-            "getOrderByID":getOrderByID
+            "getOrderByID":getOrderByID,
+            "deleteOrderByID":deleteOrderByID,
+            "updateOrderStatus":updateOrderStatus
 
     };
         return api;
@@ -59,6 +62,14 @@
                 })
         }
 
+        function getAllOrders(){
+            var url="/api/allOrders/";
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
         function getOrderByID(orderID){
             var url="/api/order/"+orderID;
             return $http.get(url)
@@ -67,6 +78,22 @@
                 })
         }
 
+
+        function deleteOrderByID(orderID){
+            var url="/api/order/"+orderID;
+            return $http.delete(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
+        function updateOrderStatus(orderID,order){
+            var url="/api/order/"+orderID;
+            return $http.put(url,order)
+                .then(function (response){
+                    return response.data;
+                })
+        }
         function clearCart(){
             var url="/api/cart/";
             return $http.delete(url)

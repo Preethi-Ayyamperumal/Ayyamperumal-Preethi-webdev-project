@@ -12,9 +12,12 @@
         model.searchProduct=searchProduct;
         function init() {
             model.product={};
-            model.product.productName=$routeParams.productName;
-            model.product.start=1;
-            searchProduct();
+            if($routeParams.productName){
+                model.product.productName=$routeParams.productName;
+                model.product.start=1;
+                searchProduct();
+            }
+
 
             }
         init();
@@ -46,7 +49,7 @@
                     }
                     else
                         model.previousState="active";
-                    if((parseInt(model.product.start) + parseInt(model.numItems)) > model.totalResults)
+                    if(model.totalResults < model.product.start)
                         model.nextState="disabled";
                     else
                         model.nextState="active";

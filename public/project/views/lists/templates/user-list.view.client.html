@@ -2,13 +2,16 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">User Suggestions</a>
-                <div class="navbar-right">
-                    <a class="navbar-brand" href="" ng-click="model.followUsers()">Follow Selected Users</a>
+                <a class="navbar-brand" href="#!/profile"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Suggestions</a>
+                <div class="navbar-right pull-right">
+                    <a class="navbar-brand"  href="" ng-click="model.followUsers()" class="navbar-link">
+                        <span class="white glyphicon glyphicon-ok pull-right"></span></a>
                 </div>
             </div>
         </div>
     </nav>
+
         <div class="container-fluid">
             <div ng-show="model.errorMessage" class="alert alert-danger">
             {{model.errorMessage}}

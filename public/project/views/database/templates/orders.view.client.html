@@ -1,0 +1,71 @@
+<div class="pav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#!/admin"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="navbar-brand">Orders</a>
+                <div class="navbar-right pull-right">
+                    <a class="navbar-brand"  href="" ng-click="model.addOrder()" class="navbar-link"> <span
+                            class="white glyphicon glyphicon-plus pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class=" table-responsive">
+
+        <table class="table  table-striped">
+            <thead>
+            <tr>
+                <td>ORDER_BY</td>
+                <td>ORDERED_DATE</td>
+                <td>STATUS</td>
+                <td>SAVE</td>
+                <td class="text-right">DELETE</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="order in model.orders">
+                <td><a href="" ng-click="model.loadUserProfile(order._user.username)">{{order._user.username}}</a></td>
+                <td><a href="" ng-click="model.loadOrder(order._id)">{{order.ordered_Date | date:'mediumDate'}} </a></td>
+                <td><select name="status"
+                            ng-model="order.status"
+                            id="status">
+                    <option value="SHIPPED">SHIPPED</option>
+                    <option value="CANCELLED">CANCELLED</option>
+                    <option value="DELIVERED">DELIVERED</option>
+                    <option value="ORDER_PLACED">ORDER_PLACED</option>
+                    </select>
+                </td>
+                <td><a href="" ng-click="model.updateOrderStatus(order._id,order.status)" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok pull-right"></span>
+                </a>
+                </td>
+                <td>
+                    <span>
+                         <a href="" ng-click="model.deleteOrder(order._id)" class="navbar-link">
+                             <span class="glyphicon glyphicon-remove pull-right"></span>
+                         </a>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <p class="navbar-text pull-right">
+                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

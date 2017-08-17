@@ -18,9 +18,11 @@
         }
         init();
 
-        function setSubCategory(category){
-            if(category.children.length >0 )
-                model.subCategory=category.children;
+        function setSubCategory(category) {
+            model.categoryName = category.name;
+
+            if (category.children.length > 0)
+             model.subCategory = category.children;
             else
             {
                 model.subCategory=[];
@@ -54,6 +56,8 @@
                             model.dbProducts = products;
                             model.products = model.products.filter(checkDB,model.dbProducts);
                             model.subcategory_selected=true;
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+
                         });
 
                 });

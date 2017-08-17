@@ -1,36 +1,23 @@
-<div class="row">
-    <div class="col-xs-2 col-md-4">
-        <div ng-repeat="category in model.categories" class="btn-group-vertical btn-block text-right">
-            <button  ng-click="model.setSubCategory(category)" type="button" class= "btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span>{{category.name}}</span>
-                <span ng-if="category.children.length" class="caret pull-right"></span>
-            </button>
-            <!--<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>-->
-            <ul ng-if="model.subCategory.length" class="dropdown-menu list-group">
-                <li ng-repeat="subCat in model.subCategory" class="list-group-item list-group-item-info">
-                    <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-xs-10 col-md-8">
-        <div ng-if="model.subcategory_selected">
-            <div class="text-center">
-                <nav aria-label="...">
-                    <ul class="pagination">
-                        <li ng-repeat="i in model.pagination track by $index">
-                            <a href="" ng-click="model.setSubset($index)">{{$index+1}}</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <table class="table">
-                <tr ng-repeat="product in model.productSubset">
-                    <td>
-                        <img ng-src="{{product.thumbnailImage}}"></img>
-                        <a href="" ng-click="model.loadProduct(product.itemId)">{{product.name}}</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
+<div>
+     <div ng-if="model.subcategory_selected">
+         <div class="row">
+             <div ng-repeat="product in model.productSubset"  class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+                 <div class="thumbnail" style="height: 200px" >
+                     <img ng-src="{{product.thumbnailImage}}"></img>
+                     <div class="caption">
+                         <a href="" ng-click="model.loadProduct(product.itemId)" class="small text-success">{{product.name}}</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div ng-if="model.productSubset.length" class="text-center">
+             <ul class="pagination">
+                 <li ng-repeat="i in model.pagination track by $index">
+                     <a href=""  target="_self" ng-click="model.setSubset($index)">{{$index+1}}</a>
+                 </li>
+             </ul>
+         </div>
+     </div>
 </div>

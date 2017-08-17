@@ -2,24 +2,34 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
-                <a class="navbar-brand" href="" ng-click=""><span
+                <a class="navbar-brand" href="#!/profile"><span
                         class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Orders</a>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-        <table class="table table-striped">
-            <tr ng-repeat="order in model.orders" ng-if="model.orders.length">
-                <td>
-                    <a href="" ng-click="model.loadOrder(order._id)">Order {{$index+1}}</a>
-                </td>
-            </tr>
-        </table>
+
+        <ul class="list-group">
+            <li class="list-group-item active">
+                <div class="row">
+                <div class="col-xs-6 col-md-3">ORDER #</div>
+                <div class="col-xs-6 col-md-3">STATUS</div>
+                <div class="col-md-3 visible-md visible-lg">ORDER DATE</div>
+                <div class="col-md-3 visible-md visible-lg text-right">TOTAL</div>
+                </div>
+            </li>
+
+
+            <li ng-repeat="order in model.orders" ng-if="model.orders.length"  class="list-group-item">
+                <div class="row">
+                <div class="col-xs-6 col-md-3"><a href="" ng-click="model.loadOrder(order._id)">Order {{$index+1}}</a></div>
+                <div class="col-xs-6 col-md-3">{{order.status}}</div>
+                    <div class="col-md-3 visible-md visible-lg">{{order.ordered_Date | date:'mediumDate'}} </div>
+                    <div class="col-md-3 visible-md visible-lg text-right">${{order.grand_total}}</div>
+                </div>
+            </li>
+        </ul>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">

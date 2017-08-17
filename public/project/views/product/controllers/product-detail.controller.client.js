@@ -10,8 +10,10 @@
         model.addtoCart=addtoCart;
         model.addtoWishList=addtoWishList;
         model.addReview=addReview;
-        model.date=new Date();
+        model.loadProduct=loadProduct;
         function init() {
+            model.date=new Date();
+
             searchService.loadProduct(productId)
                 .then (function (response) {
                         model.product = response;
@@ -25,6 +27,9 @@
                 });
             }
         init();
+function loadProduct() {
+    window.history.back();
+}
         function trustHtmlContent(htmlContent) {
             var doc = new DOMParser().parseFromString(htmlContent, "text/html");
             var rval= doc.documentElement.textContent;
