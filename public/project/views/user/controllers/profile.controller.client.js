@@ -106,6 +106,7 @@
         }
         function unRegister() {
             UserService.unRegister().then(function (status) {
+                 $location.url("/")
             })
         }
 
