@@ -5,6 +5,7 @@
 
     function OrderViewController($location,$routeParams, orderService,paymentService,addressService) {
         var model = this;
+        model.loadProduct=loadProduct;
         function init()
         {
             model.orderid=$routeParams.oid;
@@ -21,6 +22,10 @@
 
         }
         init();
+
+        function loadProduct(itemID) {
+            $location.url("product/"+itemID);
+        }
 
     }
 })();

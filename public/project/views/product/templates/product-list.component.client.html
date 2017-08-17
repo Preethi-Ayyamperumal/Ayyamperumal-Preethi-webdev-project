@@ -1,4 +1,11 @@
-
+<div ng-if=model.products class="row">
+    <div class="text-center">
+        <ul class="pager">
+            <li class="ng-class:model.previousState"><a href=""  class="btn btn-success ng-class:model.previousState"  ng-click="model.getPrevious()">Previous</a></li>
+            <li class="ng-class:model.nextState"><a  href=""  class="btn btn-success ng-class:model.nextState" ng-click="model.getNext()">Next</a></li>
+        </ul>
+    </div>
+</div>
 
 <div class="row">
     <div ng-repeat="product in model.products"  class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
@@ -13,8 +20,8 @@
 <div ng-if=model.products class="row">
 <div class="text-center">
     <ul class="pager">
-        <li class="ng-class:model.previousState"><a href=""  class="btn ng-class:model.previousState"  ng-click="model.getPrevious()">Previous</a></li>
-        <li class="ng-class:model.nextState"><a  href=""  class="btn ng-class:model.nextState" ng-click="model.getNext()">Next</a></li>
+        <li class="ng-class:model.previousState"><a href=""  class="btn btn-success ng-class:model.previousState"  ng-click="model.getPrevious()">Previous</a></li>
+        <li class="ng-class:model.nextState"><a  href=""  class="btn btn-success ng-class:model.nextState" ng-click="model.getNext()">Next</a></li>
     </ul>
 </div>
 </div>

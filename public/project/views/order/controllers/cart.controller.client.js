@@ -5,7 +5,7 @@
 
     function CartViewController($location,orderService) {
         var model = this;
-
+        model.loadProduct=loadProduct;
         model.checkOut=checkOut;
         function init() {
             orderService.getCart().then(function (items) {
@@ -18,6 +18,9 @@
             $location.url("profile/checkout");
         }
 
+        function loadProduct(itemID) {
+            $location.url("product/"+itemID);
+        }
 
 
     }

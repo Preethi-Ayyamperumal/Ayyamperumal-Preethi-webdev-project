@@ -1,5 +1,5 @@
 <div class="pav">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" ng-click="model.loadProduct()" ><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -9,20 +9,26 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
     <div class="container-fluid">
-        <div class="row" ng-repeat="item in model.cartItems">
-            <div class="col-md-3 visible-md visible-lg" >
+        <div ng-repeat="item in model.cartItems">
+        <div class="row">
+            <div  class="col-md-3 visible-md visible-lg">
                 <img ng-src="{{item.thumbnailImage}}"></img>
             </div>
             <div class="col-xs-12  col-md-9">
                 <div class="row">
-                    <label>{{item.name}}</label></div>
-                <div class="row">
-                    <label>{{item.salePrice}}</label></div>
-                <div class="row">
-                    <label>{{item.quantity}}</label></div>
+                    <div class="col-xs-12">
+                    <p><a href="" ng-click="model.loadProduct(item.itemId)">{{item.name}}</a></div></p></div>
+                <div class="row text-success"> <div class="col-xs-12">
+                    <p class="text-success">Price : <i class="fa fa-usd" aria-hidden="true"></i><strong>{{item.salePrice}}</strong>
+                    </p></div></div>
+                <div class="row text-success"> <div class="col-xs-12">
+                    <p>Quantity: <strong>{{item.quantity}}</strong></p></div></div>
+
             </div>
+            <hr>
+        </div>
         </div>
     </div>
 
@@ -30,8 +36,8 @@
             <div class="container-fluid">
                 <div class="navbar-header navbar-right">
                     <p class="navbar-text pull-right">
-                        <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
-                                class="white glyphicon glyphicon-user pull-right"></span>
+                        <a href="/project/#!/" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-home pull-right"></span>
                         </a>
                     </p>
                 </div>

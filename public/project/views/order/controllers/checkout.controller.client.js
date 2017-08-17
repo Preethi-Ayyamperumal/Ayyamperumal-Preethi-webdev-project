@@ -6,16 +6,19 @@
     function CheckoutController($location, orderService,paymentService,addressService) {
         var model = this;
         model.placeOrder=placeOrder;
+        model.loadProduct=loadProduct;
         function init()
         {
             model.grand_total=0;
             model.sub_total=0;
             orderService.getCart()
                 .then(function (items) {
+                    model.message;
                     model.cartItems = items;
                     for (var cartItem in model.cartItems) {
                         model.cartItems[cartItem].subTotal = model.cartItems[cartItem].quantity * model.cartItems[cartItem].salePrice;
                         model.sub_total+=model.cartItems[cartItem].subTotal;
+                        model.cartItems[cartItem].subTotal = model.cartItems[cartItem].subTotal.toFixed(2);
 
                     }
                     model.sub_total=model.sub_total.toFixed(2);
@@ -41,7 +44,17 @@
                 lineItems.push({'item_name':model.cartItems[cartItem].name,'quantity':model.cartItems[cartItem].quantity})
             }
             order.line_items=lineItems;
+            if(!model.address)
+            {
+                model.errorMessage="Shipping address required. Complete your profile";
+                return;
+            }
             order.shipping_address=model.address._id;
+            if(!model.payment)
+            {
+                model.errorMessage="Payment details required. Complete your profile";
+                return;
+            }
             order.payment_details=model.payment._id;
             order.subtotal=parseFloat(model.sub_total);
             order.total_shipping=model.shipping;
@@ -49,11 +62,16 @@
 
             orderService.placeOrder(order).then(function (status) {
                 orderService.clearCart().then(function (status) {
-                    $location.url("/profile/order");
+                    model.message="Order Successful";
                 })
             })
 
         }
+
+        function loadProduct(itemID) {
+            $location.url("product/"+itemID);
+        }
+
 
     }
 })();

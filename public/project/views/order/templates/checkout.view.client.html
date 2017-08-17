@@ -13,13 +13,20 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div ng-show="model.cartItems.length" class="container-fluid">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+        <div ng-show="model.message" class="alert alert-success" role="alert">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="sr-only">Success:</span>
+             <strong>Awesome! </strong>Order Successfully Placed
+                <a href="#!/profile/order" class="alert-link">Click here to see your orders</a>
+        </div>
         <div class="table-responsive">
-            <label>Order Summary</label>
-
             <table id="orderSummary" class="table table-striped">
                 <thead>
-                <tr>
+                <tr class="active">
                     <th>Product</th>
                     <th class="text-right">Quantity</th>
                     <th class="text-right">Unit Price</th>
@@ -28,7 +35,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in model.cartItems">
-                    <td align="left">{{item.name}}</td>
+                    <td align="left"><a href="" ng-click="model.loadProduct(item.itemId)">{{item.name}}</a></td>
                     <td align="right">{{item.quantity}}</td>
                     <td align="right">{{item.salePrice}}</td>
                     <td align="right">{{item.subTotal}}</td>
@@ -58,7 +65,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-            <label>Shipping Address</label>
+                <h4><strong>Shipping Address</strong></h4>
             <div class="pav-widget">
                 <div>
                     <address>
@@ -76,13 +83,15 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label>Payment Information</label>
+                <h4><strong>Payment Information</strong></h4>
                 <div class="pav-widget">
                     <div>
-                        <label>{{model.payment.nameOnCard}}</label>
-                        <label> {{model.payment.cardNumber}}</label>
-                        <label> {{model.payment.expirationMonth}}</label>
-                        <label> {{model.payment.expirationYear}}</label>
+                        <address>
+                        <strong>{{model.payment.nameOnCard}}</strong><br>
+                         {{model.payment.cardNumber}}<br>
+                        {{model.payment.expirationMonth}}/{{model.payment.expirationYear}}
+                        </address>
+
                     </div>
                 </div>
             </div>
@@ -93,7 +102,7 @@
         <div class="container-fluid">
             <div class="navbar-header navbar-right">
                 <p class="navbar-text pull-right">
-                    <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
+                    <a href="#!/profile" class="navbar-link"> <span
                             class="white glyphicon glyphicon-user pull-right"></span>
                     </a>
                 </p>

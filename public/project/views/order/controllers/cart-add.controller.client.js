@@ -23,8 +23,8 @@
             $location.url("profile/checkout");
         }
 
-        function loadProduct() {
-            $location.url("product/"+model.itemID);
+        function loadProduct(itemID) {
+            $location.url("product/"+itemID);
         }
 
 
