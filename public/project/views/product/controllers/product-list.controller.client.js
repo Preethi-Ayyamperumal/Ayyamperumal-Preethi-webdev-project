@@ -12,6 +12,7 @@
         model.searchProduct=searchProduct;
         function init() {
             model.product={};
+            model.showNotFound=false;
             if($routeParams.productName){
                 model.productname=$routeParams.productName;
                 model.product.productName=$routeParams.productName;
@@ -43,6 +44,8 @@
                 .then (function (response) {
                     model.products = response.items;
                     model.totalResults=response.totalResults;
+                    if(model.totalResults <= 0)
+                        model.showNotFound=true;
                     model.product.start=response.start;
                     model.numItems=response.numItems;
                     if(parseInt(model.product.start)===1){

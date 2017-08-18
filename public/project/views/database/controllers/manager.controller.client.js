@@ -39,7 +39,7 @@
                 .findUserByUsername(model.user.username)
                 .then(function (status) {
                         model.errorMessage = "sorry, that username is taken";
-                        return;
+
                     },
                     function () {
                         return UserService.addUser(model.user)
