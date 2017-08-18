@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3aa1d53-f9ec-4fae-9dbb-fbbe74d46cf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/database/templates/customer.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/database/templates/customer.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/database/templates/manager.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/database/templates/manager.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/database/templates/product-add.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/database/templates/product-add.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/database/templates/product.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/database/templates/product.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/home/home.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/home/home.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/lists/templates/follow-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/lists/templates/follow-list.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/lists/templates/followers-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/lists/templates/followers-list.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/lists/templates/user-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/lists/templates/user-list.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/product/templates/product-detail.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/product/templates/product-detail.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/user/controllers/profile.controller.client.js" afterPath="$PROJECT_DIR$/public/project/views/user/controllers/profile.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/user/templates/profile.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/user/templates/profile.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/user/templates/register.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/user/templates/register.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/order/templates/order-summary.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/order/templates/order-summary.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/payment/templates/payment-edit.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/payment/templates/payment-edit.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/payment/templates/payment-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/payment/templates/payment-list.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/payment/templates/payment-new.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/payment/templates/payment-new.view.client.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,101 +30,101 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="home.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/home/home.view.client.html">
+      <file leaf-file-name="cart-add.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="52" />
+            <state relative-caret-position="880">
+              <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product-add.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/database/templates/product-add.view.client.html">
+      <file leaf-file-name="checkout.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="22" column="65" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="65" />
+            <state relative-caret-position="850">
+              <caret line="111" column="6" lean-forward="false" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/database/templates/product.view.client.html">
+      <file leaf-file-name="order.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="850">
+              <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orders.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/database/templates/orders.view.client.html">
+      <file leaf-file-name="order-summary.view.client.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/order-summary.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="880">
+              <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manager.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/database/templates/manager.view.client.html">
+      <file leaf-file-name="wish-list.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+            <state relative-caret-position="970">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customer.view.client.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/project/views/database/templates/customer.view.client.html">
+      <file leaf-file-name="wishlist-new.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="970">
+              <caret line="44" column="6" lean-forward="false" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/user/templates/profile.view.client.html">
+      <file leaf-file-name="payment-edit.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-edit.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-701">
-              <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            <state relative-caret-position="820">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.controller.client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/user/controllers/profile.controller.client.js">
+      <file leaf-file-name="payment-new.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-new.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+            <state relative-caret-position="870">
+              <caret line="56" column="6" lean-forward="false" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/user/templates/register.view.client.html">
+      <file leaf-file-name="cart.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="880">
+              <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-edit.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html">
+      <file leaf-file-name="payment-list.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-list.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="36" column="80" lean-forward="false" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
+            <state relative-caret-position="850">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -190,31 +193,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/models/user/address.model.server.js" />
-        <option value="$PROJECT_DIR$/project/models/user/user.schema.server.js" />
-        <option value="$PROJECT_DIR$/project/models/user/user.model.server.js" />
-        <option value="$PROJECT_DIR$/public/project/services/user.service.client.js" />
-        <option value="$PROJECT_DIR$/public/project/views/user/templates/profile-visitor.view.client.html" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/project/css/styles.css" />
         <option value="$PROJECT_DIR$/public/project/views/order/controllers/cart-add.controller.client.js" />
-        <option value="$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/order/controllers/order.controller.client.js" />
-        <option value="$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/product/templates/product-list.component.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/category/templates/category.component.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/user/controllers/register.controller.client.js" />
         <option value="$PROJECT_DIR$/public/project/views/shipping/templates/address-list.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/shipping/templates/address-edit.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/shipping/templates/address-new.view.client.html" />
-        <option value="$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html" />
-        <option value="$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/index.html" />
         <option value="$PROJECT_DIR$/project/services/user.service.server.js" />
-        <option value="$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/order/controllers/checkout.controller.client.js" />
         <option value="$PROJECT_DIR$/public/project/views/order/controllers/cart.controller.client.js" />
-        <option value="$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html" />
         <option value="$PROJECT_DIR$/project/models/user/payment.schema.server.js" />
         <option value="$PROJECT_DIR$/project/models/user/address.schema.server.js" />
         <option value="$PROJECT_DIR$/project/models/user/blocked.schema.server.js" />
@@ -236,11 +226,24 @@
         <option value="$PROJECT_DIR$/public/project/views/user/controllers/profile.controller.client.js" />
         <option value="$PROJECT_DIR$/public/project/views/user/templates/profile.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/user/templates/register.view.client.html" />
-        <option value="$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/database/templates/product-add.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/database/templates/product.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/database/templates/manager.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/database/templates/customer.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/lists/templates/follow-list.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/lists/templates/followers-list.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/lists/templates/user-list.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/payment/templates/payment-list.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/payment/templates/payment-edit.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/payment/templates/payment-new.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/order/templates/order-summary.view.client.html" />
       </list>
     </option>
   </component>
@@ -426,6 +429,230 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="product" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="payment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="payment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="message" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="message" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ayyamperumal-Preethi-webdev-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -728,7 +955,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474525000" />
+    <option name="totallyTimeSpent" value="475282000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2902" height="1597" extended-state="6" />
@@ -823,110 +1050,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/project/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="49" column="85" lean-forward="false" selection-start-line="49" selection-start-column="85" selection-end-line="49" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/services/user.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/controllers/order.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/controllers/cart-add.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/controllers/cart.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/controllers/checkout.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="929">
-          <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="977">
-          <caret line="97" column="10" lean-forward="false" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="21" column="73" lean-forward="false" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/models/cart/cart.schema.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/models/product/product.model.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/models/user/user.schema.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/models/user/payment.model.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1175,14 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="80" lean-forward="false" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project/views/home/home.view.client.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1227,6 +1342,118 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/message/templates/message-edit.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/follow-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/followers-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/user-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="43" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/wish-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="970">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/lists/templates/wishlist-new.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="970">
+          <caret line="44" column="6" lean-forward="false" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-edit.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/payment/templates/payment-new.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="56" column="6" lean-forward="false" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/cart-add.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/checkout.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="111" column="6" lean-forward="false" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/order.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/order/templates/order-summary.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
           <folding />
         </state>
       </provider>
