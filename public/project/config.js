@@ -138,7 +138,7 @@
                 templateUrl: "views/message/templates/message-list.view.client.html",
                 controller: "MessageListController",
                 controllerAs: "model",
-                resolve: {CurrentUser:getCurrentUser}
+                resolve: {CurrentUser:checkLoggedin}
 
             })
 
@@ -146,14 +146,14 @@
                 templateUrl: "views/message/templates/message-edit.view.client.html",
                 controller: "EditMessageController",
                 controllerAs: "model",
-                resolve: {CurrentUser:getCurrentUser}
+                resolve: {CurrentUser:checkLoggedin}
 
             })
             .when("/profile/newmessage/", {
                 templateUrl: "views/message/templates/message-new.view.client.html",
                 controller: "NewMessageController",
                 controllerAs: "model",
-                resolve: {CurrentUser:getCurrentUser}
+                resolve: {CurrentUser:checkLoggedin}
 
             })
             .when("/profile/review", {
