@@ -21,8 +21,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
-//passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
-//passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
