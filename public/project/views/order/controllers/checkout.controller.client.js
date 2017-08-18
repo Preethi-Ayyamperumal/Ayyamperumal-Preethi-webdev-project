@@ -11,33 +11,41 @@
         {
             model.grand_total=0;
             model.sub_total=0;
+            model.message=undefined;
             orderService.getCart()
                 .then(function (items) {
-                    model.message;
+                    if(items)
+                    {
                     model.cartItems = items;
-                    for (var cartItem in model.cartItems) {
+                    for (var cartItem in model.cartItems)
+                    {
                         model.cartItems[cartItem].subTotal = model.cartItems[cartItem].quantity * model.cartItems[cartItem].salePrice;
                         model.sub_total+=model.cartItems[cartItem].subTotal;
                         model.cartItems[cartItem].subTotal = model.cartItems[cartItem].subTotal.toFixed(2);
-
                     }
                     model.sub_total=model.sub_total.toFixed(2);
                     model.shipping=3;
                     model.grand_total=parseFloat(model.sub_total)+ parseFloat(model.shipping);
                     model.grand_total=model.grand_total.toFixed(2);
                     paymentService.getDefaultPayment()
-                        .then(function (payment) {
+                        .then(function (payment)
+                        {
                             model.payment = payment;
-                            addressService.getDefaultAddress().then(function (address) {
+                            addressService.getDefaultAddress().then(function (address)
+                            {
                                 model.address = address;
                             })
                         })
-                });
+                }}
+
+                );
 
         }
         init();
 
         function placeOrder() {
+            if(model.cartItems)
+            {
             var order={};
             var lineItems=[];
             for (var cartItem in model.cartItems) {
@@ -63,10 +71,11 @@
             orderService.placeOrder(order).then(function (status) {
                 orderService.clearCart().then(function (status) {
                     model.message="Order Successful";
+                   model.cartItems=undefined;
                 })
             })
 
-        }
+        }}
 
         function loadProduct(itemID) {
             $location.url("product/"+itemID);

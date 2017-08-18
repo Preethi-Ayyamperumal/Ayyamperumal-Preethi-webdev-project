@@ -13,16 +13,14 @@
         </div>
     </nav>
 
-    <div ng-show="model.cartItems.length" class="container-fluid">
-        <div ng-show="model.errorMessage" class="alert alert-danger">
-            {{model.errorMessage}}
-        </div>
+    <div class="container-fluid">
         <div ng-show="model.message" class="alert alert-success" role="alert">
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             <span class="sr-only">Success:</span>
-             <strong>Awesome! </strong>Order Successfully Placed
+             <strong>Awesome! </strong>Order successfully placed.
                 <a href="#!/profile/order" class="alert-link">Click here to see your orders</a>
         </div>
+        <div ng-if="model.cartItems">
         <div class="table-responsive">
             <table id="orderSummary" class="table table-striped">
                 <thead>
@@ -97,7 +95,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-header navbar-right">
