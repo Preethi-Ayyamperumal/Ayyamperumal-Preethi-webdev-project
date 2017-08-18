@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <h6>{{model.message.message_description}}</h6>
                 </div>
-                <a ng-if="!model.isUserReplying" class="btn btn-default btn-success btn-block"
+                <a ng-if="model.enableReply && !model.isUserReplying" class="btn btn-default btn-success btn-block"
                    ng_click="model.setUserReplying()"
                    role="button">Send A Reply</a>
             </div>
@@ -79,12 +79,16 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
-            <div class="navbar-header navbar-right">
-                <p class="navbar-text pull-right">
-                    <a ng_click="model.loadUserProfile()" class="navbar-link"> <span
-                            class="white glyphicon glyphicon-user pull-right"></span>
-                    </a>
-                </p>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#!/"><span
+                            class="glyphicon glyphicon-home white"></span></a>
+                    <p class="navbar-text pull-right">
+                        <a href="#!profile" class="navbar-link"> <span
+                                class="white glyphicon glyphicon-user pull-right"></span>
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     </nav>

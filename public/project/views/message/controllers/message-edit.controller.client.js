@@ -3,7 +3,7 @@
         .module("GroceryApp")
         .controller("EditMessageController", EditMessageController);
 
-    function EditMessageController($location, $routeParams,messageService) {
+    function EditMessageController($location, $routeParams,messageService,CurrentUser) {
         var model = this;
         model.deleteMessage=deleteMessage;
         model.sendReply=sendReply;
@@ -11,10 +11,15 @@
 
         function init() {
             model.reply={}
+            model.CurrentUser=CurrentUser;
             model.isUserReplying=false;
             model.messageID = $routeParams.mId;
             messageService.getMessage(model.messageID).then(function (message) {
                 model.message=message;
+                if(model.message.From._id === model.CurrentUser._id)
+                    model.enableReply=false;
+                else
+                    model.enableReply=true;
             })
         }
         init();

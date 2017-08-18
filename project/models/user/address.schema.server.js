@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var addressSchema = mongoose.Schema({
-    _user:{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
+    _user:{type: mongoose.Schema.Types.ObjectId, ref:"userModel"},
     type: {type: String, enum:["DEFAULT", "SECONDARY"]},
     country: String,
     fullName: String,
