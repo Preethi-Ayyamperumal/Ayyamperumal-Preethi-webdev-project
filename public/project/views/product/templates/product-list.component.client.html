@@ -6,7 +6,15 @@
         </ul>
     </div>
 </div>
-
+<div ng-if="!model.products"  class="row">
+<div class="col-xs-12">
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <span class="sr-only">Success:</span>
+    <strong>Searched Item Not Found. Search Relevant Products like cake, pasta etc.</strong>
+</div>
+</div>
+</div>
 <div class="row">
     <div ng-repeat="product in model.products"  class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
         <div class="thumbnail product" >

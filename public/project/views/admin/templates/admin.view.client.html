@@ -10,12 +10,20 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-if="model.isUpdated" class="alert alert-success" role="alert">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <span class="sr-only">Success:</span>
+        <strong>Categories successfully placed. </strong>
+    </div>
+
     <ul class="list-group">
         <li class="list-group-item"><a href="#!/customers">Manage Customers</a></li>
         <li class="list-group-item" ng-show="model.currentUser.role === 'ADMIN'"><a href="#!/managers">Manage Managers</a></li>
         <li class="list-group-item" ng-show="model.currentUser.role === 'MANAGER'"><a href="#!/profile/message">Messages</a></li>
         <li class="list-group-item"><a href="#!/products">Manage Products</a></li>
         <li class="list-group-item"><a href="#!/orders">Manage Orders</a></li>
+        <li class="list-group-item"><a href="" ng-click="model.updateCategories()">Refresh Product Categories from Walmart</a></li>
+
     </ul>
 
 </div>

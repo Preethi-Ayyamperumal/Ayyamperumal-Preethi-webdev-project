@@ -8,12 +8,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="dropdown">
-                    <a  href="" class="white dropdown-toggle navbar-brand " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Departments <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="category in model.categories">
-                            <a href="" ng-click="model.setSubCategory(category)">
-                                <span>{{category.name}}</span>
-                                <span ng-if="category.children.length" class="caret pull-right"></span></a>
+                    <a  href="" class="white dropdown-toggle navbar-brand " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu list-group">
+                        <li ng-repeat="category in model.categories" class="list-group-item-info">
+                            <a href="" ng-click="model.setSubCategory(category)"><span>{{category.name}}</span><span ng-if="category.children.length" class="caret pull-right"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -42,15 +40,15 @@
 <!--
     <div><search-bar></search-bar></div>
 -->
-    <div><button ng-if="model.categoryName" type="button" class="btn btn-success">{{model.categoryName}}</button></div>
+    <div><button ng-if="model.categoryName" type="button" class="btn btn-info">{{model.categoryName}}</button></div>
     <div ng-if="model.subCategory.length" class="btn-group btn-padded">
-        <button id="top" type="button" class="btn btn-success">{{model.currentSubcategory}}</button>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="top" type="button" class="btn btn-info">{{model.currentSubcategory}}</button>
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
         </button>
             <ul class="dropdown-menu list-group">
-                <li ng-repeat="subCat in model.subCategory" class="list-group-item">
+                <li ng-repeat="subCat in model.subCategory" class="list-group-item-info">
                     <a href="" ng-click="model.setSelected(subCat)">{{subCat.name}}</a>
                 </li>
             </ul>
