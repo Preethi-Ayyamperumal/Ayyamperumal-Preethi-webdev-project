@@ -15,6 +15,7 @@
         init();
         function checkOut()
         {
+
             $location.url("profile/checkout");
         }
 

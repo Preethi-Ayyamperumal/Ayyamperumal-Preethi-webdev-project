@@ -5,7 +5,7 @@
                 <a class="navbar-brand" href="#!profile" ><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Cart</a>
                 <div class="navbar-right pull-right">
-                    <a class="navbar-brand" href="" ng-click="model.checkOut()">Checkout</a>
+                    <a class="navbar-brand" href="" ng-if="model.cartItems" ng-click="model.checkOut()">Checkout</a>
                 </div>
             </div>
         </div>
