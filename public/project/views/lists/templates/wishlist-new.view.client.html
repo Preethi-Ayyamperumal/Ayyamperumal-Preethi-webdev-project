@@ -3,16 +3,21 @@
         <div class="navbar-header">
             <a class="navbar-brand" href=""  ng-click="model.getProductPage()"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="navbar-brand">WishList</a>
-            <div class="pull-right">
-                <search-bar></search-bar></div>
-            <div>
-            </div>
         </div>
     </div>
 </nav>
 
 
 <div class="container-fluid">
+
+        <div class="row ">
+            <div class="col-xs-12">
+                <search-bar></search-bar>
+            </div>
+        </div>
+    <hr>
+    <div class="row ">
+        <div class="col-xs-12">
     <ul class="list-group">
         <li ng-repeat="product in model.wishlist" type="button" class="list-group-item">
             <a href="" ng-click="model.loadProduct(product.itemID)">{{product.name}}</a>
@@ -21,5 +26,7 @@
             </a>
         </li>
     </ul>
+        </div>
+    </div>
 </div>
 </div>

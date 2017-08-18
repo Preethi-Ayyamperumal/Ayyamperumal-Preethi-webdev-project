@@ -31,7 +31,7 @@
                     function () {
                         return UserService.register(newuser)
                             .then(function () {
-                                $location.url("/profile/");
+                                $location.url("/");
                             });
                     });
         }}
