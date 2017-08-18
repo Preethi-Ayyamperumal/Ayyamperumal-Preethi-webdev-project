@@ -18,23 +18,6 @@
         </div>
     </nav>
     <div class="container-fluid">
-
-      <!--  <ul class="nav nav-tabs">
-
-                <li ng-repeat="category in model.categories" role="presentation" class="dropdown">
-                    <a  ng-click="model.setSubCategory(category)" role="button" class= "dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>{{category.name}}</span>
-                        <span ng-if="category.children.length" class="caret"></span>
-                    </a>
-                    &lt;!&ndash;<a href="" ng-click="model.setSelected(category.children);">{{category.name}}</a>&ndash;&gt;
-                    <ul ng-if="model.subCategory.length" class="dropdown-menu list-group">
-                        <li ng-repeat="subCat in model.subCategory" class="list-group-item list-group-item-info">
-                            <a href="" ng-click="model.setSelected(subCat.id)">{{subCat.name}}</a></li>
-                    </ul>
-                </li>
-
-        </ul>-->
-
         <div ng-if="model.subCategory.length" class="btn-group btn-padded">
             <div><label>Select Subcategory</label></div>
             <button id="top" type="button" class="btn btn-default">{{model.categoryName}}</button>

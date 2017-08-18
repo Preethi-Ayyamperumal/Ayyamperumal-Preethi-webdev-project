@@ -9,7 +9,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
+        <div ng-if="(!model.CurrentUser) || (model.CurrentUser.role === 'CUSTOMER')" class="row">
             <div class="col-xs-12 productdetail">
                 <ul class="nav nav-pills pull-right nav-stacked">
                     <li role="presentation"><a href="" ng-click="model.addtoCart()" class="text-success pull-right"><strong>Add to Cart</strong></a>

@@ -4,14 +4,14 @@
             <div class="navbar-header">
                 <a class="navbar-brand">Profile</a>
                 <div class="navbar-right pull-right">
-                    <a href="#!/profile/cart" class="navbar-brand pull-right"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <a ng-if="model.user.role === 'CUSTOMER'" href="#!/profile/cart" class="navbar-brand pull-right"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-6">
+    <div class="ng-class: model.grid">
         <h3 class="text-center"><strong>Personal Information</strong></h3>
         <label for="firstName">First Name</label>
         <input name="firstName"
@@ -49,13 +49,13 @@
                class="form-control"
                id="dob"/>
 
-                <a class="btn btn-default btn-success btn-block"
+                <a class="btn  btn-success btn-block"
                    ng_click="model.updateUser(model.user)"
                    role="button">Save Changes</a>
-                <a class="btn btn-default btn-danger btn-block"
+                <a class="btn  btn-danger btn-block"
                    ng_click="model.logout()"
                    role="button">Logout</a>
-        <a class="btn btn-default btn-danger btn-block"
+        <a class="btn btn-danger btn-block"
            ng_click="model.unRegister()"
            role="button">Delete Account</a>
     </div>
@@ -63,7 +63,7 @@
             <div class="col-sm-6"></div>
 
 
-    <div class="col-sm-6">
+    <div ng-if="model.user.role ==='CUSTOMER'" class="col-sm-6">
             <div class="row">
                 <div class="col-xs-12">
                     <h3 class="text-center"><strong>Shipping & Payment</strong></h3>

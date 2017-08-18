@@ -29,6 +29,8 @@
                     <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/manager">Manager</a></li>
                     <li><a ng-show="model.currentUser.role === 'MANAGER'" href="#!/profile/message">Mail</a></li>
                     <li><a href="#!/search"><span class="glyphicon glyphicon-search"></span></a></li>
+                    <li><a ng-if="model.currentUser" href="" >Hello, {{model.currentUser.username}}</span></a></li>
+
                 </ul>
             </div><!--/.nav-collapse -->
 

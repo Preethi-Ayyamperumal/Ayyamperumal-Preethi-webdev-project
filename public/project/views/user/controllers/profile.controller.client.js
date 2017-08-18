@@ -25,6 +25,10 @@
         function init() {
             model.user=loggedInUser;
             model.user.dob=new Date(loggedInUser.dob);
+            if(model.user.role === 'CUSTOMER')
+                    model.grid="col-sm-6";
+            else
+                   model.grid="col-xs-12";
         }
 
         init();
