@@ -7,6 +7,7 @@
         var model = this;
         model.searchProduct=searchProduct;
         function init() {
+            model.productname=$routeParams.productName;
         }
         init();
 

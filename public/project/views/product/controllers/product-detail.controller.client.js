@@ -3,7 +3,7 @@
         .module("GroceryApp")
         .controller("productDetailController", productDetailController);
 
-    function productDetailController($sce,$routeParams,searchService,$location,reviewService) {
+    function productDetailController($sce,$routeParams,searchService,$location,reviewService,CurrentUser) {
         var model = this;
         var productId=$routeParams.productId;
         model.trustHtmlContent=trustHtmlContent;
@@ -13,7 +13,8 @@
         model.loadProduct=loadProduct;
         function init() {
             model.date=new Date();
-
+            model.CurrentUser=CurrentUser;
+            model.enableReviewLink=true;
             searchService.loadProduct(productId)
                 .then (function (response) {
                         model.product = response;
@@ -22,6 +23,13 @@
                         searchService.insertProduct(model.product).then(function(response){
                                 reviewService.getReviewbyProduct(model.product.itemId).then(function (reviews){
                                     model.reviews=reviews;
+                                    if(model.CurrentUser){
+                                        for(review in model.reviews){
+                                               if(model.reviews[review].reviewed_by === model.CurrentUser._id)
+                                                   model.enableReviewLink=false;
+                                        }
+                                    }
+
                                 })
                         })
                 });

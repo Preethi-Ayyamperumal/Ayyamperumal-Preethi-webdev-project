@@ -16,7 +16,7 @@
                     </li>
                     <li role="presentation"><a href="" ng-click="model.addtoWishList()" class="text-success pull-right"><strong>Add to
                         WishList</strong></a></li>
-                    <li role="presentation"><a href="" ng-click="model.addReview()" class="text-success pull-right"><strong>Add Review</strong></a>
+                    <li ng-if="model.enableReviewLink" role="presentation"><a href="" ng-click="model.addReview()" class="text-success pull-right"><strong>Add Review</strong></a>
                     </li>
                 </ul>
             </div>

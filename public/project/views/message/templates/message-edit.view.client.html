@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#!profile/message"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="navbar-brand">Message</a>
-                <div class="navbar-right">
+                <div class="text-right pull-right">
                     <a class="navbar-brand" href="" ng-click="model.deleteMessage()">
                         <span class="red glyphicon glyphicon-remove pull-right"></span></a>
                 </div>
@@ -64,8 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message Description</label>
-                    <textarea
-                            id="message"
+                    <textarea id="message"
                             rows="10"
                             ng-model="model.reply.message_desc"
                             class="form-control"></textarea>

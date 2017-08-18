@@ -45,28 +45,43 @@
             .when("/profile/address/new", {
                 templateUrl: "views/shipping/templates/address-new.view.client.html",
                 controller: "AddressNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/address/:aid/", {
                 templateUrl: "views/shipping/templates/address-edit.view.client.html",
                 controller: "AddressEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
 
             .when("/profile/payment/", {
                 templateUrl: "views/payment/templates/payment-list.view.client.html",
                 controller: "PaymentListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/payment/new", {
                 templateUrl: "views/payment/templates/payment-new.view.client.html",
                 controller: "PaymentNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/payment/:payid/", {
                 templateUrl: "views/payment/templates/payment-edit.view.client.html",
                 controller: "PaymentEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/followers/", {
                 templateUrl: "views/lists/templates/followers-list.view.client.html",
@@ -132,7 +147,10 @@
             .when("/profile/checkout", {
             templateUrl: "views/order/templates/checkout.view.client.html",
             controller: "CheckoutController",
-            controllerAs: "model"
+            controllerAs: "model",
+                resolve: {
+                    loggedInUser: checkLoggedin
+                }
             })
             .when("/profile/message", {
                 templateUrl: "views/message/templates/message-list.view.client.html",
@@ -193,7 +211,9 @@
             .when("/product/:productId", {
                 templateUrl: "views/product/templates/product-detail.view.client.html",
                 controller: "productDetailController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {CurrentUser:getCurrentUser}
+
             })
             .when("/category/update", {
                 templateUrl: "views/category/templates/category-edit.view.client.html",

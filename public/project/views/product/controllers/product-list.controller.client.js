@@ -13,6 +13,7 @@
         function init() {
             model.product={};
             if($routeParams.productName){
+                model.productname=$routeParams.productName;
                 model.product.productName=$routeParams.productName;
                 model.product.start=1;
                 searchProduct();
